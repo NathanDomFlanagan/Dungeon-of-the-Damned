@@ -1,7 +1,5 @@
 # Dungeon-of-the-Damned
 
-Unity Desktop whatever
-
 Product Owner: 
 - Nathan Flanagan
 
