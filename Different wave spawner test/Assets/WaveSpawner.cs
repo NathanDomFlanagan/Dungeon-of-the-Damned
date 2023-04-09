@@ -1,30 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
 
-    public enum SpawnState { SPAWNING, WAITING, COUNTING};
+    //Wave States
+    public enum SpawnState {SPAWNING, WAITING, COUNTING, FINISHED};
 
+    //Waves
     public Wave[] waves;
     public int NextWave;
-
     public float timeBetweenWaves = 5f;
     public float waveCountdown;
-
-    //Timer
-    private float searchCountdown = 1f;
-
     public SpawnState spawnState = SpawnState.COUNTING;
+    
+    //Spawn locations
+    public Transform[] spawnPoints;
+    
+    //Timer for each waves
+    private float searchCountdown = 1f;
+    
+    //Countdown timer
+    public float timeLeft;
+    public bool timerOn = false;
+    
+    public Text timerText;
+    
     // Start is called before the first frame update
     void Start()
     {
+        //Wave Countdowns
         waveCountdown = timeBetweenWaves;
+        if (spawnPoints.Length == 0) 
+        {
+            Debug.LogError("No spawn points referenced");
+        }
+        
+        //Countdown timer
+        timerOn = true;
+        
     }
 
     void Update()
     {
+        if(spawnState == SpawnState.FINISHED) {
+            return;
+        }
+        
         //Making it fair
         if(spawnState == SpawnState.WAITING)
         {
@@ -50,6 +74,26 @@ public class WaveSpawner : MonoBehaviour
         {
             waveCountdown -= Time.deltaTime;
         }
+        
+        //Countdown timer
+        if(timerOn) {
+            if (timeLeft > 0) {
+                timeLeft -= Time.deltaTime;
+                updateTimer(timeLeft);
+            } else {
+                spawnState = SpawnState.FINISHED;
+                Debug.Log("Time is UP!!!");
+                timeLeft = 0;
+                timerOn = false;
+            }
+        }
+    }
+    
+    void updateTimer(float currTime) {
+        currTime +=1;
+        float minutes = Mathf.FloorToInt(currTime/60);
+        float seconds = Mathf.FloorToInt(currTime%60);
+        timerText.text = string.Format("{0:00} : {1:00}",minutes,seconds);
     }
 
     void ClearClones()
@@ -60,6 +104,7 @@ public class WaveSpawner : MonoBehaviour
         {
             Destroy(clone);
         }
+    
     }
 
     void WaveCompleted()
@@ -68,16 +113,23 @@ public class WaveSpawner : MonoBehaviour
         spawnState = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
-        if (NextWave + 1 > waves.Length - 1)
+        if (timeLeft <= 0) {
+            spawnState = SpawnState.FINISHED;
+            ClearClones();
+        } else 
         {
-            NextWave = 0;
-            Debug.Log("All waves complete; looping...");
+            if (NextWave + 1 > waves.Length - 1)
+            {
+                NextWave = 0;
+                Debug.Log("All waves complete; looping...");
 
-        } else
-        {
-            NextWave++;
+            } else
+            {
+                NextWave++;
 
+            }
         }
+
 
     }
 
@@ -100,7 +152,7 @@ public class WaveSpawner : MonoBehaviour
     //So we can wait a certain amount of seconds in the method
     IEnumerator SpawnWave(Wave _wave)
     {
-        ClearClones();      //Clears clones if they exist
+        //ClearClones();      //Clears clones if they exist
         Debug.Log("Spawning Wave:" + _wave.name);
         //Spawn stuff
         spawnState = SpawnState.SPAWNING;
@@ -120,7 +172,13 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy (Transform _enemy)
     {
         Debug.Log("Spawning enemy: " + _enemy.name);
-        Instantiate(_enemy, transform.position,transform.rotation);
+        if (spawnPoints.Length == 0) 
+        {
+            Debug.LogError("No spawn points referenced");
+        }
+        
+        Transform _sp = spawnPoints[Random.Range (0, spawnPoints.Length)];
+        Instantiate(_enemy, _sp.position, _sp.rotation);
     }
 }
 
