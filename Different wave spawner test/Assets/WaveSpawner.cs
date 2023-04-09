@@ -19,8 +19,8 @@ public class WaveSpawner : MonoBehaviour
     //Spawn locations
     public Transform[] spawnPoints;
     
-    //Timer for each waves
-    private float searchCountdown = 1f;
+    //Timer for checking if any enemies are still alive; uncomment if we wanted to make it fair
+    //private float searchCountdown = 1f;
     
     //Countdown timer
     public float timeLeft;
@@ -46,11 +46,13 @@ public class WaveSpawner : MonoBehaviour
     void Update()
     {
         if(spawnState == SpawnState.FINISHED) {
+            ClearClones();
             return;
         }
         
-        //Making it fair
-        if(spawnState == SpawnState.WAITING)
+        //If we wanted to make it fair; slightly buggy still since timer doesn't tick down when //WAITING state is reached
+        
+        /**if(spawnState == SpawnState.WAITING)
         {
             //Checks if enemies are still alive
             if(!EnemyIsAlive())
@@ -61,7 +63,7 @@ public class WaveSpawner : MonoBehaviour
             {
                 return;
             }
-        }
+        }**/
 
         if (waveCountdown <= 0)
         {
@@ -106,16 +108,18 @@ public class WaveSpawner : MonoBehaviour
         }
     
     }
+    
+//If we wanted to make it fair, uncomment below
 
-    void WaveCompleted()
+/**    void WaveCompleted()
     {
         Debug.Log("Wave completed");
+        ClearClones();
         spawnState = SpawnState.COUNTING;
         waveCountdown = timeBetweenWaves;
 
         if (timeLeft <= 0) {
             spawnState = SpawnState.FINISHED;
-            ClearClones();
         } else 
         {
             if (NextWave + 1 > waves.Length - 1)
@@ -130,24 +134,20 @@ public class WaveSpawner : MonoBehaviour
             }
         }
 
+    }**/
 
-    }
 
-
-    bool EnemyIsAlive()
+/**    bool EnemyIsAlive()
     {
         searchCountdown -= Time.deltaTime;
         if(searchCountdown <= 0f)
         {
             searchCountdown = 1f;
             if (GameObject.FindGameObjectWithTag("Enemy") == null)
-            {
-                return false;
-            }
             return false;
         }
         return true;
-    }
+    }**/
 
     //So we can wait a certain amount of seconds in the method
     IEnumerator SpawnWave(Wave _wave)

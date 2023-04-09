@@ -130,12 +130,6 @@ public class EnemyAI : MonoBehaviour
             CurrWaypoint = 0;
         }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     //For taking damage
     public void TakeDamage(int dmg)
@@ -153,5 +147,6 @@ public class EnemyAI : MonoBehaviour
         animator.SetBool("IsDead", true);
         GetComponent<Collider2D>().enabled = false; //Disables enemy collision
         this.enabled = false; //Kills off the enemy
+        Destroy(gameObject, 0);
     }
 }

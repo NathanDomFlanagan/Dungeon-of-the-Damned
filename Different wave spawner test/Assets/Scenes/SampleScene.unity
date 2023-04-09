@@ -556,23 +556,15 @@ MonoBehaviour:
     enemy: {fileID: 402753984413660083, guid: 654e7e7ed3afee047bf74c9a3f1a7326, type: 3}
     count: 5
     rate: 1
-  - name: Wave 2
-    enemy: {fileID: 402753984413660083, guid: 654e7e7ed3afee047bf74c9a3f1a7326, type: 3}
-    count: 10
-    rate: 1.5
-  - name: Wave 3
-    enemy: {fileID: 402753984413660083, guid: 654e7e7ed3afee047bf74c9a3f1a7326, type: 3}
-    count: 15
-    rate: 2
   NextWave: 0
-  timeBetweenWaves: 5
+  timeBetweenWaves: 3
   waveCountdown: 0
   spawnState: 2
   spawnPoints:
   - {fileID: 470698167684016621}
   - {fileID: 2077186027}
   - {fileID: 382399053}
-  timeLeft: 10
+  timeLeft: 20
   timerOn: 1
   timerText: {fileID: 501757247}
 --- !u!1001 &382399052
