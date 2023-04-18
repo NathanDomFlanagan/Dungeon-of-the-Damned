@@ -1,22 +1,7 @@
-# Dungeon-of-the-Damned
+The new scripts are: Damageable, Attack, and DetectionZone
 
-Product Owner: 
-- Nathan Flanagan
+Damageable deals with giving player/enemy damage
+Attack deals with checking if the AttackPoints overlap
+DetectionZone deals with Enemy AI and whether or not the enemy can attack the player; only does this if the DetectionZone object overlaps with the player.
 
-Scrum Master: 
-- Luca Edwards
-
-Development Team Member: 
-- Nathan Flanagan
-- Christopher Lau
-- Luca Edwards
-- Nicholas Jorgensen
-- Rainier Jared Botor
-
-Product:
-- 2d platformer/ metroidvania style game
-
-Tools:
-- Unity
-- Github Desktop
-- Visual Studio Code
+These scripts utilize Layers in determining whether or not the object is a Player, Enemy.

@@ -6,22 +6,14 @@ public class PlayerCombat : MonoBehaviour
 {
     //References
     public Animator animator;
-    public Transform AttackPoint;
-    public float AttackRange = 0.5f;
-    public LayerMask EnemyLayers;
-
 
     //Damage amount
-    public int AtkDmg = 40;
+    public int attackDmg = 50;
 
     //Attack Time
     public float AtkRate = 2f;
     float NextAtkTime = 0f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
 
     // Update is called once per frame
     void Update()
@@ -30,34 +22,23 @@ public class PlayerCombat : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Z))
             {
-                Attack();
+                animator.SetTrigger("Attack");
                 NextAtkTime = Time.time + 1f / AtkRate;
             }
         }
 
     }
 
-    void Attack()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetTrigger("Attack");
-        
-        //Detect enimies in range of attack
-        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+        //See if it can be hit
+        Damageable dmg = collision.GetComponent<Damageable>();
 
-        //Damage enemy
-        foreach(Collider2D enemy in HitEnemies)
+        if (dmg != null)
         {
-            enemy.GetComponent<EnemyAI>().TakeDamage(AtkDmg);
-            //Debug.Log("Damage");
+            dmg.Hit(attackDmg);
+            Debug.Log(collision.name + " hit for " + attackDmg);
         }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        if (AttackPoint == null)
-            return;
-
-        Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
     }
 }
  

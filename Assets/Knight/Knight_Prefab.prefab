@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8746520834259787299}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: CeilingCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8080755939086981352}
-  m_Layer: 6
+  - component: {fileID: 2168099683751739240}
+  - component: {fileID: 869968596862276914}
+  m_Layer: 8
   m_Name: AttackPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +64,55 @@ Transform:
   m_Father: {fileID: 7359189042805946372}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2168099683751739240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921346622699377524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0345bd1e2b04d674abded5659e157254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 10
+--- !u!60 &869968596862276914
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921346622699377524}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.17294836, y: 0.356987}
+      - {x: -0.11292273, y: 0.2203255}
+      - {x: -0.047176838, y: 0.059776068}
+      - {x: -0.15535784, y: -0.034577847}
+      - {x: -0.38222504, y: -0.09769654}
+      - {x: -0.48782682, y: -0.10293698}
+      - {x: -0.5567431, y: -0.27686822}
+      - {x: -0.18826473, y: -0.29017186}
+      - {x: 0.05299425, y: -0.19893551}
+      - {x: 0.12589073, y: -0.03609371}
+      - {x: 0.037534714, y: 0.22032565}
 --- !u!1 &6281605864912143305
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +129,8 @@ GameObject:
   - component: {fileID: 8816672593667876601}
   - component: {fileID: 7739677107424857197}
   - component: {fileID: 4486306678033935701}
-  m_Layer: 6
+  - component: {fileID: 6326728660763666482}
+  m_Layer: 3
   m_Name: Knight_Prefab
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -224,18 +276,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6281605864912143305}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f5ba7e8bc9635f2489cf525b6141baee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4486306678033935701}
-  AttackPoint: {fileID: 8080755939086981352}
-  AttackRange: 0.26
-  EnemyLayers:
-    serializedVersion: 2
-    m_Bits: 128
-  AtkDmg: 40
+  attackDmg: 50
   AtkRate: 2
 --- !u!114 &7739677107424857197
 MonoBehaviour:
@@ -298,6 +345,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6326728660763666482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281605864912143305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a3a4007fc0d8445a23e84c2256b5ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _Health: 100
+  isInvincible: 0
+  invincibilityTime: 0.25
+  _isAlive: 1
 --- !u!1 &6842149812493209181
 GameObject:
   m_ObjectHideFlags: 0
@@ -307,7 +371,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2410023096090033124}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,11 +5,9 @@ using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
-
     [Header("Damage")]
-    public int MaxHealth = 100;
-    int CurrHealth;
     public Animator animator;
+    public Damageable dmg;
     
     [Header("Pathfinding")]
     public Transform target; //Target that the enemy targets (player)
@@ -32,20 +30,41 @@ public class EnemyAI : MonoBehaviour
     //Private variables
     private Path path;
     private int CurrWaypoint = 0;
+    public DetectionZone attackZone;    //For attack
+    public bool _hasTarget = false;
     bool IsGrounded = false;
     Seeker seeker;
     Rigidbody2D rb;
-
+    
+    public bool HasTarget { 
+        get { return _hasTarget; } 
+        private set
+        {
+            _hasTarget = value;
+            animator.SetBool("HasTarget",value);
+        } 
+    
+    }
 
     // Start is called before the first frame update
     public void Start()
     {
+        dmg = GetComponent<Damageable>();
+        animator = GetComponent<Animator>();
         target = GameObject.Find("Knight_Prefab").transform;
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-        CurrHealth = MaxHealth;
 
         InvokeRepeating("UpdatePath", 0f, PathUpdateSecs); //Repeats script every single path update secs
+    }
+
+    public void Update()
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
+        if (!dmg.IsAlive)
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -130,21 +149,11 @@ public class EnemyAI : MonoBehaviour
             CurrWaypoint = 0;
         }
     }
-    
-    //For taking damage
-    public void TakeDamage(int dmg)
-    {
-        CurrHealth -= dmg;
-        animator.SetTrigger("Hurt");
-        if(CurrHealth <= 0)
-        {
-            Die();
-        }
-    }
+   
 
-    void Die()
+    public void Die()
     {
-        animator.SetBool("IsDead", true);
+        animator.SetBool("IsAlive", false);
         GetComponent<Collider2D>().enabled = false; //Disables enemy collision
         this.enabled = false; //Kills off the enemy
         Destroy(gameObject, 0);
