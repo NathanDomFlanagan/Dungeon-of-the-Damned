@@ -40,6 +40,7 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+
     y: 466
     width: 1084
     height: 301
@@ -67,6 +68,7 @@ MonoBehaviour:
   - {fileID: 2}
   m_Position:
     serializedVersion: 2
+
     x: 289
     y: 0
     width: 1084
@@ -445,6 +447,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
+
       m_ExpandedIDs: 0efbffff445f0000585f0000665f0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
