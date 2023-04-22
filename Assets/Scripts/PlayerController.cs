@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
             Flip();
         }
 
-        if(rb.velocity.x != 0)
+        if(rb.velocity.x >= 0.1 || rb.velocity.x <= -0.1) // 
         {
             isWalking = true;
         }
@@ -201,6 +201,7 @@ public class PlayerController : MonoBehaviour
 
     private void checkIfWallSliding()
     {
+        /*
         if (isTouchWall && movementInputDirection == facingDirection && rb.velocity.y < 0)
         {
             isWallSliding = true;
@@ -209,6 +210,7 @@ public class PlayerController : MonoBehaviour
         {
             isWallSliding = false;
         }
+        */
     }
 
     private void checkDash()
