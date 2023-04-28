@@ -263,7 +263,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!1102 &-2888139563094878636
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -290,7 +289,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-2491434587752025718
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
