@@ -242,7 +242,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1164764319
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -7405,7 +7405,7 @@ GameObject:
   - component: {fileID: 469734518}
   - component: {fileID: 469734521}
   - component: {fileID: 469734523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -7471,8 +7471,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1424291029
-  m_SortingLayer: 4
+  m_SortingLayerID: -734375125
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63df454fcc041aa4898b00c3febb7835, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7519,7 +7519,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7780,7 +7780,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 77759835
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -9619,7 +9619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371592177}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: wallCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9942,7 +9942,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1788626684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: groundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9973,7 +9973,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3976142155277024960, guid: 83d5ec6820f08e04e95d944a244c8763, type: 3}
       propertyPath: m_SortingLayer
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3976142155277024960, guid: 83d5ec6820f08e04e95d944a244c8763, type: 3}
       propertyPath: m_SortingOrder
@@ -9981,7 +9981,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3976142155277024960, guid: 83d5ec6820f08e04e95d944a244c8763, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1424291029
+      value: -734375125
       objectReference: {fileID: 0}
     - target: {fileID: 3976142155277024961, guid: 83d5ec6820f08e04e95d944a244c8763, type: 3}
       propertyPath: m_RootOrder
