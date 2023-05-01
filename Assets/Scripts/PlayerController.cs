@@ -28,6 +28,10 @@ public class PlayerController : MonoBehaviour
 
     private bool isDashing;
 
+    private bool enableDash;
+    private bool enableWallJump;
+    private bool enableWallSlide;
+
     private Rigidbody2D rb;
     private Animator anim;
 
@@ -89,6 +93,13 @@ public class PlayerController : MonoBehaviour
         CheckSurroundings();
     }
 
+    public void setAbilities(bool ableToWallJump, bool ableToDash, bool ableToWallSlide)
+    {
+        enableDash = ableToDash;
+        enableWallJump = ableToWallJump;
+        enableWallSlide = ableToWallSlide;
+    }
+
     private void CheckSurroundings()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position,groundCheckRadius, WhatIsGround);
@@ -101,13 +112,16 @@ public class PlayerController : MonoBehaviour
         {
             amountOfJumpsLeft = amountOfJumps;
         }
-        if (isTouchWall)
+        if (enableWallJump)
         {
-            canWallJump = true;
-        }
-        else
-        {
-            canWallJump = false;
+            if (isTouchWall)
+            {
+                canWallJump = true;
+            }
+            else
+            {
+                canWallJump = false;
+            }
         }
 
         if (amountOfJumpsLeft <= 0)
@@ -175,7 +189,10 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Dash"))
         {
-            AttemptToDash();
+            if (enableDash)
+            {
+                AttemptToDash();
+            }
         }
     }
 
@@ -201,21 +218,22 @@ public class PlayerController : MonoBehaviour
 
     private void checkIfWallSliding()
     {
-        /*
-        if (isTouchWall && movementInputDirection == facingDirection && rb.velocity.y < 0)
+        if (enableWallSlide)
         {
-            isWallSliding = true;
+            if (isTouchWall && movementInputDirection == facingDirection && rb.velocity.y < 0)
+            {
+                isWallSliding = true;
+            }
+            else
+            {
+                isWallSliding = false;
+            }
         }
-        else
-        {
-            isWallSliding = false;
-        }
-        */
     }
 
     private void checkDash()
     {
-        if (isDashing)
+        if (enableDash && isDashing)
         {
             canMove = false;
             canFlip = false;
