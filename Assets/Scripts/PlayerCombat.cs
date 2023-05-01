@@ -79,9 +79,8 @@ public class PlayerCombat : MonoBehaviour
         //Damage enemy
         foreach (Collider2D enemy in HitEnemies)
         {
-            // remove comment when enemy is imported
-            //  enemy.GetComponent<EnemyAI>().TakeDamage(AtkDmg);
-            //Debug.Log("Damage");
+            enemy.GetComponent<EnemyAI>().TakeDamage(AtkDmg);
+            Debug.Log("Damage");
         }
     }
 
