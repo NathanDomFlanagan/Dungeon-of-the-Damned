@@ -93,11 +93,20 @@ public class PlayerController : MonoBehaviour
         CheckSurroundings();
     }
 
-    public void setAbilities(bool ableToWallJump, bool ableToDash, bool ableToWallSlide)
+    public void SetAbilities(bool ableToWallJump, bool ableToDash, bool ableToWallSlide)
     {
         enableDash = ableToDash;
         enableWallJump = ableToWallJump;
         enableWallSlide = ableToWallSlide;
+    }
+
+    public void SetStats(int jumps, float speed, float dSpeed, float dCooldown, float dDuration)
+    {
+        amountOfJumps = jumps;
+        movementSpeed = speed;
+        dashSpeed = dSpeed;
+        dashCooldown = dCooldown;
+        dashTime = dDuration;
     }
 
     private void CheckSurroundings()
@@ -322,7 +331,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (!isGrounded && !isWallSliding && movementInputDirection == 0)
+        if (!isGrounded && !isWallSliding && movementInputDirection == 0 && canMove)
         {
             rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
         }else if (canMove)
