@@ -7393,7 +7393,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &400882268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7406,7 +7406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ca277da9efbbc4e97e2dea76ac577c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  afterImagePrefab: {fileID: 908364620}
 --- !u!4 &400882269
 Transform:
   m_ObjectHideFlags: 0
@@ -7578,7 +7577,7 @@ MonoBehaviour:
   movementSpeed: 10
   jumpForce: 16
   wallSlideSpeed: 1
-  groundCheckRadius: 0.25
+  groundCheckRadius: 0.33
   wallCheckDistance: 0.4
   movementForceInAir: 20
   airDragMultiplier: 0.95
@@ -7587,10 +7586,6 @@ MonoBehaviour:
   wallHopForce: 10
   wallJumpForce: 25
   jumpTimerSet: 0.15
-  dashTime: 0.2
-  dashSpeed: 25
-  distanceBetweenImages: 1
-  dashCooldown: 10
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1788626684}
@@ -7733,7 +7728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: -2.64, y: 0.02, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9711,18 +9706,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683690322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: -1, z: 0}
+  m_LocalPosition: {x: -0.032, y: -1.004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1338826146}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &908364620 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3976142155277024962, guid: 83d5ec6820f08e04e95d944a244c8763, type: 3}
-  m_PrefabInstance: {fileID: 3976142156046448014}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1239761835
 GameObject:
   m_ObjectHideFlags: 0
@@ -9881,7 +9871,7 @@ MonoBehaviour:
   movementSpeed: 10
   jumpForce: 16
   wallSlideSpeed: 1
-  groundCheckRadius: 0.25
+  groundCheckRadius: 0.33
   wallCheckDistance: 0.4
   movementForceInAir: 20
   airDragMultiplier: 0.95
@@ -9890,10 +9880,6 @@ MonoBehaviour:
   wallHopForce: 10
   wallJumpForce: 25
   jumpTimerSet: 0.15
-  dashTime: 0.2
-  dashSpeed: 25
-  distanceBetweenImages: 1
-  dashCooldown: 10
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 683690323}
@@ -10279,7 +10265,7 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 469734520}
+  m_Follow: {fileID: 1338826146}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 8.4375
@@ -10334,7 +10320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1788626683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.001, y: -1, z: 0}
+  m_LocalPosition: {x: -0.035, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

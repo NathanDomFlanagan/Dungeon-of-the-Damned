@@ -21,11 +21,7 @@ public class PlayerModel : MonoBehaviour
     private int charHealth;
     private float charAttackRange;
     private float charAttackRate;
-    private float charDashCooldown;
-    private float charDashSpeed;
-    private float charDashDuration;
-
-    private GameObject player;
+    private float charJumpForce;
     
     
     
@@ -41,6 +37,7 @@ public class PlayerModel : MonoBehaviour
                 selectLancer();
                 break;
         }
+        reloadStats();
     }
 
     // Update is called once per frame
@@ -49,13 +46,15 @@ public class PlayerModel : MonoBehaviour
         if(updatedStats == true)
         {
             //reloads the character controller and character combat with new stats
+            CalculateStats();
+            reloadStats();
         }
     }
 
     private void selectKnight()
     { // sets the base stats and variables for the knight.
         enableWallJump = false;
-        enableDash = false;
+        enableDash = true;
         enableWallSlide = false;
         updatedStats = false;
         amountOfJumps = 1;
@@ -64,11 +63,10 @@ public class PlayerModel : MonoBehaviour
         charAttackRange = 0.5f;
         charAttackRate = 2;
         charHealth = 100;
-        charDashCooldown = 10;
-        charDashSpeed = 25;
+        charJumpForce = 16;
+        
 
-        reloadAbility(); // gives the character access to the walljump and dash if set
-        reloadStats();
+        reloadAbility(); // gives the character access to the walljump and dash if 
     }
     private void selectLancer()
     { // sets the base stats and variables for the lancer.
@@ -77,16 +75,20 @@ public class PlayerModel : MonoBehaviour
         enableWallSlide = false;
         updatedStats = false;
         amountOfJumps = 2;
-        charMoveSpeed = 15;
+        charMoveSpeed = 12;
         charAttackDmg = 30;
         charAttackRange = 0.5f;
         charAttackRate = 3;
         charHealth = 100;
-        charDashCooldown = 10;
-        charDashSpeed = 25;
+        charJumpForce = 18;
+        
 
-        reloadAbility(); // gives the character access to the walljump and dash if set
-        reloadStats();
+        reloadAbility(); // gives the character access to the walljump and dash if v
+    }
+
+    private void CalculateStats()
+    {
+
     }
 
     private void reloadAbility() {
@@ -95,7 +97,7 @@ public class PlayerModel : MonoBehaviour
 
     private void reloadStats()
     {
-        playerController.SetStats(amountOfJumps, charMoveSpeed, charDashSpeed, charDashCooldown, charDashDuration);
+        playerController.SetStats(amountOfJumps, charMoveSpeed, charJumpForce);
         playerCombat.SetStats(charAttackDmg, charAttackRate, charAttackRange);
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAfterImageSprite : MonoBehaviour
 {
+    /*
     private float activeTime = 0.1f;
     private float timeActivated;
     private float alpha;
@@ -33,7 +34,7 @@ public class PlayerAfterImageSprite : MonoBehaviour
     private void FixedUpdate()
     {
         alpha *= alphaMultiplier;
-        color = new Color(1, 1, 1, alpha);
+        color = new Color(1f, 1f, 1f, alpha);
         sr.color = color;
         
         if (Time.time >= (timeActivated + activeTime))
@@ -42,4 +43,5 @@ public class PlayerAfterImageSprite : MonoBehaviour
             PlayerAfterImagePool.instance.AddToPool(gameObject);
         }
     }
+    */
 }

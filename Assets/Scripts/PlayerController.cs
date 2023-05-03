@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     private float movementInputDirection;
     private float jumpTimer;
     private float turnTimer;
+    /*
     private float dashTimeLeft;
     private float lastImageXpos;
     private float lastDash = -100;
+    */
 
     private int amountOfJumpsLeft;
 
@@ -52,10 +54,12 @@ public class PlayerController : MonoBehaviour
     public float wallHopForce;
     public float wallJumpForce;
     public float jumpTimerSet = 0.15f;
+    /*
     public float dashTime;
     public float dashSpeed;
     public float distanceBetweenImages;
     public float dashCooldown;
+    */
 
     public Vector2 wallHopDirection;
     public Vector2 wallJumpDirection;
@@ -84,7 +88,7 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
         checkIfWallSliding();
         checkJump();
-        checkDash();
+        //checkDash();
     }
 
     private void FixedUpdate()
@@ -100,13 +104,16 @@ public class PlayerController : MonoBehaviour
         enableWallSlide = ableToWallSlide;
     }
 
-    public void SetStats(int jumps, float speed, float dSpeed, float dCooldown, float dDuration)
+    public void SetStats(int jumps, float speed, float jumpforce)
     {
         amountOfJumps = jumps;
         movementSpeed = speed;
+        jumpForce = jumpforce;
+        /* 
         dashSpeed = dSpeed;
         dashCooldown = dCooldown;
         dashTime = dDuration;
+        */
     }
 
     private void CheckSurroundings()
@@ -181,8 +188,7 @@ public class PlayerController : MonoBehaviour
 
         if (!canMove)
         {
-            turnTimer -= Time.deltaTime;
-
+                turnTimer -= Time.deltaTime;
             if (turnTimer <= 0)
             {
                 canMove = true;
@@ -190,19 +196,18 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        //code for variable jump height
         if (checkJumpMultiplier && !Input.GetButton("Jump"))
         {
             checkJumpMultiplier = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
-
-        if (Input.GetButtonDown("Dash"))
-        {
-            if (enableDash)
-            {
-                AttemptToDash();
-            }
+        /*
+        if (Input.GetButtonDown("Dash") && enableDash && movementInputDirection !=0)
+        { 
+            AttemptToDash();
         }
+        */
     }
 
     private void CheckMovementDir()
@@ -240,19 +245,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    /*
     private void checkDash()
     {
         if (enableDash && isDashing)
-        {
-            canMove = false;
-            canFlip = false;
+        { 
+                canMove = false;
+                canFlip = false;
 
-            rb.velocity = new Vector2(dashSpeed * facingDirection, rb.velocity.y);
-            dashTimeLeft -= Time.deltaTime;
-
-            if (dashTimeLeft > 0) {
-
-                if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages)
+                rb.velocity = new Vector2(dashSpeed * facingDirection, rb.velocity.y);
+                dashTimeLeft -= Time.deltaTime;
+            if (dashTimeLeft > 0)
+            {
+                if (Mathf.Abs(transform.position.x - lastImageXpos) > distanceBetweenImages) 
                 {
                     PlayerAfterImagePool.instance.getFromPool();
                     lastImageXpos = transform.position.x;
@@ -267,17 +272,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    
     private void AttemptToDash()
     {
-        isDashing = true;
-        dashTimeLeft = dashTime;
-        lastDash = Time.time;
+        if (enableDash)
+        {
+            isDashing = true;
+            dashTimeLeft = dashTime;
+            lastDash = Time.time;
 
-        PlayerAfterImagePool.instance.getFromPool();
-        lastImageXpos = transform.position.x;
+            PlayerAfterImagePool.instance.getFromPool();
+            lastImageXpos = transform.position.x;
+        }
     }
+    */
 
-    private void checkJump()
+        private void checkJump()
     {
         if (jumpTimer > 0)
         {
@@ -331,14 +341,17 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (!isGrounded && !isWallSliding && movementInputDirection == 0 && canMove)
+        if (canMove)
         {
-            rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
-        }else if (canMove)
-        {
-            rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
+            if (!isGrounded && !isWallSliding && movementInputDirection == 0)
+            {
+                rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
+            }
+            else
+            {
+                rb.velocity = new Vector2(movementSpeed * movementInputDirection, rb.velocity.y);
+            }
         }
-
         if (isWallSliding)
         {
             if(rb.velocity.y < -wallSlideSpeed)
