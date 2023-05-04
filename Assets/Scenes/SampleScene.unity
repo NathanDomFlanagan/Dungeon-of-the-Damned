@@ -156,6 +156,10 @@ PrefabInstance:
       value: SkeletonEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 7858678353887114430, guid: e13f4fa7ea668b747891463dc21dab87, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 82869834}
+    - target: {fileID: 7858678353887114430, guid: e13f4fa7ea668b747891463dc21dab87, type: 3}
       propertyPath: projectilePrefab
       value: 
       objectReference: {fileID: 1119453718480945200, guid: 8060eb77b47c34e488895b1c58818c36, type: 3}
@@ -205,6 +209,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e13f4fa7ea668b747891463dc21dab87, type: 3}
+--- !u!4 &82869834 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3101299309740764732, guid: e13f4fa7ea668b747891463dc21dab87, type: 3}
+  m_PrefabInstance: {fileID: 82869833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &114342529
 GameObject:
   m_ObjectHideFlags: 0
