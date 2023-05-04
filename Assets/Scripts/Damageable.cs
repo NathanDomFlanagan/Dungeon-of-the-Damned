@@ -86,14 +86,16 @@ public class Damageable : MonoBehaviour
         //Hit(10); //Testing to see if it works
     }
 
-    public void Hit(int dmg)
+    public bool Hit(int dmg)
     {
         if(IsAlive && !isInvincible)
         {
             animator.SetTrigger("Hurt");
             Health -= dmg;
             isInvincible = true;
+            return true;
         }
+        return false;
     }
 }
 
