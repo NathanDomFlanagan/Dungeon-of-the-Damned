@@ -13,7 +13,7 @@ public class EnemyAI : MonoBehaviour
     public Transform target; //Target that the enemy targets (player)
     public float ActivateDistance = 50f; //Activation distance
     public float PathUpdateSecs = 0.5f; //How often A* updates
-
+    
 
     [Header("Physics")]
     public float speed = 200f;
