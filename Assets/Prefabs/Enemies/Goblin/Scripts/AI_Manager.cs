@@ -7,7 +7,7 @@ public class AI_Manager : MonoBehaviour
     [Header("Pathfinding")]
     [SerializeField]
     private float Movement;
-    public Transform Target;
+    private Transform Target;
     private Rigidbody2D rb;
     private Vector3 Targetposition;
     private Collider2D col;
@@ -38,6 +38,7 @@ public class AI_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();  //Need this so that prefab clones can track the player
         rb = transform.parent.GetComponent<Rigidbody2D>();
         animator = transform.parent.GetComponent<Animator>();
         col = transform.parent.GetComponent<Collider2D>();
