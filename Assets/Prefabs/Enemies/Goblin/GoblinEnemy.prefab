@@ -216,8 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 2
-  Target: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
-  JumpHeight: 3
+  JumpHeight: 100
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}
   _hasTarget: 0

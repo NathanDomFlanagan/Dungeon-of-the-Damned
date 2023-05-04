@@ -10,16 +10,16 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
-  - Terrain
-  - Obstacle
-  - Background
   - Player
+  - Background
+  - 
   - Enemy
-  - EnemyHitbox
   - EnemyDetect
+  - EnemyHitbox
+  - 
   - 
   - 
   - 
