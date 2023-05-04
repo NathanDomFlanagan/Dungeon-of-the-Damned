@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 207722686819359921}
   - component: {fileID: 2744629755393329529}
   - component: {fileID: 2517241297622424084}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: DetectionZone
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 63174444980902640}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6173e10c4865e5b4295c6aeb13c53218, type: 3}
+  m_Script: {fileID: 11500000, guid: a92052ab0aaaecd40a8f776dd2ad65e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   detectedColliders: []
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 6317181762932224792}
   - component: {fileID: 2469119882890301848}
   - component: {fileID: 4418960795786054299}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027280663425711551}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e68b522e49d64294db30badda9214e1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 459d325e398cad24f94809a5f7e8d8e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 10
@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 2536903655738211944}
   - component: {fileID: 645099204043208885}
   - component: {fileID: 3906229523433916800}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: WallCheck
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -212,12 +212,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4991710693760188213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44a2f333c12b5754a8d151f1b24e30ea, type: 3}
+  m_Script: {fileID: 11500000, guid: 9a14bea164799044c8a7bda3d482ddbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 2
-  Target: {fileID: 0}
-  JumpHeight: 420
+  Target: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  JumpHeight: 3
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}
   _hasTarget: 0
@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 7038245291113918689}
   - component: {fileID: 1679546699}
   - component: {fileID: 1679546704}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: GoblinEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -299,7 +299,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -288956559
+  m_SortingLayerID: -734375125
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d2dee187df9a5794383ac0192eebe950, type: 3}
@@ -390,14 +390,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9038812840416750331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a3a4007fc0d8445a23e84c2256b5ae, type: 3}
+  m_Script: {fileID: 11500000, guid: c568992a12420484e96dd7c4b00d214d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _Health: 100
-  isInvincible: 0
-  invincibilityTime: 0.25
-  _isAlive: 1
+  dmg: {fileID: 1679546704}
+  animator: {fileID: 7038245291113918689}
 --- !u!114 &1679546704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -407,8 +404,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9038812840416750331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebbe4509e6681f4babf3154acccc821, type: 3}
+  m_Script: {fileID: 11500000, guid: b181b897766739648b8ffd88d867683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dmg: {fileID: 1679546699}
-  animator: {fileID: 7038245291113918689}
+  _maxHealth: 100
+  _Health: 100
+  isInvincible: 0
+  invincibilityTime: 0.25
+  _isAlive: 1
