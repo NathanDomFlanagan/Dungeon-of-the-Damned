@@ -1,1 +1,6 @@
 //Idk notes of any bugs or mental blocks on coding here
+- Want to add text to starting room for basic movement (for the simple course)
+- Need to make a survival room
+- Need to make a boss room (Need to think of size)
+- Need to make a puzzle room 
+- Make secret room have loot (jumping down to a chest from the top, and the sides teleport you to the previous room)
