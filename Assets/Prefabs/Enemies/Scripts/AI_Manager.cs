@@ -11,7 +11,7 @@ public class AI_Manager : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 Targetposition;
     private Collider2D col;
-    private float minDistance = 0.4f;
+    private float minDistance = 4f;
 
     [Header("Jump")]
     [SerializeField]
@@ -64,7 +64,7 @@ public class AI_Manager : MonoBehaviour
     void FixedUpdate()
     {
         Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
-        if(Vector2.Distance(transform.position, Target.position) > minDistance)
+        if(Vector2.Distance(transform.position, Target.position) < minDistance)
         {
             rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
         } 
