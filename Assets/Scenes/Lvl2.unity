@@ -36709,11 +36709,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -18
       objectReference: {fileID: 0}
     - target: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_LocalPosition.z
@@ -36753,6 +36753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+--- !u!4 &234517638 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  m_PrefabInstance: {fileID: 234517637}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &400882267
 GameObject:
   m_ObjectHideFlags: 0
@@ -125505,7 +125510,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FollowSpeed: 2
   yOffset: 1
-  target: {fileID: 0}
+  target: {fileID: 234517638}
 --- !u!81 &1199750517
 AudioListener:
   m_ObjectHideFlags: 0
