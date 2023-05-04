@@ -539,7 +539,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: Wave 1
-    enemy: {fileID: 402753984413660083, guid: 014136e85139fd54186fda15c07f1ca3, type: 3}
+    enemy:
+    - {fileID: 402753984413660083, guid: c0cd70d3acf81fe43b46560295c4a288, type: 3}
+    - {fileID: 402753984413660083, guid: 014136e85139fd54186fda15c07f1ca3, type: 3}
     count: 5
     rate: 1
   NextWave: 0
@@ -651,7 +653,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 355, y: 214}
+  m_AnchoredPosition: {x: 143, y: 135}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &501757247
