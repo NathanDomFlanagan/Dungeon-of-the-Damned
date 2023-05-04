@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 2536903655738211944}
   - component: {fileID: 645099204043208885}
   - component: {fileID: 3906229523433916800}
-  m_Layer: 12
+  m_Layer: 10
   m_Name: WallCheck
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 2
-  JumpHeight: 100
+  JumpHeight: 420
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}
   _hasTarget: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 7038245291113918689}
   - component: {fileID: 1679546699}
   - component: {fileID: 1679546704}
-  m_Layer: 10
+  m_Layer: 9
   m_Name: GoblinEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ Animator:
   m_GameObject: {fileID: 9038812840416750331}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09fde05b9251bfe49a4f84f38e089fd6, type: 2}
+  m_Controller: {fileID: 9100000, guid: daa06d5949b3d60498eb5696a6be94fc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

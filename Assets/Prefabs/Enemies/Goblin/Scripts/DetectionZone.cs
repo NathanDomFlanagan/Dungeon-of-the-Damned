@@ -7,7 +7,7 @@ public class DetectionZone : MonoBehaviour
     public List<Collider2D> detectedColliders = new List<Collider2D>();
     Collider2D col;
 
-    private void Start()
+    private void Awake()
     {
         col = GetComponent<Collider2D>();
     }
