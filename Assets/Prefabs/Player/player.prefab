@@ -237,8 +237,8 @@ MonoBehaviour:
   AttackRange: 0.5
   EnemyLayers:
     serializedVersion: 2
-    m_Bits: 1024
-  AtkDmg: 40
+    m_Bits: 512
+  AtkDmg: 50
   AtkRate: 2
 --- !u!50 &1451828926696432862
 Rigidbody2D:
