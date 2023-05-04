@@ -9,14 +9,21 @@ public class LevelMove_Ref : MonoBehaviour
  
     // Level move zoned enter, if collider is a player
     // Move game to another scene
-    private void OnTriggerEnter2D(Collider2D other) {
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        //Print statements to see if the trigger worked
         print("Trigger Entered");
         
-        // Could use other.GetComponent<Player>() to see if the game object has a Player component
-        // Tags work too. Maybe some players have different script components?
-        if(other.tag == "Player") {
-            // Player entered, so move level
+        // I might use other.GetComponent<Player>() to see if the game object has a Player component
+        // Ill use Tags as Tags work.
+        // If statement simply grabs the tag of an object that collides with the trigger,
+        // if the object has the tag of "Player" then it will trigger code 
+        if(other.tag == "Player") 
+        {
+            // Player entered, so move level to next scene and print the scene id
             print("Switching Scene to " + sceneBuildIndex);
+            // Simple way to grab the next scene, and load it while unloading the previous scene
+            // to have oly one active room (saving space)
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }
