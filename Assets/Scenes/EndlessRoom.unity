@@ -160,6 +160,11 @@ Transform:
   m_Father: {fileID: 2145338097}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &57658263 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  m_PrefabInstance: {fileID: 1496445110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &106762217
 GameObject:
   m_ObjectHideFlags: 0
@@ -4561,6 +4566,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1451828926696432852, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+      propertyPath: AtkDmg
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1451828926696432852, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+      propertyPath: EnemyLayers.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_Name
       value: player
@@ -4572,6 +4585,23 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
   m_PrefabInstance: {fileID: 1496445110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1861789735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 57658263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b181b897766739648b8ffd88d867683f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _Health: 100
+  isInvincible: 0
+  invincibilityTime: 0.25
+  _isAlive: 1
 --- !u!1 &2048535822
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private Damageable dmg;
+
 
     public int amountOfJumps = 1;
     private int facingDirection = 1;
@@ -64,6 +66,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
@@ -80,9 +83,19 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
         checkIfWallSliding();
         checkJump();
-        checkDash();
+        checkIfDead();
+        //checkDash();
     }
 
+    private void checkIfDead()
+    {
+        if(!dmg.IsAlive)
+        {
+            canFlip = false;
+            canMove = false;
+            anim.SetBool("isAlive", false);
+        }
+    }
     private void FixedUpdate()
     {
         ApplyMovement();
@@ -173,10 +186,10 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
 
-        if (Input.GetButtonDown("Dash"))
+        /*if (Input.GetButtonDown("Dash"))
         {
             AttemptToDash();
-        }
+        }*/
     }
 
     private void CheckMovementDir()
@@ -213,7 +226,7 @@ public class PlayerController : MonoBehaviour
         */
     }
 
-    private void checkDash()
+    /*private void checkDash()
     {
         if (isDashing)
         {
@@ -238,9 +251,9 @@ public class PlayerController : MonoBehaviour
                 canFlip = true;
             }
         }
-    }
+    }*/
 
-    private void AttemptToDash()
+    /*private void AttemptToDash()
     {
         isDashing = true;
         dashTimeLeft = dashTime;
@@ -248,7 +261,7 @@ public class PlayerController : MonoBehaviour
 
         PlayerAfterImagePool.instance.getFromPool();
         lastImageXpos = transform.position.x;
-    }
+    }*/
 
     private void checkJump()
     {
