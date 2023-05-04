@@ -3,20 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Terrain
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Terrain
   - Water
   - UI
-  - Ground
-  - background
+  - Player
+  - Background
   - 
-  - 
-  - 
-  - 
+  - Enemy
+  - EnemyDetect
+  - EnemyHitbox
   - 
   - 
   - 
@@ -38,24 +40,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: background
-    uniqueID: 1164764319
+  - name: Bg
+    uniqueID: 1867351199
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Terrain
-    uniqueID: 1142362865
+    uniqueID: 3560592171
     locked: 0
-  - name: platforms
-    uniqueID: 77759835
-    locked: 0
-  - name: background details
-    uniqueID: 31556029
-    locked: 0
-  - name: player
-    uniqueID: 1424291029
-    locked: 0
-  - name: foreground details
-    uniqueID: 4209263051
+  - name: Obstacle
+    uniqueID: 3781169979
     locked: 0
