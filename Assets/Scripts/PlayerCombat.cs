@@ -10,7 +10,7 @@ public class PlayerCombat : MonoBehaviour
 
     private Animator anim;
 
-    private float attackTimer = 0.0f;
+    public float attackTimer = 0.0f;
 
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
@@ -32,7 +32,7 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         UpdateAnimations();
-        checkAttack();
+        CheckAttack();
     }
 
     private void UpdateAnimations()
@@ -41,7 +41,14 @@ public class PlayerCombat : MonoBehaviour
         anim.SetBool("canAttack", canAttack);
     }
 
-    void checkAttack()
+    public void SetStats(int dmg, float attackRate, float attackRange)
+    {
+        AtkDmg = dmg;
+        AtkRate = attackRate;
+        AttackRange = attackRange;
+    }
+
+    void CheckAttack()
     {
         if (attackTimer <= 0.0f)
         {
@@ -64,8 +71,8 @@ public class PlayerCombat : MonoBehaviour
 
         if (Input.GetButtonDown("Attack") && canAttack)
         {
-            Attack();
             attackTimer = 1.0f / AtkRate;
+            Attack();
         }
     }
 
