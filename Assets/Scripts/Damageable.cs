@@ -8,7 +8,7 @@ public class Damageable : MonoBehaviour
     //EnemyAI enemy;
 
     [SerializeField]
-    private float _maxHealth = 100;
+    private float _maxHealth = 100f;
 
     public float maxHealth
     {
@@ -23,11 +23,11 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private float _Health = 100;
+    private float _Health = 100f;
 
     [SerializeField]
     private bool isInvincible = false;
-    private float timeSinceHit = 0;
+    private float timeSinceHit = 0f;
     public float invincibilityTime = 0.25f;
 
     public float Health
@@ -41,8 +41,9 @@ public class Damageable : MonoBehaviour
             _Health = value;
 
             //If health drops below 0, character is dead
-            if(_Health <= 0)
+            if(_Health <= 0f)
             {
+                _Health = 0f;
                 IsAlive = false;
             }
         }
@@ -78,7 +79,7 @@ public class Damageable : MonoBehaviour
             if(timeSinceHit > invincibilityTime)
             {
                 isInvincible = false;
-                timeSinceHit = 0;
+                timeSinceHit = 0f;
             }
 
             timeSinceHit += Time.deltaTime;

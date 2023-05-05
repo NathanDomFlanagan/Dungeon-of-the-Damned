@@ -216,6 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 0.5
+  minDistance: 100
   JumpHeight: 90
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}

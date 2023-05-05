@@ -24,5 +24,9 @@ public class HealthbarFill : MonoBehaviour
     {
         float fillValue = dmg.Health / dmg.maxHealth;
         slider.value = fillValue;
+        if(fillValue <=0)
+        {
+            slider.value = 0;
+        }
     }
 }
