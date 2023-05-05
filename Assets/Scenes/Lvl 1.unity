@@ -11863,7 +11863,7 @@ GameObject:
   - component: {fileID: 374520694}
   - component: {fileID: 374520698}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasForPauseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
