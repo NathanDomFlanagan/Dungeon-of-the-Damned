@@ -7,6 +7,7 @@ public class PlayerCombat : MonoBehaviour
     //References
     private bool isAttacking;
     private bool canAttack = true;
+    private Damageable dmg;
 
     private Animator anim;
 
@@ -26,6 +27,7 @@ public class PlayerCombat : MonoBehaviour
     void Start()
     { 
         anim = GetComponent<Animator>();
+        dmg = GetComponent<Damageable>();
     }
 
     // Update is called once per frame
@@ -33,6 +35,11 @@ public class PlayerCombat : MonoBehaviour
     {
         UpdateAnimations();
         CheckAttack();
+        if(!dmg.IsAlive)
+        {
+            AtkDmg = 0;
+            AtkRate = 0f;
+        }
     }
 
     private void UpdateAnimations()

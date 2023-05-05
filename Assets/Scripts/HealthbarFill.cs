@@ -24,9 +24,15 @@ public class HealthbarFill : MonoBehaviour
     {
         float fillValue = dmg.Health / dmg.maxHealth;
         slider.value = fillValue;
-        if(fillValue <=0)
+        if (fillValue <= 0)
         {
             slider.value = 0;
         }
+        if (Input.GetButtonDown("Heal") && dmg.tag == "Player" && dmg.IsAlive)
+        {
+            slider.value += 25;
+            dmg.Health += 25;
+        }
+
     }
 }
