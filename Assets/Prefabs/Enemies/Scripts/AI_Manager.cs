@@ -11,7 +11,7 @@ public class AI_Manager : MonoBehaviour
     private Rigidbody2D rb;
     private Vector3 Targetposition;
     private Collider2D col;
-    private float minDistance = 4f;
+    public float minDistance = 4f;
 
     [Header("Jump")]
     [SerializeField]

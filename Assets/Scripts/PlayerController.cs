@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
     public LayerMask WhatIsGround;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
@@ -101,6 +101,8 @@ public class PlayerController : MonoBehaviour
         {
             canFlip = false;
             canMove = false;
+            canNormalJump = false;
+            canWallJump = false;
             anim.SetBool("isAlive", false);
         }
     }

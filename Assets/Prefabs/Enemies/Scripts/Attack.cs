@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour
     {
         //See if it can be hit
         Damageable dmg = collision.GetComponent<Damageable>();
+        Animator anim = collision.GetComponent<Animator>();
 
         if(dmg != null)
         {
