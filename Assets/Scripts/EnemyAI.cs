@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Pathfinding;
+//using Pathfinding;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -28,12 +28,12 @@ public class EnemyAI : MonoBehaviour
     public bool DirectionLookEnabled = true; //Checks if sprite needs to flip
 
     //Private variables
-    private Path path;
+    //private Path path;
     private int CurrWaypoint = 0;
     public DetectionZone attackZone;    //For attack
     public bool _hasTarget = false;
     bool IsGrounded = false;
-    Seeker seeker;
+    //Seeker seeker;
     Rigidbody2D rb;
     
     public bool HasTarget { 
@@ -141,14 +141,14 @@ public class EnemyAI : MonoBehaviour
         return Vector2.Distance(transform.position, target.transform.position) < ActivateDistance;
     }
 
-    private void OnPathComplete(Path p)
-    {
-        if(!p.error)
-        {
-            path = p;
-            CurrWaypoint = 0;
-        }
-    }
+    //private void OnPathComplete(Path p)
+    //{
+    //    if(!p.error)
+    //    {
+    //        path = p;
+    //        CurrWaypoint = 0;
+    //    }
+    //}
    
 
     public void Die()
