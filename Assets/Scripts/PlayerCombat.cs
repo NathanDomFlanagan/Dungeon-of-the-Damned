@@ -18,7 +18,7 @@ public class PlayerCombat : MonoBehaviour
 
 
     //Damage amount
-    public int AtkDmg = 40;
+    public int AtkDmg = 50;
 
     //Attack Time
     public float AtkRate = 4.0f;
@@ -86,9 +86,8 @@ public class PlayerCombat : MonoBehaviour
         //Damage enemy
         foreach (Collider2D enemy in HitEnemies)
         {
-            // remove comment when enemy is imported
-            //  enemy.GetComponent<EnemyAI>().TakeDamage(AtkDmg);
-            //Debug.Log("Damage");
+            enemy.GetComponent<Damageable>().Hit(AtkDmg);
+            Debug.Log("Damage");
         }
     }
 

@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private Damageable dmg;
+
 
     public int amountOfJumps = 1;
     private int facingDirection = 1;
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         amountOfJumpsLeft = amountOfJumps;
@@ -88,9 +91,19 @@ public class PlayerController : MonoBehaviour
         CheckIfCanJump();
         checkIfWallSliding();
         checkJump();
+        checkIfDead();
         //checkDash();
     }
 
+    private void checkIfDead()
+    {
+        if(!dmg.IsAlive)
+        {
+            canFlip = false;
+            canMove = false;
+            anim.SetBool("isAlive", false);
+        }
+    }
     private void FixedUpdate()
     {
         ApplyMovement();
@@ -202,6 +215,7 @@ public class PlayerController : MonoBehaviour
             checkJumpMultiplier = false;
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * variableJumpHeightMultiplier);
         }
+        
         /*
         if (Input.GetButtonDown("Dash") && enableDash && movementInputDirection !=0)
         { 
@@ -270,9 +284,8 @@ public class PlayerController : MonoBehaviour
                 canFlip = true;
             }
         }
-    }
+    }*/
 
-    
     private void AttemptToDash()
     {
         if (enableDash)
@@ -280,12 +293,10 @@ public class PlayerController : MonoBehaviour
             isDashing = true;
             dashTimeLeft = dashTime;
             lastDash = Time.time;
-
             PlayerAfterImagePool.instance.getFromPool();
             lastImageXpos = transform.position.x;
         }
     }
-    */
 
         private void checkJump()
     {
