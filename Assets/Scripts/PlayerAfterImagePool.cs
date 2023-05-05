@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerAfterImagePool : MonoBehaviour
 {
+    /*
     [SerializeField]
     private GameObject afterImagePrefab;
 
@@ -43,5 +44,5 @@ public class PlayerAfterImagePool : MonoBehaviour
         var instance = availableObjects.Dequeue();
         instance.SetActive(true);
         return instance;
-    }
+    }*/
 }

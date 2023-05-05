@@ -103,12 +103,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1451828926696432848}
   - component: {fileID: 1451828926696432863}
+  - component: {fileID: 1598136865054087625}
   - component: {fileID: 1451828926696432850}
   - component: {fileID: 1451828926696432852}
+  - component: {fileID: 2765944042830373089}
   - component: {fileID: 1451828926696432862}
   - component: {fileID: 1451828926696432849}
   - component: {fileID: 1451828926696432851}
-  - component: {fileID: 2765944042830373089}
   m_Layer: 6
   m_Name: player
   m_TagString: Player
@@ -186,6 +187,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1598136865054087625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac7ce7c851fa8d34bb1b8d401423d088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController: {fileID: 1451828926696432850}
+  playerCombat: {fileID: 1451828926696432852}
+  playerDamage: {fileID: 2765944042830373089}
+  className: knight
+  amountOfJumps: 0
 --- !u!114 &1451828926696432850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,10 +229,6 @@ MonoBehaviour:
   wallHopForce: 10
   wallJumpForce: 25
   jumpTimerSet: 0.15
-  dashTime: 0.2
-  dashSpeed: 25
-  distanceBetweenImages: 1
-  dashCooldown: 10
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1451828924828055124}
@@ -234,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3726818ee74393443af31312f3519a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackTimer: 0
   AttackPoint: {fileID: 1451828926327303957}
   AttackRange: 0.5
   EnemyLayers:
@@ -241,6 +256,23 @@ MonoBehaviour:
     m_Bits: 512
   AtkDmg: 50
   AtkRate: 2
+--- !u!114 &2765944042830373089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b181b897766739648b8ffd88d867683f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _Health: 100
+  isInvincible: 0
+  invincibilityTime: 0.25
+  _isAlive: 1
 --- !u!50 &1451828926696432862
 Rigidbody2D:
   serializedVersion: 4
@@ -309,20 +341,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2765944042830373089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1451828926696432861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b181b897766739648b8ffd88d867683f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 100
-  _Health: 100
-  isInvincible: 0
-  invincibilityTime: 0.25
-  _isAlive: 1
