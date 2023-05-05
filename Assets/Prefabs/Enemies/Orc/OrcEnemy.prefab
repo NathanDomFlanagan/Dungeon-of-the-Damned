@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14bea164799044c8a7bda3d482ddbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: 2
+  Movement: 1
   JumpHeight: 420
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}
