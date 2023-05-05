@@ -8,7 +8,7 @@ public class Damageable : MonoBehaviour
     //EnemyAI enemy;
 
     [SerializeField]
-    private float _maxHealth = 100f;
+    private float _maxHealth = 100;
 
     public float maxHealth
     {
@@ -23,7 +23,7 @@ public class Damageable : MonoBehaviour
     }
 
     [SerializeField]
-    private float _Health = 100f;
+    private float _Health = 100;
 
     [SerializeField]
     private bool isInvincible = false;

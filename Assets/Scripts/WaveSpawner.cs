@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -27,7 +28,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeLeft;
     public bool timerOn = true;
     
-    public Text timerText;
+    public TextMeshProUGUI timerText;
     
     // Start is called before the first frame update
     void Start()

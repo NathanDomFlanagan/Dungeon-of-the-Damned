@@ -12,6 +12,8 @@ public class AI_Manager : MonoBehaviour
     private Vector3 Targetposition;
     private Collider2D col;
     public float minDistance = 4f;
+    public bool constantFollow = false;     //Mainly used for wave spawner
+    private float minConstFollow = 1f;
 
     [Header("Jump")]
     [SerializeField]
@@ -64,10 +66,19 @@ public class AI_Manager : MonoBehaviour
     void FixedUpdate()
     {
         Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
-        if(Vector2.Distance(transform.position, Target.position) < minDistance)
+        if(constantFollow == true)
         {
-            rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
-        } 
+            if (Vector2.Distance(transform.position, Target.position) > minConstFollow)
+            {
+                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+            }
+        } else
+        {
+            if (Vector2.Distance(transform.position, Target.position) < minDistance)
+            {
+                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+            }
+        }
     }
 
     private void Jump()
