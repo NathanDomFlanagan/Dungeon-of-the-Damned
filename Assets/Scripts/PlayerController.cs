@@ -284,7 +284,7 @@ public class PlayerController : MonoBehaviour
                 canFlip = true;
             }
         }
-    }*/
+    }
 
     private void AttemptToDash()
     {
@@ -296,9 +296,9 @@ public class PlayerController : MonoBehaviour
             PlayerAfterImagePool.instance.getFromPool();
             lastImageXpos = transform.position.x;
         }
-    }
+    }*/
 
-        private void checkJump()
+    private void checkJump()
     {
         if (jumpTimer > 0)
         {
