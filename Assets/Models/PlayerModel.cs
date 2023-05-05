@@ -7,6 +7,7 @@ public class PlayerModel : MonoBehaviour
     public ArrayList Inventory;
     public PlayerController playerController;
     public PlayerCombat playerCombat;
+    public Damageable playerDamage;
 
     public string className;
 
@@ -99,5 +100,6 @@ public class PlayerModel : MonoBehaviour
     {
         playerController.SetStats(amountOfJumps, charMoveSpeed, charJumpForce);
         playerCombat.SetStats(charAttackDmg, charAttackRate, charAttackRange);
+        playerDamage.maxHealth = charHealth;
     }
 }
