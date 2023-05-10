@@ -14,8 +14,8 @@ namespace DoD
         [Header("Defense")]
         public float defense;
 
-        [Header("Discription")]
-        public string discription;
+        [Header("Description")]
+        public string description;
 
         public GameObject modelPrefab;
     }

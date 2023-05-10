@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239ef3af87a2dd04ba88d806bd5d3405, type: 3}
   m_Name: Sword 1
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 2e06b328e542df944aa29b6adb9f003f, type: 3}
   itemName: Sword 1
   damage: 69
-  modelPrefab: {fileID: 0}
+  description: This is weapon for knight
+  modelPrefab: {fileID: 5982417416262491990, guid: afbd72e0b8e05b84e829efdc539a50e5, type: 3}
