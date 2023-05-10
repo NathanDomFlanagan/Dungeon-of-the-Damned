@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 239ef3af87a2dd04ba88d806bd5d3405, type: 3}
   m_Name: Aex 1
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 70c37b2e4dd3edc488786ef7de224448, type: 3}
   itemName: Sword 1
   damage: 69
-  modelPrefab: {fileID: 0}
+  discription: This is berserker's weapon
+  modelPrefab: {fileID: 340133239860182768, guid: f392b1df188d5c5488121540cd97bba5, type: 3}
