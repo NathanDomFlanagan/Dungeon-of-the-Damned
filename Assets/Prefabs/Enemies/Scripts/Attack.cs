@@ -5,8 +5,9 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public int attackDmg;
+    //determines whether attacks deals true damage or armour reduced damage
+    public bool trueDamage; 
 
-    
     public void OnTriggerEnter2D(Collider2D collision)
     {
         //See if it can be hit
@@ -15,7 +16,8 @@ public class Attack : MonoBehaviour
 
         if(dmg != null)
         {
-            dmg.Hit(attackDmg);
+            //hits player dealing damage (reduced damage if truedama is false)
+            dmg.Hit(attackDmg,trueDamage);
             Debug.Log(collision.name + " hit for " + attackDmg);
         }
     }

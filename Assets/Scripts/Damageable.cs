@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
 
 public class Damageable : MonoBehaviour
@@ -9,6 +10,9 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private float _maxHealth = 100;
+
+    
+    public float armour; //armour value between 0-100
 
     public float maxHealth
     {
@@ -62,7 +66,7 @@ public class Damageable : MonoBehaviour
         { 
             _isAlive = value; 
             animator.SetBool("isAlive",value);
-            Debug.Log("isAlive set " + value);
+            UnityEngine.Debug.Log("isAlive set " + value);
         }
     }
 
@@ -87,12 +91,23 @@ public class Damageable : MonoBehaviour
         //Hit(10); //Testing to see if it works
     }
 
-    public void Hit(int dmg)
+    public void Hit(int dmg, bool trueDamage)
     {
         if(IsAlive && !isInvincible)
         {
             animator.SetTrigger("Hurt");
-            Health -= dmg;
+            //if trueDamage, then deals full damage amount
+            if (trueDamage) { 
+                Health -= dmg;
+                UnityEngine.Debug.Log(Health);
+            }
+            //else deals reduced damage
+            else { 
+                //reduces damage by armour percentage
+                Health -= dmg * (1-(armour / 100));
+                UnityEngine.Debug.Log(Health);
+
+            }
             isInvincible = true;
         }
     }

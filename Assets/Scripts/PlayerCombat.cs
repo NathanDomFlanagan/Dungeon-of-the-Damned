@@ -23,6 +23,9 @@ public class PlayerCombat : MonoBehaviour
 
     //Attack Time
     public float AtkRate = 4.0f;
+
+    //determines if player deals true damage or reduced armour damage
+    public bool trueDamage; 
     // Start is called before the first frame update
     void Start()
     { 
@@ -93,7 +96,7 @@ public class PlayerCombat : MonoBehaviour
         //Damage enemy
         foreach (Collider2D enemy in HitEnemies)
         {
-            enemy.GetComponent<Damageable>().Hit(AtkDmg);
+            enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
             Debug.Log("Damage");
         }
     }
