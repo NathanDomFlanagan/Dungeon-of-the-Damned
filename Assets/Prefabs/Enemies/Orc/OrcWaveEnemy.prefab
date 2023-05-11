@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 25
+  trueDamage: 0
 --- !u!60 &3753969914377891007
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -417,6 +418,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 200
+  armour: 15
   _Health: 200
   isInvincible: 0
   invincibilityTime: 0

@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 10
+  trueDamage: 0
 --- !u!1 &4991710693760188213
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +410,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  armour: 5
   _Health: 100
   isInvincible: 0
   invincibilityTime: 0

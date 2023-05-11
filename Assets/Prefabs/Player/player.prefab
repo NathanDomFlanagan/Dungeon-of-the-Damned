@@ -256,6 +256,7 @@ MonoBehaviour:
     m_Bits: 512
   AtkDmg: 50
   AtkRate: 2
+  trueDamage: 0
 --- !u!114 &2765944042830373089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  armour: 30
   _Health: 100
   isInvincible: 0
   invincibilityTime: 0.25
