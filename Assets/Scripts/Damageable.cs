@@ -99,13 +99,14 @@ public class Damageable : MonoBehaviour
             //if trueDamage, then deals full damage amount
             if (trueDamage) { 
                 Health -= dmg;
-                UnityEngine.Debug.Log(Health);
+                UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now "+Health);
+                
             }
             //else deals reduced damage
             else { 
                 //reduces damage by armour percentage
                 Health -= dmg * (1-(armour / 100));
-                UnityEngine.Debug.Log(Health);
+                UnityEngine.Debug.Log("Hit for " + dmg * (1 - (armour / 100)) + ". Health is now " + Health);
 
             }
             isInvincible = true;
