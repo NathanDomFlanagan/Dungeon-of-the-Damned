@@ -9,6 +9,14 @@ public class ProjectileLauncher : MonoBehaviour
 
     public void fireProjectile()
     {
-        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        GameObject proj = Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        Vector3 origScale = proj.transform.localScale;
+
+        //Flips the projectile depending on the direction the user's facing.
+        proj.transform.localScale = new Vector3(
+                origScale.x * transform.localScale.x > 0 ? 1 : -1,
+                origScale.y,
+                origScale.z
+            );
     }
 }
