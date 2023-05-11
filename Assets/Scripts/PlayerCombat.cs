@@ -12,7 +12,7 @@ public class PlayerCombat : MonoBehaviour
     private Animator anim;
 
     public float attackTimer = 0.0f;
-
+    public bool IsArcher = false;
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
     public LayerMask EnemyLayers;
@@ -87,22 +87,30 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = true;
 
-        //Detect enimies in range of attack
-        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
-
-        //Damage enemy
-        foreach (Collider2D enemy in HitEnemies)
+        if(IsArcher && AttackPoint != null)
         {
-            enemy.GetComponent<Damageable>().Hit(AtkDmg);
-            Debug.Log("Damage");
+            //Detect enimies in range of attack
+            Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+
+            //Damage enemy
+            foreach (Collider2D enemy in HitEnemies)
+            {
+                enemy.GetComponent<Damageable>().Hit(AtkDmg);
+                Debug.Log("Damage");
+            }
+        } else
+        {
+            UpdateAnimations();
+            
         }
+
     }
 
-    void OnDrawGizmosSelected()
+    /*void OnDrawGizmosSelected()
     {
         if (AttackPoint == null)
             return;
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
-    }
+    }*/
 }
  
