@@ -23,12 +23,22 @@ public class PlayerModel : MonoBehaviour
     private float charAttackRange;
     private float charAttackRate;
     private float charJumpForce;
-    
+
+    private static PlayerModel Instance;
+     
     
     
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        if(Instance != null)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        GameObject.DontDestroyOnLoad(this.gameObject);
+
         switch (className)
         {
             case "knight":
