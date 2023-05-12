@@ -225,6 +225,7 @@ MonoBehaviour:
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  projectilePrefab: {fileID: 0}
   AtkDmg: 50
   AtkRate: 2
 --- !u!114 &2765944042830373089
