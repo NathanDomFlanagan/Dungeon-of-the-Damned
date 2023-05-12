@@ -12,6 +12,13 @@ public class ProjectileLauncher : MonoBehaviour
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, projectilePrefab.transform.rotation);
         Vector3 origScale = proj.transform.localScale;
         
-        proj.transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1,1,1));
+        if(transform.rotation.eulerAngles.y == -180)
+        {
+            proj.transform.localScale = Vector3.Scale(transform.localScale, new Vector3(-1, 1, 1));
+        } else
+        {
+            proj.transform.localScale = Vector3.Scale(transform.localScale, new Vector3(1, 1, 1));
+        }
+
     }
 }
