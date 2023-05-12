@@ -16,6 +16,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
     public LayerMask EnemyLayers;
+    public GameObject projectilePrefab;
 
 
     //Damage amount
@@ -87,7 +88,7 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = true;
 
-        if(IsArcher && AttackPoint != null)
+        if(IsArcher && AttackPoint != null && projectilePrefab == null)
         {
             //Detect enimies in range of attack
             Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
@@ -100,8 +101,13 @@ public class PlayerCombat : MonoBehaviour
             }
         } else
         {
-            UpdateAnimations();
-            
+            if(projectilePrefab != null)
+            {
+                GameObject projectile = Instantiate(projectilePrefab, AttackPoint.position, projectilePrefab.transform.rotation);
+                Vector3 origScale = projectile.transform.localScale;
+
+                projectile.transform.localScale = new Vector3(origScale.x * transform.localScale.x > 0 ? 1 : -1, origScale.y, origScale.z);
+            }
         }
 
     }
