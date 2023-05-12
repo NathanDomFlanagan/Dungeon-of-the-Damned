@@ -5,16 +5,19 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Terrain
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - Terrain
   - Water
   - UI
-  - Terrain
+  - Player
+  - Background
+  - 
   - Enemy
-  - PlayerHitbox
+  - EnemyDetect
   - EnemyHitbox
   - 
   - 
@@ -36,15 +39,16 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 362352705
+  - name: Bg
+    uniqueID: 1867351199
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Terrain
-    uniqueID: 4006010737
+    uniqueID: 3560592171
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3781169979
     locked: 0

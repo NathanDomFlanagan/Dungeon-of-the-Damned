@@ -5,40 +5,107 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     //References
-    public Animator animator;
+    private bool isAttacking;
+    private bool canAttack = true;
+    private Damageable dmg;
+
+    private Animator anim;
+
+    public float attackTimer = 0.0f;
+
+    public Transform AttackPoint;
+    public float AttackRange = 0.5f;
+    public LayerMask EnemyLayers;
+
 
     //Damage amount
-    public int attackDmg = 50;
+    public int AtkDmg = 50;
 
     //Attack Time
-    public float AtkRate = 2f;
-    float NextAtkTime = 0f;
+    public float AtkRate = 4.0f;
 
+    //determines if player deals true damage or reduced armour damage
+    public bool trueDamage; 
+    // Start is called before the first frame update
+    void Start()
+    { 
+        anim = GetComponent<Animator>();
+        dmg = GetComponent<Damageable>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        if(Time.time >= NextAtkTime)
+        UpdateAnimations();
+        CheckAttack();
+        if(!dmg.IsAlive)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                animator.SetTrigger("Attack");
-                NextAtkTime = Time.time + 1f / AtkRate;
-            }
+            AtkDmg = 0;
+            AtkRate = 0f;
         }
-
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    private void UpdateAnimations()
     {
-        //See if it can be hit
-        Damageable dmg = collision.GetComponent<Damageable>();
+        anim.SetBool("isAttacking", isAttacking);
+        anim.SetBool("canAttack", canAttack);
+    }
 
-        if (dmg != null)
+    public void SetStats(int dmg, float attackRate, float attackRange)
+    {
+        AtkDmg = dmg;
+        AtkRate = attackRate;
+        AttackRange = attackRange;
+    }
+
+    void CheckAttack()
+    {
+        if (attackTimer <= 0.0f)
         {
-            dmg.Hit(attackDmg);
-            Debug.Log(collision.name + " hit for " + attackDmg);
+            if (isAttacking)
+            {
+                isAttacking = false;
+            }
+            if (!canAttack)
+            {
+                canAttack = true;
+            }
+        }else
+        {
+            if(canAttack)
+            {
+                canAttack = false;
+            }
+            attackTimer -= Time.deltaTime;
         }
+
+        if (Input.GetButtonDown("Attack") && canAttack)
+        {
+            attackTimer = 1.0f / AtkRate;
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        isAttacking = true;
+
+        //Detect enimies in range of attack
+        Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
+
+        //Damage enemy
+        foreach (Collider2D enemy in HitEnemies)
+        {
+            enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
+            Debug.Log("Damage");
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        if (AttackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
     }
 }
  
