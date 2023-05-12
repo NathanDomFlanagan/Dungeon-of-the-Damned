@@ -17,7 +17,7 @@ public class ProjectileComponent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(moveSpeed.x * transform.localScale.x, moveSpeed.y);
+        rb.velocity = new Vector2(moveSpeed.x * transform.localScale.x > 0 ? 1 : -1, moveSpeed.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
