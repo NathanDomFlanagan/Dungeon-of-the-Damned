@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bceece852d57c9944845218e231b1c16, type: 3}
-  m_Name: Heavy Armor 1
+  m_Name: Light Armour 2
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: d4632ae93183e9f409d703c32a48d49b, type: 3}
-  itemName: Heavy Armour 1
-  defense: 420
-  discription: This is armour for knight
-  modelPrefab: {fileID: 2323587450627391999, guid: 5adeb2f0f08d17c44a6e9825f93d70dd, type: 3}
+  itemIcon: {fileID: 21300000, guid: e96e213fdb332e24fa595dbb44270435, type: 3}
+  itemName: Light Armour 2
+  defense: 100
+  discription: This is armour for magic archer
+  modelPrefab: {fileID: 3366281159984480697, guid: d18b18a3b4af1564ba8811e9cee046e8, type: 3}

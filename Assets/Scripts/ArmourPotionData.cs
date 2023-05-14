@@ -4,15 +4,15 @@ using UnityEngine;
 
 namespace DoD
 {
-    [CreateAssetMenu(fileName = "Armor", menuName = "Armor/Armor")]
-    public class ArmorData : ScriptableObject
+    [CreateAssetMenu(fileName = "Armour Potion", menuName = "Potion/Armour Potion")]
+    public class ArmourPotionData : ScriptableObject
     {
         [Header("Item Information")]
         public Sprite itemIcon;
         public string itemName;
 
-        [Header("Defense")]
-        public float defense;
+        [Header("Armour Boost")]
+        public float armourBoost;
 
         [Header("Discription")]
         public string discription;
