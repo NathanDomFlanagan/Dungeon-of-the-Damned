@@ -172,7 +172,7 @@ MonoBehaviour:
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
-  className: knight
+  className: archer
   amountOfJumps: 0
 --- !u!114 &1451828926696432850
 MonoBehaviour:
