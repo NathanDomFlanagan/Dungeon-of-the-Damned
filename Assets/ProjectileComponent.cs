@@ -26,7 +26,7 @@ public class ProjectileComponent : MonoBehaviour
 
         if (dmg != null)
         {
-            collision.GetComponent<Damageable>().Hit(damage);
+            collision.GetComponent<Damageable>().Hit(damage,true);
             Debug.Log("Projectile attack hit for " + damage);
             Destroy(gameObject);
         }

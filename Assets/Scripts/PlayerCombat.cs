@@ -95,7 +95,7 @@ public class PlayerCombat : MonoBehaviour
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg,false);
                 Debug.Log("Damage");
             }
         }
