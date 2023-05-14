@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DoD
 {
-    [CreateAssetMenu(fileName = "Sword", menuName = "Weapon/Sword")]
+    [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
     public class WeaponData : ScriptableObject
     {
         [Header("Item Information")]
