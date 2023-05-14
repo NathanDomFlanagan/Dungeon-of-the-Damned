@@ -380,14 +380,16 @@ public class PlayerController : MonoBehaviour
         {
             facingDirection *= -1;
             isFacingRight = !isFacingRight;
-            transform.Rotate(0.0f, 180.0f, 0.0f);
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
         }
     }
 
-    private void OnDrawGizmos()
+    /**private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
-    }
+    }**/
 }

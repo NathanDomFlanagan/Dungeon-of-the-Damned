@@ -37,6 +37,9 @@ public class PlayerModel : MonoBehaviour
             case "lancer":
                 selectLancer();
                 break;
+            case "archer":
+                selectArcher();
+                break;
         }
         reloadStats();
     }
@@ -85,6 +88,24 @@ public class PlayerModel : MonoBehaviour
         
 
         reloadAbility(); // gives the character access to the walljump and dash if v
+    }
+
+    private void selectArcher()
+    { // sets the base stats and variables for the knight.
+        enableWallJump = false;
+        enableDash = true;
+        enableWallSlide = false;
+        updatedStats = false;
+        amountOfJumps = 2;
+        charMoveSpeed = 15;
+        charAttackDmg = 10;
+        charAttackRange = 0.5f;
+        charAttackRate = 2;
+        charHealth = 100;
+        charJumpForce = 18;
+
+
+        reloadAbility(); // gives the character access to the walljump and dash if 
     }
 
     private void CalculateStats()
