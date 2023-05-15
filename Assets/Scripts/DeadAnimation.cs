@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class DeadAnimation : MonoBehaviour
@@ -19,15 +18,14 @@ public class DeadAnimation : MonoBehaviour
     {
         if (!dmg.IsAlive)
         {
-            animator.SetBool("IsAlive", false);            
-            UnityEngine.Debug.Log("Dead");
-            this.enabled = false; //Kills off the enemy
+            animator.SetBool("IsAlive", false);
+            
         }
     }
     void deathAnimationFinished()
     {
         GetComponent<Collider2D>().enabled = false; //Disables enemy collision
-       
+        this.enabled = false; //Kills off the enemy
         Destroy(gameObject, 0);
     }
 }
