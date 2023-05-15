@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d6820d79a6d185c478a0551e1785104f
+guid: 0db7efef7577e80448016b0c2722c472
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 20
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -101,23 +101,11 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: goblin-attack_0
+      name: orcdeath-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d496d06d899a5748be2655843e9ef7f
-      internalID: 1154748412
+      spriteID: 7b8bd25791330b1428c5d1c23b0efbdb
+      internalID: -1463475269
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: goblin-attack_1
+      name: orcdeath-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -152,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b7ece64389be6a447832376380815d53
-      internalID: -1774200124
+      spriteID: 379d92ed73548b2429a73febc648086c
+      internalID: 1651245222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: goblin-attack_2
+      name: orcdeath-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -173,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9611cc6ad0122004cad9fd066017976b
-      internalID: -537852350
+      spriteID: 4013041aeaf4eb64fb7ffdbf60decec8
+      internalID: -908153073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: goblin-attack_3
+      name: orcdeath-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -194,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 356fcb6f457d8a04e8276725314fe268
-      internalID: -1658856602
+      spriteID: 5991201e552f7804ea07dbb016524c48
+      internalID: -1320583053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: goblin-attack_4
+      name: orcdeath-Sheet_4
       rect:
         serializedVersion: 2
         x: 128
@@ -215,71 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 961280174b6bff541ac19e6f4010f40f
-      internalID: 1441642072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: goblin-attack_5
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3bfde2f520f56534397d96f745c0d135
-      internalID: -461805874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: goblin-attack_6
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b10dfb47c85b9e04193c440186b72fbe
-      internalID: 246118022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: goblin-attack_7
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4b0f42cf2fda6af4093d1465ff38e225
-      internalID: 145677577
+      spriteID: 52513d3d1413e65408e55228b55bbf88
+      internalID: 1538339579
       vertices: []
       indices: 
       edges: []
@@ -295,14 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      goblin-attack_0: 1154748412
-      goblin-attack_1: -1774200124
-      goblin-attack_2: -537852350
-      goblin-attack_3: -1658856602
-      goblin-attack_4: 1441642072
-      goblin-attack_5: -461805874
-      goblin-attack_6: 246118022
-      goblin-attack_7: 145677577
+      orcdeath-Sheet_0: -1463475269
+      orcdeath-Sheet_1: 1651245222
+      orcdeath-Sheet_2: -908153073
+      orcdeath-Sheet_3: -1320583053
+      orcdeath-Sheet_4: 1538339579
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
