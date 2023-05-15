@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DoD
 {
-    [CreateAssetMenu(fileName = "Sword", menuName = "Weapon/Sword")]
+    [CreateAssetMenu(fileName = "Weapon", menuName = "Weapon/Weapon")]
     public class WeaponData : ScriptableObject
     {
         [Header("Item Information")]
@@ -14,8 +14,8 @@ namespace DoD
         [Header("Attack")]
         public float damage;
 
-        [Header("Description")]
-        public string description;
+        [Header("Discription")]
+        public string discription;
 
         public GameObject modelPrefab;
     }

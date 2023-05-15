@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace DoD
 {
-    [CreateAssetMenu(fileName = "Heavy Armor", menuName = "Armor/Heavey Armor")]
+    [CreateAssetMenu(fileName = "Armor", menuName = "Armor/Armor")]
     public class ArmorData : ScriptableObject
     {
         [Header("Item Information")]
@@ -14,8 +14,8 @@ namespace DoD
         [Header("Defense")]
         public float defense;
 
-        [Header("Description")]
-        public string description;
+        [Header("Discription")]
+        public string discription;
 
         public GameObject modelPrefab;
     }
