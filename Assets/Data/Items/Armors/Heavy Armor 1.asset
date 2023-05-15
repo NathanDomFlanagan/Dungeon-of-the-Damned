@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Heavy Armor 1
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: d4632ae93183e9f409d703c32a48d49b, type: 3}
-  itemName: Heavy Armor 1
+  itemName: Heavy Armour 1
   defense: 420
-  description: This is armor for knight
+  discription: This is armour for knight
   modelPrefab: {fileID: 2323587450627391999, guid: 5adeb2f0f08d17c44a6e9825f93d70dd, type: 3}
