@@ -220,7 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackTimer: 0
   IsArcher: 1
-  AttackPoint: {fileID: 0}
+  AttackPoint: {fileID: 1195768275469471771}
   AttackRange: 0.5
   EnemyLayers:
     serializedVersion: 2
@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 100
+  armour: 0
   _Health: 100
   isInvincible: 0
   invincibilityTime: 0.25
