@@ -27,4 +27,9 @@ public class LevelMove_Ref : MonoBehaviour
             SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
         }
     }
+
+    public void goToLevel()
+    {
+        SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
+    }
 }
