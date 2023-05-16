@@ -9,17 +9,15 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start() // Start is called before the first frame update    
     {
         pauseMenu.SetActive(false);
         isPaused = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() // Update is called once per frame
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) // when clicking the escape key
         {
             if (isPaused)
             {
@@ -46,10 +44,25 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+public void GoToSetting()
+    {
+        Debug.Log("Going to setting menu...");
+        /*Time.timeScale = 1f; //Set the time scale to 1, so that it won't pause in the setting menu
+        SceneManager.LoadScene("SettingMenu");
+        isPaused = false;*/
+    }
+
+public void GoToInventory()
+    {
+        Debug.Log("Going to inventory...");
+        /*Time.timeScale = 1f;
+        SceneManager.LoadScene("Inventory");
+        isPaused = false;*/
+    }
     
     public void GoToMainMenu()
     {
-        Debug.Log("Quitting game...");
+        Debug.Log("Going to main menu...");
         /*Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
         isPaused = false;*/
