@@ -386,10 +386,10 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /**private void OnDrawGizmos()
+private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
-    }**/
+    }
 }

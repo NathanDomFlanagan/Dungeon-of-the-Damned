@@ -6,6 +6,7 @@ public class PlayerCombat : MonoBehaviour
 {
     //References
     private bool isAttacking;
+    private bool trueDamage;
     private bool canAttack = true;
     private Damageable dmg;
 
@@ -48,11 +49,12 @@ public class PlayerCombat : MonoBehaviour
         anim.SetBool("canAttack", canAttack);
     }
 
-    public void SetStats(int dmg, float attackRate, float attackRange)
+    public void SetStats(int dmg, float attackRate, float attackRange, bool truedamage)
     {
         AtkDmg = dmg;
         AtkRate = attackRate;
         AttackRange = attackRange;
+        trueDamage = truedamage;
     }
 
     void CheckAttack()
@@ -92,17 +94,17 @@ public class PlayerCombat : MonoBehaviour
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,false);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
                 Debug.Log("Damage");
             }
     }
 
 
-    /*void OnDrawGizmosSelected()
+void OnDrawGizmosSelected()
     {
         if (AttackPoint == null)
             return;
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
-    }*/
+    }
 }
  
