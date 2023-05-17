@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         //checkDash();
     }
 
-    private void checkIfDead()
+      void checkIfDead()
     {
         if(!dmg.IsAlive)
         {
