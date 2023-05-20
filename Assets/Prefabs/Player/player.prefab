@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 1451828926696432848}
   - component: {fileID: 1451828926696432863}
   - component: {fileID: 1598136865054087625}
+  - component: {fileID: 5817195612839768313}
   - component: {fileID: 1451828926696432850}
   - component: {fileID: 1451828926696432852}
   - component: {fileID: 2765944042830373089}
@@ -199,11 +200,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7ce7c851fa8d34bb1b8d401423d088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 5817195612839768313}
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
   className: knight
-  amountOfJumps: 0
+  updatedStats: 0
+--- !u!114 &5817195612839768313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1336593b6fa99fd4da8779acb2af7651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  epicitem: {fileID: 0}
 --- !u!114 &1451828926696432850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackTimer: 0
+  IsArcher: 0
   AttackPoint: {fileID: 1451828926327303957}
   AttackRange: 0.5
   EnemyLayers:
@@ -256,7 +272,6 @@ MonoBehaviour:
     m_Bits: 512
   AtkDmg: 50
   AtkRate: 2
-  trueDamage: 0
 --- !u!114 &2765944042830373089
 MonoBehaviour:
   m_ObjectHideFlags: 0
