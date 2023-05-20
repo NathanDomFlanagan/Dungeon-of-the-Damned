@@ -6,12 +6,13 @@ public class PlayerCombat : MonoBehaviour
 {
     //References
     private bool isAttacking;
+    private bool trueDamage;
     private bool canAttack = true;
     private Damageable dmg;
 
     private Animator anim;
 
-    public float attackTimer = 0.0f;
+    private float attackTimer = 0.0f;
     public bool IsArcher = false;
     public Transform AttackPoint;
     public float AttackRange = 0.5f;
@@ -19,10 +20,10 @@ public class PlayerCombat : MonoBehaviour
 
 
     //Damage amount
-    public int AtkDmg = 50;
+    private int AtkDmg = 50;
 
     //Attack Time
-    public float AtkRate = 4.0f;
+    private float AtkRate = 4.0f;
     // Start is called before the first frame update
     void Awake()
     { 
@@ -48,11 +49,12 @@ public class PlayerCombat : MonoBehaviour
         anim.SetBool("canAttack", canAttack);
     }
 
-    public void SetStats(int dmg, float attackRate, float attackRange)
+    public void SetStats(int dmg, float attackRate, float attackRange, bool truedamage)
     {
         AtkDmg = dmg;
         AtkRate = attackRate;
         AttackRange = attackRange;
+        trueDamage = truedamage;
     }
 
     void CheckAttack()
@@ -92,17 +94,17 @@ public class PlayerCombat : MonoBehaviour
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,false);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
                 Debug.Log("Damage");
             }
     }
 
 
-    /*void OnDrawGizmosSelected()
+void OnDrawGizmosSelected()
     {
         if (AttackPoint == null)
             return;
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
-    }*/
+    }
 }
  
