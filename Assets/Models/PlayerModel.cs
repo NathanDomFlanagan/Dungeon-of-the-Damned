@@ -5,15 +5,15 @@ using DoD;
 
 public class PlayerModel : MonoBehaviour
 {
-    public ArrayList Inventory;
+    public PlayerInventory Inventory;
     public PlayerController playerController;
     public PlayerCombat playerCombat;
     public Damageable playerDamage;
 
     public string className;
 
-    private ArmorData armor;
-    public WeaponData weapon;
+    private ArmorData armor = null;
+    private WeaponData weapon = null;
 
     //sets which of the abilities are enabled for the specific player class
     private bool enableWallJump;
@@ -35,16 +35,17 @@ public class PlayerModel : MonoBehaviour
     private float charJumpForce;
     private bool charTrueDmg;
     
-    
-    
     // Start is called before the first frame update
     void Start()
     {
+        Inventory.pmSet(this);
+
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
 
-        addItem(UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Data/Items/Weapons/Axe1.asset", typeof(WeaponData)));
+        //$$test code to be removed
+        AddItem(UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Data/Items/Weapons/Axe 2.asset", typeof(WeaponData)));
     }
 
     // Update is called once per frame
@@ -58,21 +59,21 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public Object addItem(Object data)
+    public Object AddItem(Object data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
     {
-        if (data is ArmorData)
+        if (data is ArmorData && data != null)
         {
             updatedStats = true;
             return ArmorAdd((ArmorData)data);
         }
-        else if (data is WeaponData)
+        else if (data is WeaponData && data != null)
         {
             updatedStats = true;
             return WeaponAdd((WeaponData)data);
         }
         else
-        {
-            return null;
+        {   
+            return data;
         }
     }
 
