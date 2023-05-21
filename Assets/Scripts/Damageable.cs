@@ -112,5 +112,12 @@ public class Damageable : MonoBehaviour
             isInvincible = true;
         }
     }
+
+    //required to be able to set the players stats so a value
+    public void SetStats(float charhp, float chararm)
+    {// sets the players help and armour to the values for the class
+        maxHealth = charhp;
+        armour = chararm;
+    }
 }
 
