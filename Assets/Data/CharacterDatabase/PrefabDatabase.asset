@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbfdb39d5a1685b4c9dd6d1966f499d1, type: 3}
+  m_Name: PrefabDatabase
+  m_EditorClassIdentifier: 
+  characterPrefab:
+  - prefabName: knight
+    prefab: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  - prefabName: archer
+    prefab: {fileID: 1451828926696432861, guid: 9d6cba7dd84a0654eb63f206488b1b33, type: 3}
