@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character:
   - characterName: Aculon
-    className: knight
+    className: Knight
     characterSprite: {fileID: 21300000, guid: 63df454fcc041aa4898b00c3febb7835, type: 3}
   - characterName: Lancer
-    className: lancer
+    className: Lancer
     characterSprite: {fileID: -492352080, guid: 3ca921b061dd4d04ebae1f53c8f37e19, type: 3}
   - characterName: Archer
-    className: archer
+    className: Archer
     characterSprite: {fileID: 21300000, guid: 3ecb8e49fd65084409270470d204b430, type: 3}

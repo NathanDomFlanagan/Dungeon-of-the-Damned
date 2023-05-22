@@ -7,7 +7,6 @@ using TMPro;
 public class CharacterSelectManager : MonoBehaviour
 {
     public CharacterSpriteDatabase characterDB;
-
     public TextMeshProUGUI characterName;
     public SpriteRenderer classSprite;
 
@@ -45,5 +44,7 @@ public class CharacterSelectManager : MonoBehaviour
         CharacterSelect character = characterDB.getCharacter(option);
         classSprite.sprite = character.characterSprite;
         characterName.text = character.characterName;
+        PlayerPrefs.SetString("className",character.className);
+        Debug.Log(PlayerPrefs.GetString("className"));
     }
 }

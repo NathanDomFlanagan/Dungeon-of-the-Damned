@@ -15,5 +15,7 @@ MonoBehaviour:
   characterPrefab:
   - prefabName: knight
     prefab: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  - prefabName: lancer
+    prefab: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
   - prefabName: archer
     prefab: {fileID: 1451828926696432861, guid: 9d6cba7dd84a0654eb63f206488b1b33, type: 3}

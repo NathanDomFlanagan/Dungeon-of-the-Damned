@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl6.unity
     guid: a5c140719d31eb04485d6e801e0b08e7
+  - enabled: 1
+    path: Assets/Scenes/characterSelect2Test.unity
+    guid: 3e3de3cff2001c24aac897ddbb3b38b8
   m_configObjects: {}
