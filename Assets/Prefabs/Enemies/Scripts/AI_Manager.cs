@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Damageable))]
+
 public class AI_Manager : MonoBehaviour
 {
     [Header("Pathfinding")]
@@ -21,6 +23,7 @@ public class AI_Manager : MonoBehaviour
 
     [Header("Damage")]
     public Animator animator;
+    Damageable damageable;
 
     [Header("Attack Zone")]
     public DetectionZone attackZone;    //For attack
@@ -66,17 +69,20 @@ public class AI_Manager : MonoBehaviour
     void FixedUpdate()
     {
         Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
-        if(constantFollow == true)
+        if(!damageable.LockVelocity) //this if statement is for the knockback thing
         {
-            if (Vector2.Distance(transform.position, Target.position) > minConstFollow)
+            if(constantFollow == true)
             {
-                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
-            }
-        } else
-        {
-            if (Vector2.Distance(transform.position, Target.position) < minDistance)
+                if (Vector2.Distance(transform.position, Target.position) > minConstFollow)
+                {
+                    rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                }
+            } else
             {
-                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                if (Vector2.Distance(transform.position, Target.position) < minDistance)
+                {
+                    rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                }
             }
         }
     }
@@ -94,4 +100,8 @@ public class AI_Manager : MonoBehaviour
         }
     }
 
+    public void OnHit(int dmg, bool trueDamage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
+    }
 }

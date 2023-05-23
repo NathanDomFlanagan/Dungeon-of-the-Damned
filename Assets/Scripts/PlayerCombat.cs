@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
     public float AttackRange = 0.5f;
     public LayerMask EnemyLayers;
 
+    private Vector2 knockback;
 
     //Damage amount
     private int AtkDmg = 50;
@@ -94,7 +95,7 @@ public class PlayerCombat : MonoBehaviour
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage,knockback);
                 Debug.Log("Damage");
             }
     }

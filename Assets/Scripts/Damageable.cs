@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Damageable : MonoBehaviour
+public class Damageable : MonoBehaviour//, IDamageable
 {
+    public UnityEvent<int, bool, Vector2> damageableHit;
     Animator animator;
     //EnemyAI enemy;
 
@@ -31,6 +33,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private bool isInvincible = false;
+    
     private float timeSinceHit = 0f;
     public float invincibilityTime = 0.25f;
 
@@ -91,7 +94,14 @@ public class Damageable : MonoBehaviour
         //Hit(10); //Testing to see if it works
     }
 
-    public void Hit(int dmg, bool trueDamage)
+    public bool LockVelocity {get {
+        return animator.GetBool(AnimationStrings.lockVelocity);
+    }
+    set{
+        animator.SetBool(AnimationStrings.lockVelocity, value);
+    }}
+
+    public bool Hit(int dmg, bool trueDamage, Vector2 knockback)
     {
         if(IsAlive && !isInvincible)
         {
@@ -100,17 +110,24 @@ public class Damageable : MonoBehaviour
             if (trueDamage) { 
                 Health -= dmg;
                 UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now "+Health);
-                
+                //rb.AddForce(knockback, ForceMode2D.Impulse); //apply knockback
             }
             //else deals reduced damage
             else { 
                 //reduces damage by armour percentage
                 Health -= dmg * (1-(armour / 100));
                 UnityEngine.Debug.Log("Hit for " + dmg * (1 - (armour / 100)) + ". Health is now " + Health);
-
+                //rb.AddForce(knockback, ForceMode2D.Impulse); //apply knockback
             }
             isInvincible = true;
+
+            animator.SetTrigger(AnimationStrings.hitTrigger);
+            LockVelocity = true;
+            damageableHit?.Invoke(dmg, trueDamage, knockback);
+
+            return true;
         }
+        return false;
     }
 
     //required to be able to set the players stats so a value

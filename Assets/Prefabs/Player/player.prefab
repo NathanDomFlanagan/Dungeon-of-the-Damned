@@ -71,6 +71,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451828926327303957}
+  - component: {fileID: 4345551041858109150}
+  - component: {fileID: 4656570999472696722}
   m_Layer: 6
   m_Name: attackPoint
   m_TagString: Player
@@ -93,6 +95,57 @@ Transform:
   m_Father: {fileID: 1451828926696432848}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4345551041858109150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926327303956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459d325e398cad24f94809a5f7e8d8e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDmg: 15
+  trueDamage: 0
+  knockback: {x: 5, y: 2}
+--- !u!60 &4656570999472696722
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926327303956}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.15992737, y: 0.28437448}
+      - {x: -0.3041687, y: 0.7299232}
+      - {x: -1.2007542, y: 1.0631975}
+      - {x: -0.39280993, y: 0.61447203}
+      - {x: -0.14238739, y: 0.19134894}
+      - {x: -0.40384674, y: -0.13013956}
+      - {x: -1.5462813, y: -0.21917278}
+      - {x: -1.2639618, y: -0.5342267}
+      - {x: -0.5181736, y: -0.6194241}
+      - {x: -0.10889435, y: -0.4760011}
+      - {x: 0.23481655, y: -0.21762949}
 --- !u!1 &1451828926696432861
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +271,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1336593b6fa99fd4da8779acb2af7651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  epicitem: {fileID: 0}
+  update: 0
+  removeupdate: 0
 --- !u!114 &1451828926696432850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,19 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b84890ca31b5345b438ac327b379f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfJumps: 2
-  movementSpeed: 10
-  jumpForce: 16
-  wallSlideSpeed: 1
-  groundCheckRadius: 0.25
-  wallCheckDistance: 0.4
-  movementForceInAir: 20
-  airDragMultiplier: 0.95
-  variableJumpHeightMultiplier: 0.5
-  turnTimerSet: 0.1
-  wallHopForce: 10
-  wallJumpForce: 25
-  jumpTimerSet: 0.15
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1451828924828055124}
@@ -263,15 +304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3726818ee74393443af31312f3519a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTimer: 0
   IsArcher: 0
   AttackPoint: {fileID: 1451828926327303957}
   AttackRange: 0.5
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 512
-  AtkDmg: 50
-  AtkRate: 2
 --- !u!114 &2765944042830373089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +322,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b181b897766739648b8ffd88d867683f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageableHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1451828926696432850}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnHit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _maxHealth: 100
   armour: 30
   _Health: 100

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Damageable))]
+
 public class PlayerController : MonoBehaviour 
 {
 
@@ -355,7 +357,7 @@ public class PlayerController : MonoBehaviour
     {
         if (canMove)
         {
-            if (!isGrounded && !isWallSliding && movementInputDirection == 0)
+            if (!isGrounded && !isWallSliding && movementInputDirection == 0 && dmg.LockVelocity)
             {
                 rb.velocity = new Vector2(rb.velocity.x * airDragMultiplier, rb.velocity.y);
             }
@@ -390,5 +392,10 @@ private void OnDrawGizmos()
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
+    }
+
+    public void OnHit(int dmg, bool trueDamage, Vector2 knockback)
+    {
+        rb.velocity = new Vector2(knockback.x, rb.velocity.y + knockback.y);
     }
 }
