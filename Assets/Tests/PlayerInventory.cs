@@ -5,20 +5,20 @@ using DoD;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private PlayerModel pm = null;
+    //private PlayerModel pm = null;
 
     public Object[] Inventory = new Object[10];
     private Object epicitem;
     public bool update = false;
     public bool removeupdate = false;
 
-    public void pmSet(PlayerModel add)
+    /*public void pmSet(PlayerModel add)
     {
         if(pm == null)
         {
             pm = add;
         }
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()//Not nessicary to Initialise anything other than the variables above.
@@ -70,7 +70,7 @@ public class PlayerInventory : MonoBehaviour
     public void EquipItem(int i) //swaps the value from the array to the player equipslot which is of the same type as it,
     {   //cannot equip item frame 0;
         Object item = Inventory[i];
-        Inventory[i] = pm.AddItem(item);
+        //Inventory[i] = pm.AddItem(item);
     }
 
     public void UseItem() // to add functionality when single use items are implemented

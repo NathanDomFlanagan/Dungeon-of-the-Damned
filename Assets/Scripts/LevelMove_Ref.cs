@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 public class LevelMove_Ref : MonoBehaviour
 {
     public int sceneBuildIndex;
- 
+    public string seekType;
+
     // Level move zoned enter, if collider is a player
     // Move game to another scene
     private void OnTriggerEnter2D(Collider2D other) 
