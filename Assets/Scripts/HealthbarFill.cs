@@ -16,6 +16,7 @@ public class HealthbarFill : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+
         slider = GetComponent<Slider>();
     }
 

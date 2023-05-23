@@ -8,7 +8,7 @@ public class SpawnPlayer : MonoBehaviour
     public Transform spawnPoint;
     public CinemachineVirtualCameraBase camera;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Debug.Log(PlayerPrefs.GetString("className"));
         Instantiate(Resources.Load(PlayerPrefs.GetString("className")),spawnPoint.position, spawnPoint.rotation);

@@ -43,12 +43,14 @@ public class Damageable : MonoBehaviour
         set
         {
             _Health = value;
-
+            PlayerPrefs.SetInt("isPlayerAlive", 1);
             //If health drops below 0, character is dead
             if(_Health <= 0f)
             {
                 _Health = 0f;
                 IsAlive = false;
+                PlayerPrefs.SetInt("isPlayerAlive", 0);
+                Destroy(gameObject, 0);
             }
         }
     }
