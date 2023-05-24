@@ -41,6 +41,7 @@ public class PlayerModel : MonoBehaviour
                 selectArcher();
                 break;
         }
+        PlayerPrefs.SetInt("coins", 0); //Sets coin counter for player to 0
         reloadStats();
     }
 

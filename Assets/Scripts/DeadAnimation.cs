@@ -7,6 +7,8 @@ public class DeadAnimation : MonoBehaviour
 {
     public Damageable dmg;
     public Animator animator;
+    public CoinCounter cc;
+    public int coindrop;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class DeadAnimation : MonoBehaviour
         {
             animator.SetBool("IsAlive", false);            
             UnityEngine.Debug.Log("Dead");
+            cc.AddCoins(coindrop);
+
             this.enabled = false; //Kills off the enemy
         }
     }
