@@ -19,7 +19,6 @@ MonoBehaviour:
     width: 1487
     height: 897
   m_ShowMode: 4
-  m_Title: Animation
   m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
