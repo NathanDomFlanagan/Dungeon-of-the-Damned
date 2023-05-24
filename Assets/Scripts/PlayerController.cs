@@ -81,8 +81,6 @@ public class PlayerController : MonoBehaviour
         amountOfJumpsLeft = amountOfJumps;
         wallHopDirection.Normalize();
         wallJumpDirection.Normalize();
-
-        FindSpawn();
     }
 
     // Update is called once per frame
@@ -389,18 +387,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FindSpawn()
+    public void FindSpawn()
     {
         GameObject spawnPoint;
-        switch (isEnter)
+        if (isEnter)
         {
-            case true:
-                spawnPoint = GameObject.FindGameObjectWithTag("Entrance");
-                break;
-            case false:
-                spawnPoint = GameObject.FindGameObjectWithTag("Exit");
-                break;
+            spawnPoint = GameObject.FindGameObjectWithTag("Entrance");
         }
+        else
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Exit");
+        }
+
         if (spawnPoint != null)
         {
             spawnPoint.GetComponent<PlayerTransition>().pull = true;

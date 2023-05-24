@@ -10,6 +10,9 @@ public class PlayerTransition : MonoBehaviour
     private void Awake()
     {
         go = this.transform;
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player.GetComponent<PlayerController>().FindSpawn();
+
         if (pull)
         {
             grabPlayer();
