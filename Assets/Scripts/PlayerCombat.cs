@@ -87,7 +87,7 @@ public class PlayerCombat : MonoBehaviour
     {
         isAttacking = true;
 
-        if(IsArcher && AttackPoint != null)
+        if(AttackPoint != null)
         {
             //Detect enimies in range of attack
             Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
