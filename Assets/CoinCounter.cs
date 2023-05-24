@@ -17,20 +17,24 @@ public class CoinCounter : MonoBehaviour
     }
     void Start()
     {
-        PlayerPrefs.SetString("cointext","Coins: " + PlayerPrefs.GetInt("coins").ToString());
-        //coinText.text = PlayerPrefs.GetString("cointext");
+        //Sets string to current coin count
+        //PlayerPrefs.SetString("cointext",PlayerPrefs.GetInt("coins").ToString());
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        coinText.text = PlayerPrefs.GetString("cointext");
+        //Sets string to current coin count
+        coinText.text = PlayerPrefs.GetInt("coins").ToString();
     }
     public void AddCoins(int x)
     {
+        //Adds coins to coin count
         PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins")+x);
-        PlayerPrefs.SetString("cointext","Coins: " + PlayerPrefs.GetInt("coins").ToString());
-        UnityEngine.Debug.Log(PlayerPrefs.GetString("cointext"));
-        coinText.text = PlayerPrefs.GetString("cointext");
+
+        //PlayerPrefs.SetString("cointext",PlayerPrefs.GetInt("coins").ToString());
+        //Updates text to display new coin count
+        coinText.text = PlayerPrefs.GetInt("coins").ToString();
     }
 }
