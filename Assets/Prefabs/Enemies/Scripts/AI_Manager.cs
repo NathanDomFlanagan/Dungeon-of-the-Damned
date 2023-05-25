@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
 public class AI_Manager : MonoBehaviour
@@ -66,19 +68,23 @@ public class AI_Manager : MonoBehaviour
     void FixedUpdate()
     {
         Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
-        if(constantFollow == true)
+        checkWalking();
+        if (constantFollow == true)
         {
             if (Vector2.Distance(transform.position, Target.position) > minConstFollow)
             {
                 rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                
             }
         } else
         {
             if (Vector2.Distance(transform.position, Target.position) < minDistance)
             {
                 rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                
             }
         }
+        
     }
 
     private void Jump()
@@ -93,5 +99,18 @@ public class AI_Manager : MonoBehaviour
             Jump();
         }
     }
+    private void checkWalking()
+    {
+        if (Math.Abs(Target.position.x - rb.position.x) >0.5 && ((Vector2.Distance(transform.position, Target.position) < minDistance)||constantFollow))
+        {
+            animator.SetBool("IsWalking", true);
+            UnityEngine.Debug.Log("Walking");
+        }
+        else
+        {
+            animator.SetBool("IsWalking", false);
+            UnityEngine.Debug.Log("Not Walking "+ Math.Abs(Target.position.x - rb.position.x));
 
+        }
+    }
 }

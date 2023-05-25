@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 95e73070c30a6e14c97bc6d59d2ceba6
+guid: 9a5eabc162f1cf846b49b3da337d577b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: orcattack_0
+      name: goblinwalk-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f463365edeeea3148bfd02270dcebd36
-      internalID: -1449664890
+      spriteID: 4d670a6ccc68f4f4dafa1fa24dbc1b6c
+      internalID: 1154118485
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orcattack_1
+      name: goblinwalk-Sheet_1
       rect:
         serializedVersion: 2
         x: 32
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4c1ca73f4f331341903b5eafdc391a3
-      internalID: -1781768207
+      spriteID: 5739b1e5058e1e3489acb27c085b26f2
+      internalID: 863015985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orcattack_2
+      name: goblinwalk-Sheet_2
       rect:
         serializedVersion: 2
         x: 64
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e49e771ea99a2cd46926ea914ffab478
-      internalID: 353845270
+      spriteID: fe3cb6c7f90c17941a98321f7776ed61
+      internalID: 1342266430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: orcattack_3
+      name: goblinwalk-Sheet_3
       rect:
         serializedVersion: 2
         x: 96
@@ -182,29 +182,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d97a4309c7d735c40a2c6aa0e8b0e44f
-      internalID: -419124765
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: orcattack_4
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40abdaf5109014744a31ac64dbd9a703
-      internalID: 95506092
+      spriteID: 43815bdf5f5305f4daf68de650433631
+      internalID: -279815307
       vertices: []
       indices: 
       edges: []
@@ -220,11 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      orcattack_0: -1449664890
-      orcattack_1: -1781768207
-      orcattack_2: 353845270
-      orcattack_3: -419124765
-      orcattack_4: 95506092
+      goblinwalk-Sheet_0: 1154118485
+      goblinwalk-Sheet_1: 863015985
+      goblinwalk-Sheet_2: 1342266430
+      goblinwalk-Sheet_3: -279815307
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
