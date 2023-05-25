@@ -74,7 +74,7 @@ public class PlayerController : MonoBehaviour
 
     // Start is called before the first frame update
     void Awake()
-    {
+    { 
         dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
