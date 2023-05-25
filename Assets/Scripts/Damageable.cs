@@ -99,7 +99,7 @@ public class Damageable : MonoBehaviour
             //if trueDamage, then deals full damage amount
             if (trueDamage) { 
                 Health -= dmg;
-                UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now "+Health);
+                UnityEngine.Debug.Log("Hit for " + dmg + " true damage. Health is now "+Health);
                 
             }
             //else deals reduced damage
