@@ -100,16 +100,22 @@ public class AI_Manager : MonoBehaviour
         }
     }
     private void checkWalking()
+        /*
+         * Purpose: Checks if enemy is walking or not.
+         * No Parameters
+         * No Returns
+         */
     {
+        //Checks if enemy is not within 0.5 gamepixels or if the enemy is outside of tracking range
         if (Math.Abs(Target.position.x - rb.position.x) >0.5 && ((Vector2.Distance(transform.position, Target.position) < minDistance)||constantFollow))
         {
+            //if enemy is correct distance from player then sets walking to true
             animator.SetBool("IsWalking", true);
-            UnityEngine.Debug.Log("Walking");
         }
         else
         {
+            //if enemy too close/far away from player set walking to false
             animator.SetBool("IsWalking", false);
-            UnityEngine.Debug.Log("Not Walking "+ Math.Abs(Target.position.x - rb.position.x));
 
         }
     }
