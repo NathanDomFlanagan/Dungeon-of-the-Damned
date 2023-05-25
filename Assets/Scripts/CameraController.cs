@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private Transform rbTransform;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         vcam = GetComponent<CinemachineVirtualCamera>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");

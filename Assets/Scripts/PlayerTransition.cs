@@ -16,7 +16,7 @@ public class PlayerTransition : MonoBehaviour
         {
             player.GetComponent<PlayerController>().FindSpawn();
         }
-        catch (System.Exception e)
+        catch (System.Exception)
         {
 
         }
