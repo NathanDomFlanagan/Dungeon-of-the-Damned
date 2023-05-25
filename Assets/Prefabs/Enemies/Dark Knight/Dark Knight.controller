@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: deathgolem
+  m_Name: deathknight
   m_Speed: 1
   m_CycleOffset: 1
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: e469e1a861cec554990e6ba327c3615f, type: 2}
+  m_Motion: {fileID: 7400000, guid: ed1822d2a9504bc44970b43402ac4208, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -134,7 +134,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8452ca9afb720c14aa046a6d92feee79, type: 2}
+  m_Motion: {fileID: 7400000, guid: 678c4626f960dcb499c5b1dc0f458a32, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -196,7 +196,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Golem
+  m_Name: Dark Knight
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: Hurt
@@ -279,7 +279,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1f3bbfc6d01a1584591a9cc001e63b92, type: 2}
+  m_Motion: {fileID: 7400000, guid: b96a21541d195ab4ba16b14e318679d1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -332,7 +332,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8eb459a53437d8d4786c60b9a114b8ea, type: 2}
+  m_Motion: {fileID: 7400000, guid: f884132a1f1bb654da0fb35c5289d2bd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
