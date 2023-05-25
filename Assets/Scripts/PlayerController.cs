@@ -70,6 +70,8 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask WhatIsGround;
 
+    public bool isEnter = true;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -382,6 +384,24 @@ public class PlayerController : MonoBehaviour
             Vector3 temp = transform.localScale;
             temp.x *= -1;
             transform.localScale = temp;
+        }
+    }
+
+    public void FindSpawn()
+    {
+        GameObject spawnPoint;
+        if (isEnter)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Entrance");
+        }
+        else
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Exit");
+        }
+
+        if (spawnPoint != null)
+        {
+            spawnPoint.GetComponent<PlayerTransition>().pull = true;
         }
     }
 
