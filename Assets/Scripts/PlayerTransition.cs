@@ -6,17 +6,25 @@ public class PlayerTransition : MonoBehaviour
 {
     private Transform go;
     public bool pull;
+    GameObject player = null;
 
     private void Awake()
     {
         go = this.transform;
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        player.GetComponent<PlayerController>().FindSpawn();
-
-        if (pull)
+        player = GameObject.FindGameObjectWithTag("Player");
+        try
         {
-            grabPlayer();
+            player.GetComponent<PlayerController>().FindSpawn();
         }
+        catch (System.Exception e)
+        {
+
+        }
+            if (pull)
+            {
+                grabPlayer();
+            }
+        
     }
     public void grabPlayer()
     {
