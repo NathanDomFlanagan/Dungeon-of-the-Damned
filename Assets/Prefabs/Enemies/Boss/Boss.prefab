@@ -81,8 +81,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6317181762932224792}
-  - component: {fileID: 2469119882890301848}
   - component: {fileID: 4418960795786054299}
+  - component: {fileID: 3386123636386622682}
   m_Layer: 11
   m_Name: AttackPoint
   m_TagString: Enemy
@@ -98,39 +98,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027280663425711551}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.96, y: -3.54, z: 0}
+  m_LocalPosition: {x: 2.98, y: -3.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 402753984413660083}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2469119882890301848
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1027280663425711551}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.1413325, y: 0.007854342}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.4663084, y: 0.837065}
-  m_EdgeRadius: 0
 --- !u!114 &4418960795786054299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +118,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDmg: 95
+  trueDamage: 0
+--- !u!60 &3386123636386622682
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027280663425711551}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.6668625, y: 2.0138955}
+      - {x: 0.5212288, y: 3.1133652}
+      - {x: 0.08497238, y: 4.054796}
+      - {x: -0.20163345, y: 4.230305}
+      - {x: -0.49349403, y: 4.361889}
+      - {x: -0.7595329, y: 4.61015}
+      - {x: -1.1480522, y: 4.7512393}
+      - {x: -0.9937954, y: 4.4822707}
+      - {x: -0.8847523, y: 4.120869}
+      - {x: -0.60767365, y: 3.4629447}
+      - {x: -0.4028015, y: 2.9895666}
+      - {x: -0.3932743, y: 2.3946085}
+      - {x: -0.3815384, y: 1.1169134}
+      - {x: -0.64982986, y: 0.8954705}
+      - {x: -1.0279818, y: 0.6936461}
+      - {x: -0.4980387, y: -0.68080723}
+      - {x: 0.56214297, y: -1.0013316}
+      - {x: 0.80200005, y: 0.14077497}
+      - {x: 0.7843847, y: 0.8474979}
 --- !u!1 &4991710693760188213
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,8 +234,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14bea164799044c8a7bda3d482ddbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: 0.5
-  minDistance: 100
+  Movement: 1
+  minDistance: 10
+  constantFollow: 0
   JumpHeight: 90
   animator: {fileID: 7038245291113918689}
   attackZone: {fileID: 2517241297622424084}
@@ -408,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 1000
+  armour: 0
   _Health: 1000
   isInvincible: 0
   invincibilityTime: 0
