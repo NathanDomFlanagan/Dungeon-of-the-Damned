@@ -32,6 +32,7 @@ public class Damageable : MonoBehaviour
 
     [SerializeField]
     private bool isInvincible = false;
+    private bool isKnocked = false;
     private float timeSinceHit = 0f;
     public float invincibilityTime = 0.25f;
 
@@ -90,34 +91,13 @@ public class Damageable : MonoBehaviour
             if(timeSinceHit > invincibilityTime)
             {
                 isInvincible = false;
+                isKnocked = false;
                 timeSinceHit = 0f;
             }
 
             timeSinceHit += Time.deltaTime;
         }
         //Hit(10); //Testing to see if it works
-    }
-
-    public void Hit(int dmg, bool trueDamage)
-    {
-        if(IsAlive && !isInvincible)
-        {
-            animator.SetTrigger("Hurt");
-            //if trueDamage, then deals full damage amount
-            if (trueDamage) { 
-                Health -= dmg;
-                UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now "+Health);
-                
-            }
-            //else deals reduced damage
-            else { 
-                //reduces damage by armour percentage
-                Health -= dmg * (1-(armour / 100));
-                UnityEngine.Debug.Log("Hit for " + dmg * (1 - (armour / 100)) + ". Health is now " + Health);
-
-            }
-            isInvincible = true;
-        }
     }
 
     public void Hit(int dmg, bool trueDamage, Vector2 knockback)
@@ -141,7 +121,8 @@ public class Damageable : MonoBehaviour
 
             }
             UnityEngine.Debug.Log("Knocked Back "+knockback.x+" "+knockback.y);
-            rb.AddForce(knockback, ForceMode2D.Impulse);
+            rb.AddForce(knockback*rb.mass, ForceMode2D.Impulse);
+            isKnocked = true;
             isInvincible = true;
         }
     }
@@ -151,6 +132,11 @@ public class Damageable : MonoBehaviour
     {// sets the players help and armour to the values for the class
         maxHealth = charhp;
         armour = chararm;
+    }
+
+    public bool getIsKnocked()
+    {
+        return isKnocked;
     }
 }
 

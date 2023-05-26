@@ -7,7 +7,7 @@ public class Attack : MonoBehaviour
     public int attackDmg;
     //determines whether attacks deals true damage or armour reduced damage
     public bool trueDamage;
-    private Vector2 knockbackforce = new Vector2(500f, 5f);
+    private Vector2 knockbackforce = new Vector2(10f, 5f);
 
 
     void Awake()

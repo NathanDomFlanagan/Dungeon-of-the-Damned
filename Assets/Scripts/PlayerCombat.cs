@@ -24,7 +24,7 @@ public class PlayerCombat : MonoBehaviour
 
     //Damage amount
     private int AtkDmg = 50;
-    private Vector2 knockbackforce = new Vector2(99990f,50000f);
+    private Vector2 knockbackforce = new Vector2(10f,5f);
 
     //Attack Time
     private float AtkRate = 4.0f;
