@@ -6,6 +6,7 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     Animator animator;
+    Rigidbody2D rb;
     //EnemyAI enemy;
 
     [SerializeField]
@@ -79,6 +80,7 @@ public class Damageable : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -114,6 +116,32 @@ public class Damageable : MonoBehaviour
                 UnityEngine.Debug.Log("Hit for " + dmg * (1 - (armour / 100)) + ". Health is now " + Health);
 
             }
+            isInvincible = true;
+        }
+    }
+
+    public void Hit(int dmg, bool trueDamage, Vector2 knockback)
+    {
+        if (IsAlive && !isInvincible)
+        {
+            animator.SetTrigger("Hurt");
+            //if trueDamage, then deals full damage amount
+            if (trueDamage)
+            {
+                Health -= dmg;
+                UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now " + Health);
+
+            }
+            //else deals reduced damage
+            else
+            {
+                //reduces damage by armour percentage
+                Health -= dmg * (1 - (armour / 100));
+                UnityEngine.Debug.Log("Hit for " + dmg * (1 - (armour / 100)) + ". Health is now " + Health);
+
+            }
+            UnityEngine.Debug.Log("Knocked Back "+knockback.x+" "+knockback.y);
+            rb.AddForce(knockback, ForceMode2D.Impulse);
             isInvincible = true;
         }
     }
