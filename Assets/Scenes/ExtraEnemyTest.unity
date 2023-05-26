@@ -11467,6 +11467,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5469525872943465374, guid: c0cd70d3acf81fe43b46560295c4a288, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5469525872943465374, guid: c0cd70d3acf81fe43b46560295c4a288, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038812840416750331, guid: c0cd70d3acf81fe43b46560295c4a288, type: 3}
       propertyPath: m_Name
       value: OrcEnemy
@@ -18204,6 +18212,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8162337082956684850, guid: 4a650eac77c2eb64ba5b03c4af53a106, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8162337082956684850, guid: 4a650eac77c2eb64ba5b03c4af53a106, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038812840416750331, guid: 4a650eac77c2eb64ba5b03c4af53a106, type: 3}
       propertyPath: m_Name
       value: Magic Troll
@@ -18259,6 +18275,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402753984413660083, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339727913834442835, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2339727913834442835, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2469119882890301848, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
@@ -18341,6 +18365,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402753984413660083, guid: 47c97bae9181be440a84f431ba7d0023, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166391035171697823, guid: 47c97bae9181be440a84f431ba7d0023, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7166391035171697823, guid: 47c97bae9181be440a84f431ba7d0023, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038812840416750331, guid: 47c97bae9181be440a84f431ba7d0023, type: 3}
@@ -18498,6 +18530,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 402753984413660083, guid: 1e4c3d35750977b4aa962db7de803be4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106634810361733829, guid: 1e4c3d35750977b4aa962db7de803be4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6106634810361733829, guid: 1e4c3d35750977b4aa962db7de803be4, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9038812840416750331, guid: 1e4c3d35750977b4aa962db7de803be4, type: 3}
