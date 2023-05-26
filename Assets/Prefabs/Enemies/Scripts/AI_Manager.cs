@@ -16,6 +16,8 @@ public class AI_Manager : MonoBehaviour
     public float minDistance = 4f;
     public bool constantFollow = false;     //Mainly used for wave spawner
     private float minConstFollow = 1f;
+    private bool canMove = true;
+    private bool canAttack = true;
 
     [Header("Jump")]
     [SerializeField]
@@ -34,7 +36,10 @@ public class AI_Manager : MonoBehaviour
         private set
         {
             _hasTarget = value;
-            animator.SetBool("HasTarget", value);
+            if(PlayerPrefs.GetInt("canEnemyAttack") == 1)
+            {
+                animator.SetBool("HasTarget", value);
+            }
         }
 
     }
@@ -50,41 +55,64 @@ public class AI_Manager : MonoBehaviour
 
     void Update()
     {
-        HasTarget = attackZone.detectedColliders.Count > 0;
+        if(HasTarget = attackZone.detectedColliders.Count > 0)
+        {
+            canMove = false;
+        } else
+        {
+            canMove = true;
+        }
 
         Vector3 scale = transform.parent.localScale;
-        if (Target.position.x > transform.parent.position.x)    //Player is on the right side of the enemy
+        if(Target != null)
         {
-            scale.x = Mathf.Abs(scale.x);
-        }
-        else
-        {
-            scale.x = Mathf.Abs(scale.x) * -1;      //Swap the two equations for scale.x if enemy's sprite is created facing left
+            if (Target.position.x > transform.parent.position.x)    //Player is on the right side of the enemy
+            {
+                scale.x = Mathf.Abs(scale.x);
+            }
+            else
+            {
+                scale.x = Mathf.Abs(scale.x) * -1;      //Swap the two equations for scale.x if enemy's sprite is created facing left
 
+            }
+        } else
+        {
+            return;
         }
         transform.parent.localScale = scale;
     }
 
     void FixedUpdate()
     {
-        Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
-        checkWalking();
-        if (constantFollow == true)
+
+        if(Target != null)
+
         {
-            if (Vector2.Distance(transform.position, Target.position) > minConstFollow)
+            Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
+            checkWalking();
+            if (constantFollow == true)
             {
-                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
-                
+
+                if (Vector2.Distance(transform.position, Target.position) > minConstFollow && canMove)
+                {
+                    rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                }
+
+            }
+            else
+            {
+
+                if (Vector2.Distance(transform.position, Target.position) < minDistance && canMove)
+                {
+                    rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
+                }
+
             }
         } else
         {
-            if (Vector2.Distance(transform.position, Target.position) < minDistance)
-            {
-                rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
-                
-            }
+            return;
         }
-        
+
     }
 
     private void Jump()

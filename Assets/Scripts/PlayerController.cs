@@ -70,9 +70,11 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask WhatIsGround;
 
+    public bool isEnter = true;
+
     // Start is called before the first frame update
     void Awake()
-    {
+    { 
         dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -94,7 +96,7 @@ public class PlayerController : MonoBehaviour
         //checkDash();
     }
 
-    private void checkIfDead()
+      void checkIfDead()
     {
         if(!dmg.IsAlive)
         {
@@ -382,6 +384,24 @@ public class PlayerController : MonoBehaviour
             Vector3 temp = transform.localScale;
             temp.x *= -1;
             transform.localScale = temp;
+        }
+    }
+
+    public void FindSpawn()
+    {
+        GameObject spawnPoint;
+        if (isEnter)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Entrance");
+        }
+        else
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Exit");
+        }
+
+        if (spawnPoint != null)
+        {
+            spawnPoint.GetComponent<PlayerTransition>().pull = true;
         }
     }
 

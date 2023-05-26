@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     private PlayerModel pm = null;
 
-    private Object[] Inventory = new Object[10];
+    public Object[] Inventory = new Object[10];
     private Object epicitem;
     public bool update = false;
     public bool removeupdate = false;
