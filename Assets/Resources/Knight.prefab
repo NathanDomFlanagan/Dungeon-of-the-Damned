@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 1451828926696432862}
   - component: {fileID: 1451828926696432849}
   - component: {fileID: 1451828926696432851}
+  - component: {fileID: 6039420219651242222}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Player
@@ -200,11 +201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7ce7c851fa8d34bb1b8d401423d088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 6039420219651242222}
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
   className: knight
-  amountOfJumps: 0
+  updatedStats: 0
 --- !u!114 &1451828926696432850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,19 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b84890ca31b5345b438ac327b379f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountOfJumps: 2
-  movementSpeed: 10
-  jumpForce: 16
-  wallSlideSpeed: 1
-  groundCheckRadius: 0.25
-  wallCheckDistance: 0.4
-  movementForceInAir: 20
-  airDragMultiplier: 0.95
-  variableJumpHeightMultiplier: 0.5
-  turnTimerSet: 0.1
-  wallHopForce: 10
-  wallJumpForce: 25
-  jumpTimerSet: 0.15
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1451828924828055124}
@@ -237,6 +226,7 @@ MonoBehaviour:
   WhatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  isEnter: 1
 --- !u!114 &1451828926696432852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,15 +239,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3726818ee74393443af31312f3519a9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackTimer: 0
   IsArcher: 0
   AttackPoint: {fileID: 1451828926327303957}
   AttackRange: 0.5
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 512
-  AtkDmg: 50
-  AtkRate: 2
 --- !u!114 &2765944042830373089
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +331,31 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6039420219651242222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1336593b6fa99fd4da8779acb2af7651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Inventory:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  update: 0
+  removeupdate: 0
 --- !u!1 &8712731175255989368
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 945903361459480227, guid: f395bbfed5266ec43ab586b1295b5161, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -15
+      value: -11.2
       objectReference: {fileID: 0}
     - target: {fileID: 945903361459480227, guid: f395bbfed5266ec43ab586b1295b5161, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

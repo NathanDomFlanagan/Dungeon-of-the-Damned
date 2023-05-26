@@ -8,7 +8,7 @@ public class HealthbarFill : MonoBehaviour
 {
     [SerializeField]
     [Header("References")]
-    private Damageable dmg = null;
+    private Damageable dmg;
     public Image fillImage;
     private Slider slider;
 
@@ -16,7 +16,7 @@ public class HealthbarFill : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        dmg = GameObject.FindGameObjectWithTag("Player").GetComponent<Damageable>();
+        dmg = transform.parent.parent.GetComponent<Damageable>();
         slider = GetComponent<Slider>();
     }
 
