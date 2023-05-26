@@ -53,7 +53,8 @@ public class PlayerModel : MonoBehaviour
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
-
+        
+        PlayerPrefs.SetInt("coins", 0); // creates coin count as 0;
         //$$test code to be removed
         AddItem(UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Data/Items/Weapons/Axe 2.asset", typeof(WeaponData)));
     }

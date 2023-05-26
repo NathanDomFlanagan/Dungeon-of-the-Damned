@@ -50,7 +50,10 @@ public class Damageable : MonoBehaviour
                 _Health = 0f;
                 IsAlive = false;
                 PlayerPrefs.SetInt("isPlayerAlive", 0);
-                Destroy(gameObject, 0);
+                if (gameObject.tag == "Player")
+                {
+                    Destroy(gameObject, 0);
+                }
             }
         }
     }

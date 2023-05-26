@@ -718,6 +718,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: {fileID: 1679546704}
   animator: {fileID: 7038245291113918689}
+  cc: {fileID: 2004000412610346356, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
+  coins: 9
 --- !u!1 &9183403177201514833
 GameObject:
   m_ObjectHideFlags: 0
