@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31f399b648fa544fb74473198e3bd15, type: 3}
-  m_Name: bigHealth
+  m_Name: smallArmour
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 1a158a66c715307458f615caa2afb782, type: 3}
-  itemName: Mega Heal
-  itemId: 2
-  itemValue: 50
-  description: Heals a large amount of the player's HP
+  itemIcon: {fileID: 21300000, guid: 465e196ed17ff7c4bab7aab25b2402c9, type: 3}
+  itemName: Mini Armour
+  itemId: 10
+  itemValue: 3
+  description: Boosts the player's armour by a small amount

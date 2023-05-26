@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     public PlayerModel pModel;
+    public InventoryManager iManager;
 
     void Awake() // Start is called before the first frame update    
     {
@@ -61,6 +62,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToInventory()
     {
         Debug.Log("Going to inventory...");
+        iManager.ListItems();
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
         /*Time.timeScale = 1f;

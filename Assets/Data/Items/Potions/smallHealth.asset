@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: smallHealth
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: be2a32911451d764e9f0ba9bcedb680c, type: 3}
-  itemName: smallHeal
+  itemName: Mini Heal
   itemId: 1
   itemValue: 10
   description: Heals the player a certain amount
-  modelPrefab: {fileID: 0}

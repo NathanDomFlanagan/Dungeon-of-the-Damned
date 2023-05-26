@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DoD
-{
+
     [CreateAssetMenu(fileName = "Item", menuName = "Item/Create New Item")]
     public class PotionData : ScriptableObject
     {
@@ -20,4 +19,3 @@ namespace DoD
 
         //public GameObject modelPrefab;
     }
-}

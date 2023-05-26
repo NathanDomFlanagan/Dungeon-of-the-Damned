@@ -10,6 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7392914059528190029}
   - component: {fileID: 6483899736024778380}
+  - component: {fileID: 6534115274422366592}
+  - component: {fileID: -180021109967280672}
+  - component: {fileID: 340568368}
   m_Layer: 0
   m_Name: bluePotion_2_[32x32]
   m_TagString: Untagged
@@ -84,3 +87,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6534115274422366592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965268405663634292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa6893a2586b604e9ca58435ecf82da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 11400000, guid: 1e16b54196e388a488804af5d562b7b3, type: 2}
+--- !u!114 &-180021109967280672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965268405663634292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ce240050de2d7c44beffde54e2e3ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 1e16b54196e388a488804af5d562b7b3, type: 2}
+--- !u!70 &340568368
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965268405663634292}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0004965365, y: -0.00699766}
+  m_Size: {x: 0.18704444, y: 0.30600467}
+  m_Direction: 0
