@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a14bea164799044c8a7bda3d482ddbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Movement: 3
+  Movement: 4
   minDistance: 4
   constantFollow: 0
   JumpHeight: 420
@@ -723,7 +723,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 9999
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 3
