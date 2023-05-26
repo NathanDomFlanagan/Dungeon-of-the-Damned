@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    private GameObject pauseMenu;
+    private GameObject inventoryMenu;
 
     public static bool isPaused = false;
+    public PlayerModel pModel;
 
-    void Start() // Start is called before the first frame update    
+    void Awake() // Start is called before the first frame update    
     {
+        pauseMenu = transform.GetChild(0).gameObject;
+        inventoryMenu = transform.GetChild(1).gameObject;
         pauseMenu.SetActive(false);
         isPaused = false;
     }
@@ -21,6 +25,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (isPaused)
             {
+                inventoryMenu.SetActive(false);
                 ResumeGame();
             }
             else
@@ -30,31 +35,34 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    public void PauseGame()
+    private void PauseGame()
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0f; // Set the time scale to 0 to pause the game
         isPaused = true;
     }
 
-    public void ResumeGame()
+    private void ResumeGame()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f; // Set the time scale to 1 to play the game
         isPaused = false;
     }
 
-public void GoToSetting()
+    public void GoToSetting()
     {
         Debug.Log("Going to setting menu...");
+
         /*Time.timeScale = 1f; //Set the time scale to 1, so that it won't pause in the setting menu
         SceneManager.LoadScene("SettingMenu");
         isPaused = false;*/
     }
 
-public void GoToInventory()
+    public void GoToInventory()
     {
         Debug.Log("Going to inventory...");
+        pauseMenu.SetActive(false);
+        inventoryMenu.SetActive(true);
         /*Time.timeScale = 1f;
         SceneManager.LoadScene("Inventory");
         isPaused = false;*/
