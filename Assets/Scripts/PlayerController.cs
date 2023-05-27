@@ -39,23 +39,22 @@ public class PlayerController : MonoBehaviour
     private Damageable dmg;
 
 
-    public int amountOfJumps = 1;
+    private int amountOfJumps = 1;
     private int facingDirection = 1;
 
-    public float movementSpeed = 10.0f;
-    public float jumpForce = 16.0f;
+    private float movementSpeed = 10.0f;
+    private float jumpForce = 16.0f;
 
-    public float wallSlideSpeed;
-    public float groundCheckRadius;
-    public float wallCheckDistance;
-    public float movementForceInAir;
-    public float airDragMultiplier = 0.95f;
-    public float variableJumpHeightMultiplier = 0.5f;
-    public float turnTimerSet = 0.1f;
+    private float wallSlideSpeed = 1;
+    private float groundCheckRadius = 0.25f;
+    private float wallCheckDistance = 0.4f;
+    
+    private float airDragMultiplier = 0.95f;
+    private float variableJumpHeightMultiplier = 0.5f;
+    private float turnTimerSet = 0.1f;
 
-    public float wallHopForce;
-    public float wallJumpForce;
-    public float jumpTimerSet = 0.15f;
+    private float wallJumpForce = 25;
+    private float jumpTimerSet = 0.15f;
     /*
     public float dashTime;
     public float dashSpeed;
@@ -71,9 +70,11 @@ public class PlayerController : MonoBehaviour
 
     public LayerMask WhatIsGround;
 
+    public bool isEnter = true;
+
     // Start is called before the first frame update
     void Awake()
-    {
+    { 
         dmg = GetComponent<Damageable>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -95,7 +96,7 @@ public class PlayerController : MonoBehaviour
         //checkDash();
     }
 
-    private void checkIfDead()
+      void checkIfDead()
     {
         if(!dmg.IsAlive)
         {
@@ -354,7 +355,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (canMove)
+        if (canMove && !dmg.getIsKnocked())
         {
             if (!isGrounded && !isWallSliding && movementInputDirection == 0)
             {
@@ -386,10 +387,28 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /**private void OnDrawGizmos()
+    public void FindSpawn()
+    {
+        GameObject spawnPoint;
+        if (isEnter)
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Entrance");
+        }
+        else
+        {
+            spawnPoint = GameObject.FindGameObjectWithTag("Exit");
+        }
+
+        if (spawnPoint != null)
+        {
+            spawnPoint.GetComponent<PlayerTransition>().pull = true;
+        }
+    }
+
+private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
 
         Gizmos.DrawLine(wallCheck.position, new Vector3(wallCheck.position.x + wallCheckDistance, wallCheck.position.y, wallCheck.position.z));
-    }**/
+    }
 }
