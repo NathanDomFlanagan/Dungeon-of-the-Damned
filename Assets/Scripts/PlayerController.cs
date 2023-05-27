@@ -355,7 +355,7 @@ public class PlayerController : MonoBehaviour
 
     private void ApplyMovement()
     {
-        if (canMove)
+        if (canMove && !dmg.getIsKnocked())
         {
             if (!isGrounded && !isWallSliding && movementInputDirection == 0)
             {
