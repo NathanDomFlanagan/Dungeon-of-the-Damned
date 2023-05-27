@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Diagnostics;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -21,6 +24,7 @@ public class PlayerCombat : MonoBehaviour
 
     //Damage amount
     private int AtkDmg = 50;
+    private Vector2 knockbackforce = new Vector2(10f,5f);
 
     //Attack Time
     private float AtkRate = 4.0f;
@@ -94,9 +98,22 @@ public class PlayerCombat : MonoBehaviour
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
-                Debug.Log("Damage");
+                Vector2 knockback = getKnockBack(enemy);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage,knockback);
+            UnityEngine.Debug.Log("Damage");
             }
+    }
+
+    Vector2 getKnockBack(Collider2D enemy)
+    {
+        if ((enemy.transform.position.x - transform.position.x) < 0)
+        {
+            return new Vector2(-knockbackforce.x, knockbackforce.y);
+        }
+        else {
+            return new Vector2(knockbackforce.x, knockbackforce.y);   
+        }
+            
     }
 
 
