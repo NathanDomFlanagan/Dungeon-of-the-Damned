@@ -6,6 +6,7 @@ EditorUserSettings:
   serializedVersion: 4
   m_ConfigSettings:
     RecentlyUsedSceneGuid-0:
+<<<<<<< HEAD
       value: 53000305545650585457547a4170084445154029292c20617d7b4966e6b76469
       flags: 0
     RecentlyUsedSceneGuid-1:
@@ -34,14 +35,40 @@ EditorUserSettings:
       flags: 0
     RecentlyUsedSceneGuid-9:
       value: 56040502520c595a0e5c0e7614260a4446151e2e7c2b20682c2b4831e1e5626c
+=======
+      value: 52070d0754545a580f5f557011735b444f4e41287c7f20607e7f4537b0b1303c
+      flags: 0
+    RecentlyUsedSceneGuid-1:
+      value: 0557045306040a0c595d0a7712700744434e4e2f752c7067282d4a6bb3b1356f
+      flags: 0
+    RecentlyUsedSceneGuid-2:
+      value: 0204575751055e0a540a5f7315210f44424f4d2e7a2d7e607c2c4d31b2b8316f
+      flags: 0
+    RecentlyUsedSceneGuid-3:
+      value: 5b5456050706595f0c0b5572117a5e4444154e7d7b7b7469282f1b35b1e23039
+      flags: 0
+    RecentlyUsedSceneGuid-4:
+      value: 5450020057055a095e080f7147210644414f412c792b72677c7b4530b1b7646b
+      flags: 0
+    RecentlyUsedSceneGuid-5:
+      value: 5150030307505e095b085c7514200e44154e407a7f2977692c7d1e36e0b9366c
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 5604565004075059590d0d2313755e4443164c2875787364797f4a6bb2e6316d
+>>>>>>> parent of ccedb21 (change screen match mode)
       flags: 0
   m_VCAutomaticAdd: 1
   m_VCDebugCom: 0
   m_VCDebugCmd: 0
   m_VCDebugOut: 0
   m_SemanticMergeMode: 2
+<<<<<<< HEAD
   m_DesiredImportWorkerCount: 2
   m_StandbyImportWorkerCount: 2
+=======
+  m_DesiredImportWorkerCount: 1
+  m_StandbyImportWorkerCount: 1
+>>>>>>> parent of ccedb21 (change screen match mode)
   m_IdleImportWorkerShutdownDelay: 60000
   m_VCShowFailedCheckout: 1
   m_VCOverwriteFailedCheckoutAssets: 1
