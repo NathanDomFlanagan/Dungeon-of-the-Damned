@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 1c7ebf7b013b5e44ca63ff3aedaf90a3, type: 3}
   itemName: Small Speed Potion
+  baseCost: 25
   speedBoost: 69
-  discription: Speed boost
+  description: This potion increase speed
   modelPrefab: {fileID: 1620409632065365584, guid: 1c4db1feab62462438aa5c31ebcc675e, type: 3}

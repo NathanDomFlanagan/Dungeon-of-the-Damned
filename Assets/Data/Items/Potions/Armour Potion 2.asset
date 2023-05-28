@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 86b23c7d50040a54c80edf57312dac79, type: 3}
   itemName: Big Armour Potion
+  baseCost: 50
   armourBoost: 420
-  discription: Armour boost
+  description: This potion increase armour
   modelPrefab: {fileID: 6965268405663634292, guid: f2d8b204f648d4143804f5d4e55e4a79, type: 3}

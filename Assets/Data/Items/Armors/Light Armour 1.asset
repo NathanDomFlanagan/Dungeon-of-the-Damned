@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: e8b8a14d40762d94db9c71b30b0b8768, type: 3}
   itemName: Light Armour 1
+  baseCost: 10
   defense: 100
-  discription: This is armour for magic archer
+  health: 0
+  movespeed: 0
+  jumpforce: 0
+  jumpmod: 0
+  description: This is an armour for Archer
   modelPrefab: {fileID: 2339641683508129603, guid: f104466ce4e6e694f933821afb59e106, type: 3}

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: a953004ebfe037947ace153b3ebff1af, type: 3}
   itemName: Lance 1
+  baseCost: 10
   damage: 69
-  discription: This is weapon for lancer
+  attackRate: 0
+  trueDamage: 0
+  description: This weapon is for lancer
   modelPrefab: {fileID: 9068231996723826986, guid: aae9616ca5bf95f4b925676844eb3694, type: 3}

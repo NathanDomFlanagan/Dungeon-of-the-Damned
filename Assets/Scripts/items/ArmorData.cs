@@ -10,6 +10,7 @@ namespace DoD
         [Header("Item Information")]
         public Sprite itemIcon;
         public string itemName;
+        public int baseCost;
 
 
         //additive
@@ -34,8 +35,8 @@ namespace DoD
         [Header("Jump Modifier")]
         public int jumpmod = 0;
 
-        [Header("Discription")]
-        public string discription;
+        [Header("Description")]
+        public string description;
 
         public GameObject modelPrefab;
     }

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 9b3b7faf9b2d5514abc155f07d6b696d, type: 3}
   itemName: Bow 3
+  baseCost: 30
   damage: 69
-  discription: This is weapon for magic archer
+  attackRate: 0
+  trueDamage: 0
+  description: This weapon is for archer
   modelPrefab: {fileID: 4730174944387331923, guid: b164e050f0ca0ee4f9b0bf17d257182f, type: 3}

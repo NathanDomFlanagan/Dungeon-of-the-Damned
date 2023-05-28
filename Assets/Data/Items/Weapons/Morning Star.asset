@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 2ac5d9e471980fe4294ec5b0a55c943c, type: 3}
   itemName: Morning Star
+  baseCost: 30
   damage: 69
-  discription: This is weapon for berserker / knight
+  attackRate: 0
+  trueDamage: 0
+  description: This weapon is for berserker
   modelPrefab: {fileID: 1624445047277781272, guid: 8f9f3879f5784824aa56bca29be63a09, type: 3}
