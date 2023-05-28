@@ -28,7 +28,7 @@ public class CoinCounter : MonoBehaviour
     }
     public void AddCoins(int x)
     {
-        UnityEngine.Debug.Log("Added Coins "+x);
+        
         //Adds coins to coin count
         PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins")+x);
 
