@@ -45,6 +45,7 @@ public class Damageable : MonoBehaviour
         set
         {
             _Health = value;
+
             PlayerPrefs.SetInt("isPlayerAlive", 1);
             //If health drops below 0, character is dead
             if(_Health <= 0f)
@@ -52,6 +53,7 @@ public class Damageable : MonoBehaviour
                 _Health = 0f;
                 IsAlive = false;
                 PlayerPrefs.SetInt("isPlayerAlive", 0);
+
                 if (gameObject.tag == "Player")
                 {
                     Destroy(gameObject, 0);
@@ -109,7 +111,8 @@ public class Damageable : MonoBehaviour
             if (trueDamage)
             {
                 Health -= dmg;
-                UnityEngine.Debug.Log("Hit for " + dmg + ". Health is now " + Health);
+                UnityEngine.Debug.Log("Hit for " + dmg + " true damage. Health is now "+Health);
+                
 
             }
             //else deals reduced damage
