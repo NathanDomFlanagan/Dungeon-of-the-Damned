@@ -18293,6 +18293,14 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: -0.20014417
       objectReference: {fileID: 0}
+    - target: {fileID: 6317181762932224792, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.957
+      objectReference: {fileID: 0}
+    - target: {fileID: 6317181762932224792, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.171
+      objectReference: {fileID: 0}
     - target: {fileID: 9038812840416750331, guid: aa08051453ab9b0499a5bea430435ee4, type: 3}
       propertyPath: m_Name
       value: Golem
