@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Diagnostics.Eventing.Reader;
 using UnityEngine;
 
 public class AI_Manager : MonoBehaviour
@@ -82,22 +84,29 @@ public class AI_Manager : MonoBehaviour
 
     void FixedUpdate()
     {
+
         if(Target != null)
+
         {
             Targetposition = new Vector3(Target.position.x, rb.position.y, 0);
+            checkWalking();
             if (constantFollow == true)
             {
+
                 if (Vector2.Distance(transform.position, Target.position) > minConstFollow && canMove)
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
+
             }
             else
             {
+
                 if (Vector2.Distance(transform.position, Target.position) < minDistance && canMove)
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
+
             }
         } else
         {
@@ -118,5 +127,24 @@ public class AI_Manager : MonoBehaviour
             Jump();
         }
     }
+    private void checkWalking()
+        /*
+         * Purpose: Checks if enemy is walking or not.
+         * No Parameters
+         * No Returns
+         */
+    {
+        //Checks if enemy is not within 0.5 gamepixels or if the enemy is outside of tracking range
+        if (Math.Abs(Target.position.x - rb.position.x) >0.5 && ((Vector2.Distance(transform.position, Target.position) < minDistance)||constantFollow))
+        {
+            //if enemy is correct distance from player then sets walking to true
+            animator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            //if enemy too close/far away from player set walking to false
+            animator.SetBool("IsWalking", false);
 
+        }
+    }
 }
