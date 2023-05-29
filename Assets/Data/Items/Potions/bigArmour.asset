@@ -17,3 +17,4 @@ MonoBehaviour:
   itemId: 4
   itemValue: 50
   description: Buffs the player's armour a large amount
+  itemType: 1

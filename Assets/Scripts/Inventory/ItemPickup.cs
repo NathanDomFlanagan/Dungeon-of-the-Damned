@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public PotionData Item;
+    public Items Item;
 
     public void Pickup()
     {
-        InventoryManager.Instance.Add(Item);
-        Destroy(gameObject);
+            InventoryManager.Instance.Add(Item);
+            Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Pickup();
+        InventoryManager temp = collision.GetComponent<InventoryManager>();
+        if(temp.inventorySpace == InventoryManager.MAXINVENTORY)
+        {
+            return;
+        } else
+        {
+            Pickup();
+        }
     }
 }

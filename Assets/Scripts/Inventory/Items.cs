@@ -4,7 +4,7 @@ using UnityEngine;
 
 
     [CreateAssetMenu(fileName = "Item", menuName = "Item/Create New Item")]
-    public class PotionData : ScriptableObject
+    public class Items : ScriptableObject
     {
         [Header("Item Information")]
         public Sprite itemIcon;
@@ -14,8 +14,17 @@ using UnityEngine;
         [Header("Item Value")]
         public int itemValue;
 
-        [Header("Discription")]
+        [Header("Description")]
         public string description;
 
-        //public GameObject modelPrefab;
+    public ItemType itemType;
+
+        //Defining the item type
+        public enum ItemType
+    {
+        smallArmour,
+        bigArmour,
+        smallHeal,
+        bigHeal
+    }
     }

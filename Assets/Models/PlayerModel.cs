@@ -211,4 +211,15 @@ public class PlayerModel : MonoBehaviour
         playerCombat.SetStats(charAttackDmg, charAttackRate, charAttackRange, charTrueDmg);
         playerDamage.SetStats(charHealth, charArmour);
     }
+
+    public void Heal(int amount)
+    {
+        playerDamage.Health += amount;
+        HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>();
+    }
+
+    public void incArmour(float amount)
+    {
+        playerDamage.armour += amount;
+    }
 }

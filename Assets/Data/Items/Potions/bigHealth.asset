@@ -17,3 +17,4 @@ MonoBehaviour:
   itemId: 2
   itemValue: 50
   description: Heals a large amount of the player's HP
+  itemType: 3

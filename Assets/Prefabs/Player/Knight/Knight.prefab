@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 1451828926696432862}
   - component: {fileID: 1451828926696432849}
   - component: {fileID: 1451828926696432851}
-  - component: {fileID: 7863103999059862774}
+  - component: {fileID: 2088207218}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Player
@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7ce7c851fa8d34bb1b8d401423d088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 7863103999059862774}
+  Inventory: {fileID: 0}
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
@@ -331,7 +331,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7863103999059862774
+--- !u!114 &2088207218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,22 +340,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1451828926696432861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1336593b6fa99fd4da8779acb2af7651, type: 3}
+  m_Script: {fileID: 11500000, guid: d8a404b316e46364dbc1af4bd17c03d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  update: 0
-  removeupdate: 0
+  Items: []
+  itemContent: {fileID: 0}
+  inventoryItem: {fileID: 4163392079499172421, guid: d9b469ba6e75d844599d0dc4fc0b5a77, type: 3}
 --- !u!1 &8712731175255989368
 GameObject:
   m_ObjectHideFlags: 0

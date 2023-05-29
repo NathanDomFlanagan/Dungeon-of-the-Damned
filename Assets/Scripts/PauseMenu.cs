@@ -9,11 +9,12 @@ public class PauseMenu : MonoBehaviour
     private GameObject inventoryMenu;
 
     public static bool isPaused = false;
-    public PlayerModel pModel;
     public InventoryManager iManager;
+    private GameObject temp;
 
     void Awake() // Start is called before the first frame update    
     {
+        iManager = transform.parent.GetComponent<InventoryManager>();
         pauseMenu = transform.GetChild(0).gameObject;
         inventoryMenu = transform.GetChild(1).gameObject;
         pauseMenu.SetActive(false);
@@ -62,7 +63,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToInventory()
     {
         Debug.Log("Going to inventory...");
-       // iManager.ListItems();
+        iManager.ListItems();
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
         /*Time.timeScale = 1f;
@@ -84,4 +85,5 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
     
+
 }

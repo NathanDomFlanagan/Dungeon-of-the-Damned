@@ -17,3 +17,4 @@ MonoBehaviour:
   itemId: 1
   itemValue: 10
   description: Heals the player a certain amount
+  itemType: 2
