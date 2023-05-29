@@ -228,4 +228,19 @@ public class PlayerModel : MonoBehaviour
     {
         playerController.movementSpeed += amount;
     }
+
+    public float getPlayerHealth()
+    {
+        return playerDamage.Health;
+    }
+
+    public float getPlayerDmg()
+    {
+        return playerCombat.AtkDmg;
+    }
+
+    public float getPlayerSpeed()
+    {
+        return playerController.movementSpeed;
+    }
 }

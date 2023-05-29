@@ -12,6 +12,8 @@ public class InventoryManager : MonoBehaviour
     private Items item;
 
     public Transform itemContent;
+    public Transform statsScreen;
+
     public GameObject inventoryItem;
 
     public PlayerModel pModel;
@@ -61,6 +63,7 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
         }
+        displayStats();
         setInvItems();
     }
 
@@ -79,5 +82,24 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
+    }
+
+    private void displayStats()
+    {
+        var playerSprite = GameObject.Find("PlayerSprite/sprite").GetComponent<Image>();
+        var playerHP = GameObject.Find("PlayerStats/HP").GetComponent<TMP_Text>();
+        var playerDmg = GameObject.Find("PlayerStats/Damage").GetComponent<TMP_Text>();
+        var playerSpeed = GameObject.Find("PlayerStats/Speed").GetComponent<TMP_Text>();
+
+        float hp = pModel.getPlayerHealth();
+        float dmg = pModel.getPlayerDmg();
+        float speed = pModel.getPlayerSpeed();
+
+
+        playerSprite.sprite = this.GetComponent<SpriteRenderer>().sprite;
+        playerHP.text = "HP: " + hp.ToString();
+        playerDmg.text = "Damage: " + dmg.ToString();
+        playerSpeed.text = "Speed: " + speed.ToString();
+
     }
 }
