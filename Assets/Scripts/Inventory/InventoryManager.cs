@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class InventoryManager : MonoBehaviour
     {
         Instance = this;
         pModel = GetComponent<PlayerModel>();
+    }
+
+    void FixedUpdate()
+    {
+        setInvItems();
     }
 
 
@@ -58,7 +64,6 @@ public class InventoryManager : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-
         foreach (var item in inventory)
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);
@@ -68,16 +73,16 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
         }
-        setInvItems();
+
     }
 
     public void setInvItems()
     {
-        invItems.RemoveAll(ItemInventoryController => ItemInventoryController == null);
         invItems.AddRange(itemContent.GetComponentsInChildren<ItemInventoryController>());
         for (int i = 0; i < inventory.Count; i++)
         {
             invItems[i].AddItem(inventory[i]);
         }
     }
+
 }

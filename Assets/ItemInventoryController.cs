@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemInventoryController : MonoBehaviour
 {
-    private Items item;
+    public Items item;
     public PlayerModel pModel;
 
     void Awake()

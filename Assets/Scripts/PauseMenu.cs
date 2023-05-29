@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
 
     public static bool isPaused = false;
     public InventoryManager iManager;
-    private GameObject temp;
 
     void Awake() // Start is called before the first frame update    
     {
@@ -85,5 +84,4 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
     }
     
-
 }

@@ -15,7 +15,7 @@ public class ItemPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         InventoryManager temp = collision.GetComponent<InventoryManager>();
-        if(temp.inventorySpace == InventoryManager.MAXINVENTORY)
+        if (temp.inventorySpace == InventoryManager.MAXINVENTORY)
         {
             return;
         } else

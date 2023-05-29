@@ -17,7 +17,7 @@ using UnityEngine;
         [Header("Description")]
         public string description;
 
-    public ItemType itemType;
+        public ItemType itemType;
 
         //Defining the item type
         public enum ItemType

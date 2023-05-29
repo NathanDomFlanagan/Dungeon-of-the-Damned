@@ -3051,13 +3051,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4163392079499172421, guid: d9b469ba6e75d844599d0dc4fc0b5a77, type: 3}
+      - m_Target: {fileID: 2120766465}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: cleanInv
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2120766465}
+        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+        m_MethodName: setInv
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5633,7 +5645,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 2120766465}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: updateInv
+        m_MethodName: cleanInv
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
