@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<PotionData> Items = new List<PotionData>();
+    public List<GameObject> Items = new List<GameObject>();
 
     public Transform itemContent;
     public GameObject inventoryItem;
@@ -16,17 +16,17 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
-    public void Add(PotionData item)
+    public void Add(GameObject item)
     {
         Items.Add(item);
     }
 
-    public void Remove(PotionData item)
+    public void Remove(GameObject item)
     {
         Items.Remove(item);
     }
 
-    public void ListItems()
+    /*public void ListItems()
     {
         foreach(Transform item in itemContent)
         {
@@ -42,5 +42,5 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
         }
-    }
+    }*/
 }

@@ -62,7 +62,7 @@ public class PauseMenu : MonoBehaviour
     public void GoToInventory()
     {
         Debug.Log("Going to inventory...");
-        iManager.ListItems();
+       // iManager.ListItems();
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
         /*Time.timeScale = 1f;
