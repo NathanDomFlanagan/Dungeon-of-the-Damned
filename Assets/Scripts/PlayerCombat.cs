@@ -88,15 +88,19 @@ public class PlayerCombat : MonoBehaviour
     void Attack()
     {
         isAttacking = true;
+        if(dmg != null)
+        {
             //Detect enimies in range of attack
             Collider2D[] HitEnemies = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, EnemyLayers);
 
             //Damage enemy
             foreach (Collider2D enemy in HitEnemies)
             {
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage);
+                enemy.GetComponent<Damageable>().Hit(AtkDmg, trueDamage);
                 Debug.Log("Damage");
             }
+        }
+
     }
 
 

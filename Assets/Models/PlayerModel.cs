@@ -38,7 +38,7 @@ public class PlayerModel : MonoBehaviour
     private static PlayerModel Instance;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null)
         {
@@ -47,7 +47,7 @@ public class PlayerModel : MonoBehaviour
         }
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
-
+        inventoryManager = GetComponent<InventoryManager>();
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
@@ -208,27 +208,6 @@ public class PlayerModel : MonoBehaviour
         playerDamage.SetStats(charHealth, charArmour);
     }
 
-    public void Heal(int amount)
-    {
-        playerDamage.Health += amount;
-        HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>();
-    }
-
-    public void incArmour(float amount)
-    {
-        playerDamage.armour += amount;
-    }
-
-    public void incDmg(int amount)
-    {
-        playerCombat.AtkDmg += amount;
-    }
-
-    public void incSpeed(int amount)
-    {
-        playerController.movementSpeed += amount;
-    }
-
     public float getPlayerHealth()
     {
         return playerDamage.Health;
@@ -243,4 +222,30 @@ public class PlayerModel : MonoBehaviour
     {
         return playerController.movementSpeed;
     }
+
+    public void Heal(int amount)
+    {
+        playerDamage.Health += amount;
+        HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>();
+    }
+
+    public void incArmour(float amount)
+    {
+
+        playerDamage.armour += amount;
+    }
+
+    public void incDmg(int amount)
+    {
+        getPlayerDmg();
+        playerCombat.AtkDmg += amount;
+    }
+
+    public void incSpeed(int amount)
+    {
+        getPlayerSpeed();
+        playerController.movementSpeed += amount;
+    }
+
+
 }

@@ -218,6 +218,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2088207218, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: updateStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7867670218552995312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemImage: {fileID: 0}
   itemName: {fileID: 0}
+  itemDesc: {fileID: 0}
 --- !u!1 &9109866009499368273
 GameObject:
   m_ObjectHideFlags: 0

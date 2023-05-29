@@ -28,6 +28,11 @@ public class InventoryManager : MonoBehaviour
         pModel = GetComponent<PlayerModel>();
     }
 
+    void Update()
+    {
+        displayStatsText();
+    }
+
     public void Add(Items item)
     {
         if(inventorySpace == MAXINVENTORY)
@@ -64,6 +69,7 @@ public class InventoryManager : MonoBehaviour
             itemIcon.sprite = item.itemIcon;
         }
         displayStats();
+        displayStatsText();
         setInvItems();
     }
 
@@ -84,9 +90,15 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void displayStats()
+    public void displayStats()
     {
         var playerSprite = GameObject.Find("PlayerSprite/sprite").GetComponent<Image>();
+        playerSprite.sprite = this.GetComponent<SpriteRenderer>().sprite;
+
+    }
+
+    public void displayStatsText()
+    {
         var playerHP = GameObject.Find("PlayerStats/HP").GetComponent<TMP_Text>();
         var playerDmg = GameObject.Find("PlayerStats/Damage").GetComponent<TMP_Text>();
         var playerSpeed = GameObject.Find("PlayerStats/Speed").GetComponent<TMP_Text>();
@@ -95,11 +107,9 @@ public class InventoryManager : MonoBehaviour
         float dmg = pModel.getPlayerDmg();
         float speed = pModel.getPlayerSpeed();
 
-
-        playerSprite.sprite = this.GetComponent<SpriteRenderer>().sprite;
         playerHP.text = "HP: " + hp.ToString();
         playerDmg.text = "Damage: " + dmg.ToString();
         playerSpeed.text = "Speed: " + speed.ToString();
-
     }
+
 }

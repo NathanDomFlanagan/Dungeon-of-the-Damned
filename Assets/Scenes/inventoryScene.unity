@@ -2150,6 +2150,10 @@ PrefabInstance:
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 7863103999059862774, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+    - target: {fileID: 1598136865054087625, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+      propertyPath: inventoryManager
+      value: 
+      objectReference: {fileID: 2088207212}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
 --- !u!4 &1513972446 stripped
@@ -11845,3 +11849,14 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &2088207212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2088207218, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  m_PrefabInstance: {fileID: 1502019628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a404b316e46364dbc1af4bd17c03d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
