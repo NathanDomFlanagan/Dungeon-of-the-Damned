@@ -19540,6 +19540,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346358, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
+      propertyPath: m_isRightToLeft
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2004000412610346358, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278255608
       objectReference: {fileID: 0}

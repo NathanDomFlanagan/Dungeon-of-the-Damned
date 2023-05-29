@@ -6,7 +6,9 @@ using TMPro;
 
 public class ShopManager : MonoBehaviour
 {
-    public int coins;
+    public CoinCounter coinCounter;
+    public PlayerInventory playerInventory;    
+    //public int coins;
     public TMP_Text coinUI;
     public DoD.ArmorData[] armour;
     public DoD.WeaponData[] weapon;
@@ -27,7 +29,7 @@ public class ShopManager : MonoBehaviour
             shopPanelsSO[i].SetActive(true);
         }
 
-        coinUI.text = "Coins: " + coins.ToString();
+        coinUI.text = "Coins: " + coinCounter.GetCoins();
         LoadPanels();
         CheckPurchaseable();
     }
@@ -47,27 +49,27 @@ public class ShopManager : MonoBehaviour
         // Check if the item type corresponds to the current button
         if (i < armour.Length)
         {
-            isPurchaseable = coins >= armour[i].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= armour[i].baseCost;
         }
         else if (i < armour.Length + weapon.Length)
         {
-            isPurchaseable = coins >= weapon[i - armour.Length].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= weapon[i - armour.Length].baseCost;
         }
         else if (i < armour.Length + weapon.Length + aPotion.Length)
         {
-            isPurchaseable = coins >= aPotion[i - armour.Length - weapon.Length].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= aPotion[i - armour.Length - weapon.Length].baseCost;
         }
         else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length)
         {
-            isPurchaseable = coins >= dPotion[i - armour.Length - weapon.Length - aPotion.Length].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= dPotion[i - armour.Length - weapon.Length - aPotion.Length].baseCost;
         }
         else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length)
         {
-            isPurchaseable = coins >= sPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= sPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length].baseCost;
         }
         else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length + hPotion.Length)
         {
-            isPurchaseable = coins >= hPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length - sPotion.Length].baseCost;
+            isPurchaseable = coinCounter.GetCoins() >= hPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length - sPotion.Length].baseCost;
         }
 
         purchaseButton[i].interactable = isPurchaseable;
@@ -78,27 +80,27 @@ public class ShopManager : MonoBehaviour
     public bool IsItemPurchasable(int index)
     {
         // Check if the item at the given index can be purchased based on available coins
-        if (index < armour.Length && coins >= armour[index].baseCost)
+        if (index < armour.Length && coinCounter.GetCoins() >= armour[index].baseCost)
         {
             return true;
         }
-        else if (index < weapon.Length && coins >= weapon[index].baseCost)
+        else if (index < weapon.Length && coinCounter.GetCoins() >= weapon[index].baseCost)
         {
             return true;
         }
-        else if (index < aPotion.Length && coins >= aPotion[index].baseCost)
+        else if (index < aPotion.Length && coinCounter.GetCoins() >= aPotion[index].baseCost)
         {
             return true;
         }
-        else if (index < dPotion.Length && coins >= dPotion[index].baseCost)
+        else if (index < dPotion.Length && coinCounter.GetCoins() >= dPotion[index].baseCost)
         {
             return true;
         }
-        else if (index < sPotion.Length && coins >= sPotion[index].baseCost)
+        else if (index < sPotion.Length && coinCounter.GetCoins() >= sPotion[index].baseCost)
         {
             return true;
         }
-        else if (index < hPotion.Length && coins >= hPotion[index].baseCost)
+        else if (index < hPotion.Length && coinCounter.GetCoins() >= hPotion[index].baseCost)
         {
             return true;
         }
@@ -146,34 +148,49 @@ public class ShopManager : MonoBehaviour
             hPotionData = hPotion[buttonNo - armour.Length - weapon.Length - aPotion.Length - dPotion.Length - sPotion.Length];
         }
 
+        int coinCost = 0; // Declare and initialize the coinCost variable
+
         // Check if the item data is not null and if the player has enough coins
-        if (armorData != null && coins >= armorData.baseCost)
+        if (armorData != null && coinCounter.GetCoins() >= armorData.baseCost)
         {
-            coins -= armorData.baseCost;
+            coinCounter.RemoveCoins(armorData.baseCost);
+            playerInventory.AddInventory(armorData); // Add the purchased item to the player's inventory
+            coinCost = armorData.baseCost; // Update the coinCost variable
         }
-        else if (weaponData != null && coins >= weaponData.baseCost)
+        else if (weaponData != null && coinCounter.GetCoins() >= weaponData.baseCost)
         {
-            coins -= weaponData.baseCost;
+            coinCounter.RemoveCoins(weaponData.baseCost);
+            playerInventory.AddInventory(weaponData);
+            coinCost = weaponData.baseCost;
         }
-        else if (aPotionData != null && coins >= aPotionData.baseCost)
+        else if (aPotionData != null && coinCounter.GetCoins() >= aPotionData.baseCost)
         {
-            coins -= aPotionData.baseCost;
+            coinCounter.RemoveCoins(aPotionData.baseCost);
+            playerInventory.AddInventory(aPotionData);
+            coinCost = aPotionData.baseCost;
         }
-        else if (dPotionData != null && coins >= dPotionData.baseCost)
+        else if (dPotionData != null && coinCounter.GetCoins() >= dPotionData.baseCost)
         {
-            coins -= dPotionData.baseCost;
+            coinCounter.RemoveCoins(dPotionData.baseCost);
+            playerInventory.AddInventory(dPotionData);
+            coinCost = dPotionData.baseCost;
         }
-        else if (sPotionData != null && coins >= sPotionData.baseCost)
+        else if (sPotionData != null && coinCounter.GetCoins() >= sPotionData.baseCost)
         {
-            coins -= sPotionData.baseCost;
+            coinCounter.RemoveCoins(sPotionData.baseCost);
+            playerInventory.AddInventory(sPotionData);
+            coinCost = sPotionData.baseCost;
         }
-        else if (hPotionData != null && coins >= hPotionData.baseCost)
+        else if (hPotionData != null && coinCounter.GetCoins() >= hPotionData.baseCost)
         {
-            coins -= hPotionData.baseCost;
+            coinCounter.RemoveCoins(hPotionData.baseCost);
+            playerInventory.AddInventory(hPotionData);
+            coinCost = hPotionData.baseCost;
         }
 
-        coinUI.text = "Coins: " + coins.ToString();
+        coinUI.text = "Coins: " + coinCounter.GetCoins();
         CheckPurchaseable();
+        coinCounter.AddCoins(-coinCost); // Deduct the cost from the player's coins
     }
 
     public void LoadPanels()

@@ -53,11 +53,13 @@ public class PlayerInventory : MonoBehaviour
             if (Inventory[i] == null) // searchs for an empty slot
             { 
                 Inventory[i] = item;
+                Debug.Log("Item added to inventory at index: " + i);
                 return null;
             }
         }
 
         //only reached if inventory is full
+        Debug.Log("Inventory is full. Item not added.");
         return item;
     }
 
