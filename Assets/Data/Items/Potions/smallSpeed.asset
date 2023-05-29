@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31f399b648fa544fb74473198e3bd15, type: 3}
-  m_Name: bigArmour
+  m_Name: smallSpeed
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 86b23c7d50040a54c80edf57312dac79, type: 3}
-  itemName: Mega Armour
-  itemId: 4
-  itemValue: 50
-  description: Temporarily greatly enhances the player's armour
-  itemType: 1
+  itemIcon: {fileID: 21300000, guid: 1c7ebf7b013b5e44ca63ff3aedaf90a3, type: 3}
+  itemName: Small Speed
+  itemId: 7
+  itemValue: 10
+  description: Temporarily boosts the player's speed
+  itemType: 6

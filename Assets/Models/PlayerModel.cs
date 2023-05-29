@@ -5,7 +5,7 @@ using DoD;
 
 public class PlayerModel : MonoBehaviour
 {
-    public PlayerInventory Inventory;
+    public InventoryManager inventoryManager; 
     public PlayerController playerController;
     public PlayerCombat playerCombat;
     public Damageable playerDamage;
@@ -48,14 +48,10 @@ public class PlayerModel : MonoBehaviour
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
 
-        Inventory.pmSet(this);
-
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
 
-        //$$test code to be removed
-        AddItem(UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Data/Items/Weapons/Axe 2.asset", typeof(WeaponData)));
     }
 
     // Update is called once per frame
@@ -221,5 +217,15 @@ public class PlayerModel : MonoBehaviour
     public void incArmour(float amount)
     {
         playerDamage.armour += amount;
+    }
+
+    public void incDmg(int amount)
+    {
+        playerCombat.AtkDmg += amount;
+    }
+
+    public void incSpeed(int amount)
+    {
+        playerController.movementSpeed += amount;
     }
 }

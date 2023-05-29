@@ -21,10 +21,14 @@ using UnityEngine;
 
         //Defining the item type
         public enum ItemType
-    {
+        {
         smallArmour,
         bigArmour,
         smallHeal,
-        bigHeal
-    }
+        bigHeal,
+        smallDmg,
+        bigDmg,
+        smallSpeed,
+        bigSpeed
+        }
     }

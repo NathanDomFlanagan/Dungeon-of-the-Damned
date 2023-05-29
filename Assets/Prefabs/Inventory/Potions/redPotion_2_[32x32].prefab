@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2652024256218094998}
   - component: {fileID: 4950458124362181529}
+  - component: {fileID: 5286087617557552476}
+  - component: {fileID: 5115155705843633303}
   m_Layer: 0
   m_Name: redPotion_2_[32x32]
   m_TagString: Untagged
@@ -84,3 +86,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5286087617557552476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255808689530768524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa6893a2586b604e9ca58435ecf82da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: bf5f07f2b5f6f4cf0b8db235d3e4667c, type: 2}
+--- !u!70 &5115155705843633303
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255808689530768524}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0004965365, y: -0.00699766}
+  m_Size: {x: 0.18704444, y: 0.30600467}
+  m_Direction: 0

@@ -30,20 +30,32 @@ public class ItemInventoryController : MonoBehaviour
         switch (item.itemType)
         {
             case Items.ItemType.smallArmour:
-                pModel.incArmour(10);
+                pModel.incArmour(item.itemValue);
                 Debug.Log("Increased Armour by 10");
                 break;
             case Items.ItemType.bigArmour:
-                pModel.incArmour(50);
+                pModel.incArmour(item.itemValue);
                 Debug.Log("Increased Armour by 50");
                 break;
             case Items.ItemType.smallHeal:
-                pModel.Heal(10);
+                pModel.Heal(item.itemValue);
                 Debug.Log("Healed for 10");
                 break;
             case Items.ItemType.bigHeal:
-                pModel.Heal(50);
+                pModel.Heal(item.itemValue);
                 Debug.Log("Healed for 50");
+                break;
+            case Items.ItemType.smallDmg:
+                pModel.incDmg(item.itemValue);
+                break;
+            case Items.ItemType.bigDmg:
+                pModel.incDmg(item.itemValue);
+                break;
+            case Items.ItemType.smallSpeed:
+                pModel.incSpeed(item.itemValue);
+                break;
+            case Items.ItemType.bigSpeed:
+                pModel.incSpeed(item.itemValue);
                 break;
         }
         RemoveItem();

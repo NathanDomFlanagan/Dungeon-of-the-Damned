@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31f399b648fa544fb74473198e3bd15, type: 3}
-  m_Name: bigArmour
+  m_Name: bigDmg
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 86b23c7d50040a54c80edf57312dac79, type: 3}
-  itemName: Mega Armour
-  itemId: 4
+  itemIcon: {fileID: 21300000, guid: b2fd8d7187d68814e81049e6abe5ff5b, type: 3}
+  itemName: Mega Damage
+  itemId: 6
   itemValue: 50
-  description: Temporarily greatly enhances the player's armour
-  itemType: 1
+  description: Temporarily greatly boosts the player's damage
+  itemType: 5

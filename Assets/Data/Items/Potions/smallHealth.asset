@@ -16,5 +16,5 @@ MonoBehaviour:
   itemName: Mini Heal
   itemId: 1
   itemValue: 10
-  description: Heals the player a certain amount
+  description: Heals a small amount of the player's healtlh
   itemType: 2

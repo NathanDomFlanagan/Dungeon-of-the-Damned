@@ -6,7 +6,6 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     Animator animator;
-    //EnemyAI enemy;
 
     [SerializeField]
     private float _maxHealth = 100;

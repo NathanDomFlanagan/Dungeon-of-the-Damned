@@ -20,7 +20,7 @@ public class PlayerCombat : MonoBehaviour
 
 
     //Damage amount
-    private int AtkDmg = 50;
+    public int AtkDmg = 50;
 
     //Attack Time
     private float AtkRate = 4.0f;
