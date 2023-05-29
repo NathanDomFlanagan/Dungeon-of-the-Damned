@@ -18,18 +18,13 @@ public class InventoryManager : MonoBehaviour
     public static readonly int MAXINVENTORY = 10;
     public int inventorySpace = 0;
 
-    public List<ItemInventoryController> invItems;
+    public ItemInventoryController[] invItems;
+
     void Awake()
     {
         Instance = this;
         pModel = GetComponent<PlayerModel>();
     }
-
-    void FixedUpdate()
-    {
-        setInvItems();
-    }
-
 
     public void Add(Items item)
     {
@@ -41,8 +36,6 @@ public class InventoryManager : MonoBehaviour
             inventory.Add(item);
             inventorySpace++;
         }
-
-
     }
 
     public void Remove(Items item)
@@ -55,15 +48,10 @@ public class InventoryManager : MonoBehaviour
             inventory.Remove(item);
             inventorySpace--;
         }
-
     }
 
     public void ListItems()
     {
-        foreach(Transform item in itemContent)
-        {
-            Destroy(item.gameObject);
-        }
         foreach (var item in inventory)
         {
             GameObject obj = Instantiate(inventoryItem, itemContent);
@@ -73,16 +61,23 @@ public class InventoryManager : MonoBehaviour
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
         }
-
+        setInvItems();
     }
 
-    public void setInvItems()
+    private void setInvItems()
     {
-        invItems.AddRange(itemContent.GetComponentsInChildren<ItemInventoryController>());
+        invItems = itemContent.GetComponentsInChildren<ItemInventoryController>();
         for (int i = 0; i < inventory.Count; i++)
         {
             invItems[i].AddItem(inventory[i]);
         }
     }
 
+    public void cleanInventory()
+    {
+        foreach (Transform item in itemContent)
+        {
+            Destroy(item.gameObject);
+        }
+    }
 }

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7194717041649342570}
   - component: {fileID: 6852987647645986216}
   - component: {fileID: 1827221458499212198}
-  - component: {fileID: -6372108142234721534}
   - component: {fileID: 923479334599950314}
   m_Layer: 0
   m_Name: greenPotion_2_[32x32]
@@ -97,19 +96,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa6893a2586b604e9ca58435ecf82da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: e09d5a9ad867eb64a8a28005ffd4ee16, type: 2}
---- !u!114 &-6372108142234721534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3466403626973481103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce240050de2d7c44beffde54e2e3ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: e09d5a9ad867eb64a8a28005ffd4ee16, type: 2}

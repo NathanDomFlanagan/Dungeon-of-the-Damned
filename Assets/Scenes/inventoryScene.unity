@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &110383470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2422,7 @@ GameObject:
   - component: {fileID: 1316232394}
   m_Layer: 5
   m_Name: Description
-  m_TagString: Untagged
+  m_TagString: EditorOnly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5643,9 +5643,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2120766465}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
-        m_MethodName: cleanInv
+      - m_Target: {fileID: 2088207212}
+        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
+        m_MethodName: cleanInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13026,6 +13026,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1451828926696432848, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
   m_PrefabInstance: {fileID: 1502019628}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2088207212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2088207218, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  m_PrefabInstance: {fileID: 1502019628}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8a404b316e46364dbc1af4bd17c03d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2100058413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 417081256943656922, guid: da4a5473331e10e4f9b42ef277a8c314, type: 3}

@@ -27,11 +27,25 @@ public class PauseMenu : MonoBehaviour
             if (isPaused)
             {
                 inventoryMenu.SetActive(false);
+                iManager.cleanInventory();
                 ResumeGame();
             }
             else
             {
                 PauseGame();
+            }
+        }
+
+        if(Input.GetButtonDown("Inventory"))
+        {
+            if(isPaused)
+            { 
+                inventoryMenu.SetActive(false);
+                iManager.cleanInventory();
+                ResumeGame();
+            } else
+            {
+                GoToInventory();
             }
         }
     }
@@ -61,13 +75,13 @@ public class PauseMenu : MonoBehaviour
 
     public void GoToInventory()
     {
+        Time.timeScale = 0f;
+        isPaused = true;
         Debug.Log("Going to inventory...");
-        iManager.ListItems();
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
-        /*Time.timeScale = 1f;
-        SceneManager.LoadScene("Inventory");
-        isPaused = false;*/
+        iManager.ListItems();
+  
     }
     
     public void GoToMainMenu()

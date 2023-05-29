@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 417081256943656922}
   - component: {fileID: 12028243801963138}
   - component: {fileID: -4868418270312828571}
-  - component: {fileID: 5418320881047703877}
   - component: {fileID: 1083786358}
   m_Layer: 0
   m_Name: bluePotion_1_[32x32]
@@ -97,19 +96,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: daa6893a2586b604e9ca58435ecf82da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 71fea237e6bdc5e489441d673b347f2f, type: 2}
---- !u!114 &5418320881047703877
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7664314660519510730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ce240050de2d7c44beffde54e2e3ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Item: {fileID: 11400000, guid: 71fea237e6bdc5e489441d673b347f2f, type: 2}
