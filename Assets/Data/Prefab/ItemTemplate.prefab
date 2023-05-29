@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: {fileID: 1952001135639543980}
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 7732953450517992323}
   description: {fileID: 7662468139230842968}
   itemCost: {fileID: 4659723522179693639}
 --- !u!1 &997119217742457513
@@ -798,10 +798,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 29.3
-  m_fontSizeBase: 36
+  m_fontSize: 21
+  m_fontSizeBase: 21
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
