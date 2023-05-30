@@ -13,9 +13,9 @@ public class PauseMenu : MonoBehaviour
 
     void Awake() // Start is called before the first frame update    
     {
-        iManager = transform.parent.GetComponent<InventoryManager>();
         pauseMenu = transform.GetChild(0).gameObject;
         inventoryMenu = transform.GetChild(1).gameObject;
+        iManager = transform.parent.GetComponent<InventoryManager>();
         pauseMenu.SetActive(false);
         isPaused = false;
     }
@@ -39,7 +39,7 @@ public class PauseMenu : MonoBehaviour
         if(Input.GetButtonDown("Inventory"))
         {
             if(isPaused)
-            { 
+            {
                 inventoryMenu.SetActive(false);
                 iManager.cleanInventory();
                 ResumeGame();
@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour
     private void ResumeGame()
     {
         pauseMenu.SetActive(false);
+        iManager.SetActive(false);
         Time.timeScale = 1f; // Set the time scale to 1 to play the game
         isPaused = false;
     }
@@ -81,7 +82,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
         iManager.ListItems();
-  
+        iManager.SetActive(true);
     }
     
     public void GoToMainMenu()

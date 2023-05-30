@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     public List<Items> inventory = new List<Items>();
     private Items item;
+    private bool isActive;
 
     public Transform itemContent;
     public Transform statsScreen;
@@ -22,6 +23,7 @@ public class InventoryManager : MonoBehaviour
 
     public ItemInventoryController[] invItems;
 
+
     void Awake()
     {
         Instance = this;
@@ -30,7 +32,10 @@ public class InventoryManager : MonoBehaviour
 
     void Update()
     {
-        displayStatsText();
+        if(isActive)
+        {
+
+        }
     }
 
     public void Add(Items item)
@@ -71,6 +76,11 @@ public class InventoryManager : MonoBehaviour
         displayStats();
         displayStatsText();
         setInvItems();
+    }
+
+    public void SetActive(bool boo)
+    {
+        isActive = boo;
     }
 
     private void setInvItems()

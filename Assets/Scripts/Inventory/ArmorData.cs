@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace DoD
-{
     [CreateAssetMenu(fileName = "Armor", menuName = "Armor/Armor")]
     public class ArmorData : ScriptableObject
     {
         [Header("Item Information")]
         public Sprite itemIcon;
         public string itemName;
-
 
         //additive
         [Header("Defense")]
@@ -34,9 +31,6 @@ namespace DoD
         [Header("Jump Modifier")]
         public int jumpmod = 0;
 
-        [Header("Discription")]
-        public string discription;
-
-        public GameObject modelPrefab;
+        [Header("Description")]
+        public string description;
     }
-}
