@@ -9,6 +9,7 @@ public class PlayerModel : MonoBehaviour
     public PlayerController playerController;
     public PlayerCombat playerCombat;
     public Damageable playerDamage;
+    public DeathManager playerDeath;
 
     public string className;
 
@@ -49,6 +50,9 @@ public class PlayerModel : MonoBehaviour
         GameObject.DontDestroyOnLoad(this.gameObject);
 
         Inventory.pmSet(this);
+
+        playerDeath.SetDamagable(playerDamage);
+        playerDeath.SetPC(playerController);
 
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
