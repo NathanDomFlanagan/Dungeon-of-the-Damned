@@ -34,7 +34,7 @@ public class InventoryManager : MonoBehaviour
     {
         if(isActive)
         {
-
+            displayStatsText();
         }
     }
 
@@ -112,14 +112,17 @@ public class InventoryManager : MonoBehaviour
         var playerHP = GameObject.Find("PlayerStats/HP").GetComponent<TMP_Text>();
         var playerDmg = GameObject.Find("PlayerStats/Damage").GetComponent<TMP_Text>();
         var playerSpeed = GameObject.Find("PlayerStats/Speed").GetComponent<TMP_Text>();
+        var playerArmour = GameObject.Find("PlayerStats/Armour").GetComponent<TMP_Text>();
 
         float hp = pModel.getPlayerHealth();
         float dmg = pModel.getPlayerDmg();
         float speed = pModel.getPlayerSpeed();
+        float armour = pModel.getPlayerArmour();
 
         playerHP.text = "HP: " + hp.ToString();
         playerDmg.text = "Damage: " + dmg.ToString();
         playerSpeed.text = "Speed: " + speed.ToString();
+        playerArmour.text = "Armour: " + armour.ToString();
     }
 
 }

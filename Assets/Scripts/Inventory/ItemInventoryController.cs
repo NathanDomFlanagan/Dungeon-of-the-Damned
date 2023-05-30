@@ -57,7 +57,8 @@ public class ItemInventoryController : MonoBehaviour
             case Items.ItemType.bigSpeed:
                 pModel.incSpeed(item.itemValue);
                 break;
-            case Items.ItemType.heavyArmor1:
+            case Items.ItemType.armourEquip:
+                pModel.AddItem(item);
                 break;
         }
         RemoveItem();

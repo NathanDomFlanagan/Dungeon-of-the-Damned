@@ -11,6 +11,8 @@ using UnityEngine;
         public string itemName;
         public int itemId;
 
+    public bool isArmor;
+    public bool isWeapon;
     [Header("ONLY CHANGE IF ITEM IS ARMOR")]
     //additive
     [Header("Defense")]
@@ -34,8 +36,19 @@ using UnityEngine;
     [Header("Jump Modifier")]
     public int jumpmod = 0;
 
-        //Handles the Attack damage, or amount healed (potions)
-        [Header("Item Value Modifier")]
+    [Header("ONLY CHANGE IF ITEM IS WEAPON")]
+
+    [Header("Damage")]
+    public int damage = 0;
+
+    [Header("Attack Rate")]
+    public int attackRate = 0;
+
+    [Header("True Damage")]
+    public bool trueDamage = false;
+
+    //Handles the Attack damage, or amount healed (potions)
+    [Header("Item Value Modifier")]
         public int itemValue;
 
         [Header("Description")]
@@ -54,6 +67,7 @@ using UnityEngine;
         bigDmg,
         smallSpeed,
         bigSpeed,
-        heavyArmor1
+        armourEquip,
+        weapon
         }
     }

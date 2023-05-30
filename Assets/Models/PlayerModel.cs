@@ -12,8 +12,8 @@ public class PlayerModel : MonoBehaviour
 
     public string className;
 
-    private ArmorData armor = null;
-    private WeaponData weapon = null;
+    private Items armor = null;
+    private Items weapon = null;
 
     //sets which of the abilities are enabled for the specific player class
     private bool enableWallJump;
@@ -26,10 +26,10 @@ public class PlayerModel : MonoBehaviour
     //all the variables for the characters data which can be changed by items.
     // or conversely changed depending on the players class
     private int amountOfJumps;
-    private float charMoveSpeed;
-    private int charAttackDmg;
-    private float charHealth;
-    private float charArmour;
+    public float charMoveSpeed;
+    public int charAttackDmg;
+    public float charHealth;
+    public float charArmour;
     private float charAttackRange;
     private float charAttackRate;
     private float charJumpForce;
@@ -65,17 +65,17 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public Object AddItem(Object data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
+    public Items AddItem(Items data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
     {
-        if (data is ArmorData && data != null)
+        if (data!=null && data.isArmor == true && data.isWeapon == false)
         {
             updatedStats = true;
-            return ArmorAdd((ArmorData)data);
+            return ArmorAdd(data);
         }
-        else if (data is WeaponData && data != null)
+        else if (data != null && data.isArmor == false && data.isWeapon == true)
         {
             updatedStats = true;
-            return WeaponAdd((WeaponData)data);
+            return WeaponAdd(data);
         }
         else
         {   
@@ -83,16 +83,16 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    private ArmorData ArmorAdd(ArmorData armordata)
+    private Items ArmorAdd(Items armordata)
     {
-        ArmorData returndata = armor;
+        Items returndata = armor;
         armor = armordata;
         return returndata;
     }
 
-    private WeaponData WeaponAdd(WeaponData data)
+    private Items WeaponAdd(Items data)
     {
-        WeaponData returndata = weapon;
+        Items returndata = weapon;
         weapon = data;
         return returndata;
     }
@@ -208,43 +208,53 @@ public class PlayerModel : MonoBehaviour
         playerDamage.SetStats(charHealth, charArmour);
     }
 
+    //Returns stats 
+
     public float getPlayerHealth()
     {
-        return playerDamage.Health;
+        return charHealth;
     }
 
     public float getPlayerDmg()
     {
-        return playerCombat.AtkDmg;
+        return charAttackDmg;
     }
 
     public float getPlayerSpeed()
     {
-        return playerController.movementSpeed;
+        return charMoveSpeed;
     }
 
+    public float getPlayerArmour()
+    {
+        return charArmour;
+    }
     public void Heal(int amount)
     {
-        playerDamage.Health += amount;
+        charHealth += amount;
+        reloadStats();
         HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>();
     }
 
     public void incArmour(float amount)
     {
+        charArmour += amount;
+        reloadStats();
 
-        playerDamage.armour += amount;
     }
 
     public void incDmg(int amount)
     {
-        getPlayerDmg();
-        playerCombat.AtkDmg += amount;
+        charAttackDmg += amount;
+        reloadStats();
+
     }
 
     public void incSpeed(int amount)
     {
-        getPlayerSpeed();
-        playerController.movementSpeed += amount;
+        charMoveSpeed += amount;
+        reloadStats();
+
     }
 
 
