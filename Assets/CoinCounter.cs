@@ -43,10 +43,10 @@ public class CoinCounter : MonoBehaviour
     }
 
     public void RemoveCoins(int amount)
-{
-    int currentCoins = GetCoins();
-    currentCoins -= amount;
-    PlayerPrefs.SetInt("coins", currentCoins);
-    coinText.text = currentCoins.ToString();
-}
+    {
+        int currentCoins = GetCoins();
+        currentCoins -= amount;
+        PlayerPrefs.SetInt("coins", currentCoins);
+        coinText.text = currentCoins.ToString();
+    }
 }

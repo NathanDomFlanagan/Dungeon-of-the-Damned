@@ -29,7 +29,7 @@ public class ShopManager : MonoBehaviour
             shopPanelsSO[i].SetActive(true);
         }
 
-        coinUI.text = "Coins: " + coinCounter.GetCoins();
+        coinUI.text = "Coins: " + coinCounter.GetCoins().ToString(); // Update the coinUI text
         LoadPanels();
         CheckPurchaseable();
     }
@@ -41,40 +41,41 @@ public class ShopManager : MonoBehaviour
     }
 
     public void CheckPurchaseable()
-{
-    for (int i = 0; i < shopPanels.Length; i++)
     {
-        bool isPurchaseable = false;
+        for (int i = 0; i < shopPanels.Length; i++)
+        {
+            bool isPurchaseable = false;
 
-        // Check if the item type corresponds to the current button
-        if (i < armour.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= armour[i].baseCost;
-        }
-        else if (i < armour.Length + weapon.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= weapon[i - armour.Length].baseCost;
-        }
-        else if (i < armour.Length + weapon.Length + aPotion.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= aPotion[i - armour.Length - weapon.Length].baseCost;
-        }
-        else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= dPotion[i - armour.Length - weapon.Length - aPotion.Length].baseCost;
-        }
-        else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= sPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length].baseCost;
-        }
-        else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length + hPotion.Length)
-        {
-            isPurchaseable = coinCounter.GetCoins() >= hPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length - sPotion.Length].baseCost;
-        }
+            // Check if the item type corresponds to the current button
+            if (i < armour.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= armour[i].baseCost;
+            }
+            else if (i < armour.Length + weapon.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= weapon[i - armour.Length].baseCost;
+            }
+            else if (i < armour.Length + weapon.Length + aPotion.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= aPotion[i - armour.Length - weapon.Length].baseCost;
+            }
+            else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= dPotion[i - armour.Length - weapon.Length - aPotion.Length].baseCost;
+            }
+            else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= sPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length].baseCost;
+            }
+            else if (i < armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length + hPotion.Length)
+            {
+                isPurchaseable = coinCounter.GetCoins() >= hPotion[i - armour.Length - weapon.Length - aPotion.Length - dPotion.Length - sPotion.Length].baseCost;
+            }
 
-        purchaseButton[i].interactable = isPurchaseable;
+            purchaseButton[i].interactable = isPurchaseable;
+        }
     }
-}
+
 
 
     public bool IsItemPurchasable(int index)
@@ -188,9 +189,9 @@ public class ShopManager : MonoBehaviour
             coinCost = hPotionData.baseCost;
         }
 
-        coinUI.text = "Coins: " + coinCounter.GetCoins();
-        CheckPurchaseable();
         coinCounter.AddCoins(-coinCost); // Deduct the cost from the player's coins
+        coinUI.text = "Coins: " + coinCounter.GetCoins(); // Update the coinUI text
+        CheckPurchaseable();        
     }
 
     public void LoadPanels()
