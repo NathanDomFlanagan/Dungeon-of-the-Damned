@@ -17,6 +17,7 @@ MonoBehaviour:
   itemId: 1
   isArmor: 1
   isWeapon: 0
+  isPotion: 0
   defense: 50
   health: 0
   movespeed: 0
@@ -27,4 +28,4 @@ MonoBehaviour:
   trueDamage: 0
   itemValue: 0
   description: The renowned Armor of Onions. Greatly boosts defense
-  itemType: 8
+  itemType: 4

@@ -22,6 +22,10 @@ public class ItemInventoryController : MonoBehaviour
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
+        if (item.itemType == Items.ItemType.armourEquip && InventoryManager.Instance.equip1 == false)
+        {
+            InventoryManager.Instance.displayEquip(item);
+        }
         Destroy(gameObject);
     }
 
@@ -29,33 +33,19 @@ public class ItemInventoryController : MonoBehaviour
     {
         switch (item.itemType)
         {
-            case Items.ItemType.smallArmour:
-                pModel.incArmour(item.itemValue);
-                Debug.Log("Increased Armour by 10");
-                break;
-            case Items.ItemType.bigArmour:
-                pModel.incArmour(item.itemValue);
+            case Items.ItemType.Armour:
+                pModel.AddItem(item);
                 Debug.Log("Increased Armour by 50");
                 break;
-            case Items.ItemType.smallHeal:
-                pModel.Heal(item.itemValue);
-                Debug.Log("Healed for 10");
-                break;
-            case Items.ItemType.bigHeal:
-                pModel.Heal(item.itemValue);
+            case Items.ItemType.Heal:
+                pModel.AddItem(item);
                 Debug.Log("Healed for 50");
                 break;
-            case Items.ItemType.smallDmg:
-                pModel.incDmg(item.itemValue);
+            case Items.ItemType.Damage:
+                pModel.AddItem(item);
                 break;
-            case Items.ItemType.bigDmg:
-                pModel.incDmg(item.itemValue);
-                break;
-            case Items.ItemType.smallSpeed:
-                pModel.incSpeed(item.itemValue);
-                break;
-            case Items.ItemType.bigSpeed:
-                pModel.incSpeed(item.itemValue);
+            case Items.ItemType.Speed:
+                pModel.AddItem(item);
                 break;
             case Items.ItemType.armourEquip:
                 pModel.AddItem(item);

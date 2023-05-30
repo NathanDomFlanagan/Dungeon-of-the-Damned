@@ -13,6 +13,7 @@ public class InventoryManager : MonoBehaviour
     private bool isActive;
 
     public Transform itemContent;
+    public Transform equipItemContent;
     public Transform statsScreen;
 
     public GameObject inventoryItem;
@@ -23,6 +24,8 @@ public class InventoryManager : MonoBehaviour
 
     public ItemInventoryController[] invItems;
 
+    public bool equip1 = false;
+    public bool equip2 = false;
 
     void Awake()
     {
@@ -99,6 +102,27 @@ public class InventoryManager : MonoBehaviour
             Destroy(item.gameObject);
         }
     }
+
+    public void displayEquip(Items item)
+    {
+        if(equip1 == false)
+        {
+            var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
+            Armor.sprite = item.itemIcon;
+            equip1 = true;
+
+        }
+    }
+
+    public void unequipItem()
+    {
+        var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
+        Armor.sprite = null;
+        equip1 = false;
+
+
+    }
+
 
     public void displayStats()
     {

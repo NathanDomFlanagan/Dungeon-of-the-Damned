@@ -13,6 +13,7 @@ using UnityEngine;
 
     public bool isArmor;
     public bool isWeapon;
+    public bool isPotion;
     [Header("ONLY CHANGE IF ITEM IS ARMOR")]
     //additive
     [Header("Defense")]
@@ -59,14 +60,10 @@ using UnityEngine;
         //Defining the item type
         public enum ItemType
         {
-        smallArmour,
-        bigArmour,
-        smallHeal,
-        bigHeal,
-        smallDmg,
-        bigDmg,
-        smallSpeed,
-        bigSpeed,
+        Armour,
+        Heal,
+        Speed,
+        Damage,
         armourEquip,
         weapon
         }

@@ -15,6 +15,17 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 86b23c7d50040a54c80edf57312dac79, type: 3}
   itemName: Mega Armour
   itemId: 4
+  isArmor: 0
+  isWeapon: 0
+  isPotion: 1
+  defense: 0
+  health: 0
+  movespeed: 0
+  jumpforce: 0
+  jumpmod: 0
+  damage: 0
+  attackRate: 0
+  trueDamage: 0
   itemValue: 50
   description: Temporarily greatly enhances the player's armour
-  itemType: 1
+  itemType: 0

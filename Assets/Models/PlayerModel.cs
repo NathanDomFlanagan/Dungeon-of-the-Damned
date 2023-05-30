@@ -14,6 +14,7 @@ public class PlayerModel : MonoBehaviour
 
     private Items armor = null;
     private Items weapon = null;
+    private Items other = null;
 
     //sets which of the abilities are enabled for the specific player class
     private bool enableWallJump;
@@ -67,15 +68,20 @@ public class PlayerModel : MonoBehaviour
 
     public Items AddItem(Items data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
     {
-        if (data!=null && data.isArmor == true && data.isWeapon == false)
+        if (data!=null && data.isArmor == true)
         {
             updatedStats = true;
             return ArmorAdd(data);
         }
-        else if (data != null && data.isArmor == false && data.isWeapon == true)
+        else if (data != null &&data.isWeapon == true)
         {
             updatedStats = true;
             return WeaponAdd(data);
+        }
+        else if (data!=null && data.isPotion == true)
+        {
+            updatedStats = true;
+            return StatsAdd(data);
         }
         else
         {   
@@ -94,6 +100,13 @@ public class PlayerModel : MonoBehaviour
     {
         Items returndata = weapon;
         weapon = data;
+        return returndata;
+    }
+
+    private Items StatsAdd(Items data)
+    {
+        Items returndata = other;
+        other = data;
         return returndata;
     }
 
@@ -164,9 +177,11 @@ public class PlayerModel : MonoBehaviour
 
     private void CalculateStats()
     {
-        classSelect(); // reapplies class' original stats
+        //classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
+        addPotionStats();
+        updatedStats = false;
     }
 
     private void addArmorStats()
@@ -175,8 +190,8 @@ public class PlayerModel : MonoBehaviour
             //checks for if the item was changed from its initial value
             if (armor.defense is not 0) { charArmour += armor.defense; }
             if (armor.health is not 0) { charHealth += armor.health; }
-            if (armor.movespeed is not 0) { charMoveSpeed *= armor.movespeed; }
-            if (armor.jumpforce is not 0) { charJumpForce *= armor.jumpforce; }
+            if (armor.movespeed is not 0) { charMoveSpeed += armor.movespeed; }
+            if (armor.jumpforce is not 0) { charJumpForce += armor.jumpforce; }
             if (armor.jumpmod is not 0) { amountOfJumps += armor.jumpmod; }
         }
     }
@@ -192,6 +207,20 @@ public class PlayerModel : MonoBehaviour
                               //check if the weapon add it to the player
             {
                 charTrueDmg = weapon.trueDamage;
+            }
+        }
+    }
+
+    private void addPotionStats()
+    {
+        if(other!=null)
+        {
+            if(other.itemValue is not 0)
+            {
+                if (other.itemType == Items.ItemType.Heal) { charHealth += other.itemValue; HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>(); }
+                if (other.itemType == Items.ItemType.Damage) { charAttackDmg += other.itemValue; }
+                if (other.itemType == Items.ItemType.Armour) { charArmour += other.itemValue; }
+                if (other.itemType == Items.ItemType.Speed) { charMoveSpeed += other.itemValue; }
             }
         }
     }
@@ -229,33 +258,5 @@ public class PlayerModel : MonoBehaviour
     {
         return charArmour;
     }
-    public void Heal(int amount)
-    {
-        charHealth += amount;
-        reloadStats();
-        HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>();
-    }
-
-    public void incArmour(float amount)
-    {
-        charArmour += amount;
-        reloadStats();
-
-    }
-
-    public void incDmg(int amount)
-    {
-        charAttackDmg += amount;
-        reloadStats();
-
-    }
-
-    public void incSpeed(int amount)
-    {
-        charMoveSpeed += amount;
-        reloadStats();
-
-    }
-
 
 }
