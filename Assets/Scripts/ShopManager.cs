@@ -154,45 +154,50 @@ public class ShopManager : MonoBehaviour
         // Check if the item data is not null and if the player has enough coins
         if (armorData != null && coinCounter.GetCoins() >= armorData.baseCost)
         {
-            coinCounter.RemoveCoins(armorData.baseCost);
-            playerInventory.AddInventory(armorData); // Add the purchased item to the player's inventory
             coinCost = armorData.baseCost; // Update the coinCost variable
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(armorData); // Add the purchased item to the player's inventory
         }
         else if (weaponData != null && coinCounter.GetCoins() >= weaponData.baseCost)
         {
-            coinCounter.RemoveCoins(weaponData.baseCost);
-            playerInventory.AddInventory(weaponData);
             coinCost = weaponData.baseCost;
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(weaponData);
         }
         else if (aPotionData != null && coinCounter.GetCoins() >= aPotionData.baseCost)
         {
-            coinCounter.RemoveCoins(aPotionData.baseCost);
-            playerInventory.AddInventory(aPotionData);
             coinCost = aPotionData.baseCost;
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(aPotionData);
         }
         else if (dPotionData != null && coinCounter.GetCoins() >= dPotionData.baseCost)
         {
-            coinCounter.RemoveCoins(dPotionData.baseCost);
-            playerInventory.AddInventory(dPotionData);
             coinCost = dPotionData.baseCost;
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(dPotionData);
         }
         else if (sPotionData != null && coinCounter.GetCoins() >= sPotionData.baseCost)
         {
-            coinCounter.RemoveCoins(sPotionData.baseCost);
-            playerInventory.AddInventory(sPotionData);
             coinCost = sPotionData.baseCost;
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(sPotionData);
         }
         else if (hPotionData != null && coinCounter.GetCoins() >= hPotionData.baseCost)
         {
-            coinCounter.RemoveCoins(hPotionData.baseCost);
-            playerInventory.AddInventory(hPotionData);
             coinCost = hPotionData.baseCost;
+            coinCounter.RemoveCoins(coinCost);
+            playerInventory.AddInventory(hPotionData);
         }
 
-        coinCounter.AddCoins(-coinCost); // Deduct the cost from the player's coins
-        coinUI.text = "Coins: " + coinCounter.GetCoins(); // Update the coinUI text
-        CheckPurchaseable();        
+        // Update the coinUI text only if a purchase was made
+        if (coinCost > 0)
+        {
+            coinUI.text = "Coins: " + coinCounter.GetCoins().ToString(); // Update the coinUI text
+        }
+
+        CheckPurchaseable();
     }
+
 
     public void LoadPanels()
     {
