@@ -74,6 +74,12 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
+    public void DestroyThis()
+    {
+        Destroy(this.gameObject);
+        return;
+    }
+
     public Object AddItem(Object data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
     {
         if (data is ArmorData && data != null)

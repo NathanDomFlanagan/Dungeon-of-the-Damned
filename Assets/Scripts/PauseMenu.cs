@@ -63,9 +63,12 @@ public void GoToInventory()
     public void GoToMainMenu()
     {
         Debug.Log("Going to main menu...");
-        /*Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
-        isPaused = false;*/
+        /*Time.timeScale = 1f;*/
+        ResumeGame();
+        GameObject p = GameObject.FindGameObjectsWithTag("Player")[0];
+        PlayerModel pm = p.GetComponent<PlayerModel>();
+        pm.DestroyThis();
+        SceneManager.LoadScene(9, LoadSceneMode.Single);
     }
 
     public void QuitGame()
