@@ -79,7 +79,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Armor of Onions
 --- !u!1 &4163392079499172421
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 7867670218552995312}
   - component: {fileID: 2453729224713375527}
   - component: {fileID: 6274944654484284584}
+  - component: {fileID: -5710248175175632841}
   m_Layer: 5
   m_Name: Item
   m_TagString: Untagged
@@ -205,19 +206,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7344536797408435366}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7867670218552995312}
-        m_TargetAssemblyTypeName: ItemInventoryController, Assembly-CSharp
-        m_MethodName: UseItem
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &7867670218552995312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 0}
   pModel: {fileID: 0}
+  equipped: 0
 --- !u!114 &2453729224713375527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +241,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 6274944654484284584}
           m_TargetAssemblyTypeName: ItemDescriptionController, Assembly-CSharp
-          m_MethodName: setDescription
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -276,6 +266,51 @@ MonoBehaviour:
   itemImage: {fileID: 0}
   itemName: {fileID: 0}
   itemDesc: {fileID: 0}
+--- !u!114 &-5710248175175632841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4163392079499172421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1988e6116035346ada437f5a92144d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLeftClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7867670218552995312}
+        m_TargetAssemblyTypeName: ItemInventoryController, Assembly-CSharp
+        m_MethodName: UseItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7867670218552995312}
+        m_TargetAssemblyTypeName: ItemInventoryController, Assembly-CSharp
+        m_MethodName: RemoveItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMiddleClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9109866009499368273
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +377,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d4632ae93183e9f409d703c32a48d49b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

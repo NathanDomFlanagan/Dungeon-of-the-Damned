@@ -15,7 +15,6 @@ public class AI_Manager : MonoBehaviour
     public bool constantFollow = false;     //Mainly used for wave spawner
     private float minConstFollow = 1f;
     private bool canMove = true;
-    private bool canAttack = true;
 
     [Header("Jump")]
     [SerializeField]

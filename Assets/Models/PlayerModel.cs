@@ -110,7 +110,7 @@ public class PlayerModel : MonoBehaviour
         return returndata;
     }
 
-    private void classSelect()
+    public void classSelect()
     {
         switch (className)
         {
@@ -175,9 +175,9 @@ public class PlayerModel : MonoBehaviour
         charTrueDmg = true;
     }
 
-    private void CalculateStats()
+    public void CalculateStats()
     {
-        //classSelect(); // reapplies class' original stats
+        classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
         addPotionStats();
@@ -257,6 +257,11 @@ public class PlayerModel : MonoBehaviour
     public float getPlayerArmour()
     {
         return charArmour;
+    }
+
+    public void setPlayerArmour(float value)
+    {
+        charArmour = value;
     }
 
 }

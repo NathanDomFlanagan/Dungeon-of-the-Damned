@@ -42,6 +42,7 @@ public class PauseMenu : MonoBehaviour
             {
                 inventoryMenu.SetActive(false);
                 iManager.cleanInventory();
+                iManager.cleanEquip();
                 ResumeGame();
             } else
             {
@@ -82,6 +83,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         inventoryMenu.SetActive(true);
         iManager.ListItems();
+        iManager.displayEquippedItems();
         iManager.SetActive(true);
     }
     

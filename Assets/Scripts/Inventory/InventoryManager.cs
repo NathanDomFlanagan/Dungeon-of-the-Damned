@@ -8,8 +8,11 @@ using System.Linq;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
+
     public List<Items> inventory = new List<Items>();
-    private Items item;
+    public List<Items> equipped = new List<Items>();
+
+    public Items item;
     private Items itemdata;
     private bool isActive;
 
@@ -18,6 +21,7 @@ public class InventoryManager : MonoBehaviour
     public Transform statsScreen;
 
     public GameObject inventoryItem;
+    private GameObject tempItem;
 
     public PlayerModel pModel;
     public static readonly int MAXINVENTORY = 10;
@@ -63,38 +67,70 @@ public class InventoryManager : MonoBehaviour
             inventorySpace--;
         }
     }
+    
+    public void Unequip(Items item)
+    {
+        equipped.Remove(item);
+        pModel.CalculateStats();
+        
+    }
+
+    private void displayThings()
+    {
+        displayStats();
+        displayStatsText();
+        setInvItems();
+    }
 
     public void ListItems()
     {
-        foreach (var item in inventory)
+        foreach (var item in inventory) 
         {
-            
                 GameObject obj = Instantiate(inventoryItem, itemContent);
                 var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
                 var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-                itemdata = obj.GetComponent<ItemInventoryController>().item;
+                tempItem = obj;
+
 
                 itemName.text = item.itemName;
                 itemIcon.sprite = item.itemIcon;
             
         }
-        displayStats();
-        displayStatsText();
-        setInvItems();
+        displayThings();
     }
-    
+
     public void equipItem(Items item)
     {
-        if (item.isArmor == true || item.isWeapon == true)
-        {   
-            GameObject obj = Instantiate(inventoryItem, equipItemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
-            var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
-            var itemData = obj.GetComponent<ItemInventoryController>();
+        if(equipped.Count >= 2)
+        {
+            return;
+        } else
+        {
+            equipped.Add(item);
+        }
+        displayEquippedItems();
+        setEquipItems();
+    }
 
-            itemName.text = "";
+    public void displayEquippedItems()
+    {
+        foreach(var item in equipped)
+        {
+            Instantiate(inventoryItem, equipItemContent);
+            var itemName = inventoryItem.transform.Find("ItemName").GetComponent<Text>();
+            var itemIcon = inventoryItem.transform.Find("ItemImage").GetComponent<Image>();
+
+            itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
-            itemData.item = itemdata.AddItem(item);
+        }
+    }
+
+    private void setEquipItems()
+    {
+        equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
+        for(int i =0;i<equipped.Count;i++)
+        {
+            equipItems[i].AddItem(equipped[i]);
         }
     }
 
@@ -120,44 +156,37 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    public void displayEquip(Items item)
+    public void cleanEquip()
     {
-            var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
-            Armor.sprite = item.itemIcon;
-        
+        foreach (Transform item in equipItemContent)
+        {
+            Destroy(item.gameObject);
+        }
     }
 
-    public void unequipItem()
-    {
-        var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
-        Armor.sprite = null;
-
-    }
-
-
-    public void displayStats()
+    private void displayStats()
     {
         var playerSprite = GameObject.Find("PlayerSprite/sprite").GetComponent<Image>();
         playerSprite.sprite = this.GetComponent<SpriteRenderer>().sprite;
 
     }
 
-    public void displayStatsText()
+    private void displayStatsText()
     {
-        var playerHP = GameObject.Find("PlayerStats/HP").GetComponent<TMP_Text>();
-        var playerDmg = GameObject.Find("PlayerStats/Damage").GetComponent<TMP_Text>();
-        var playerSpeed = GameObject.Find("PlayerStats/Speed").GetComponent<TMP_Text>();
-        var playerArmour = GameObject.Find("PlayerStats/Armour").GetComponent<TMP_Text>();
+            var playerHP = GameObject.Find("PlayerStats/HP").GetComponent<TMP_Text>();
+            var playerDmg = GameObject.Find("PlayerStats/Damage").GetComponent<TMP_Text>();
+            var playerSpeed = GameObject.Find("PlayerStats/Speed").GetComponent<TMP_Text>();
+            var playerArmour = GameObject.Find("PlayerStats/Armour").GetComponent<TMP_Text>();
 
-        float hp = pModel.getPlayerHealth();
-        float dmg = pModel.getPlayerDmg();
-        float speed = pModel.getPlayerSpeed();
-        float armour = pModel.getPlayerArmour();
+            float hp = pModel.getPlayerHealth();
+            float dmg = pModel.getPlayerDmg();
+            float speed = pModel.getPlayerSpeed();
+            float armour = pModel.getPlayerArmour();
 
-        playerHP.text = "HP: " + hp.ToString();
-        playerDmg.text = "Damage: " + dmg.ToString();
-        playerSpeed.text = "Speed: " + speed.ToString();
-        playerArmour.text = "Armour: " + armour.ToString();
+            playerHP.text = "HP: " + hp.ToString();
+            playerDmg.text = "Damage: " + dmg.ToString();
+            playerSpeed.text = "Speed: " + speed.ToString();
+            playerArmour.text = "Armour: " + armour.ToString();
     }
 
 }

@@ -11,9 +11,11 @@ using UnityEngine;
         public string itemName;
         public int itemId;
 
-    public bool isArmor;
-    public bool isWeapon;
-    public bool isPotion;
+    public bool isArmor = false;
+    public bool isWeapon = false;
+    public bool isPotion = false;
+    public bool isEquipped = false;
+
     [Header("ONLY CHANGE IF ITEM IS ARMOR")]
     //additive
     [Header("Defense")]

@@ -7,7 +7,8 @@ public class ItemInventoryController : MonoBehaviour
 {
     public Items item;
     public PlayerModel pModel;
-    public bool canHover = true;
+    public bool equipped = false;
+
     void Awake()
     {
         pModel = GameObject.FindWithTag("Player").GetComponent<PlayerModel>();
@@ -17,6 +18,7 @@ public class ItemInventoryController : MonoBehaviour
     public void AddItem(Items newItem)
     {
         item = newItem;
+        item.isEquipped = false;
     }
 
     public void RemoveItem()
@@ -25,6 +27,12 @@ public class ItemInventoryController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void UnequipItem()
+    {
+        InventoryManager.Instance.Unequip(item);
+        pModel.setPlayerArmour(0);
+        Destroy(gameObject);
+    }   
 
     public void UseItem()
     {
@@ -45,9 +53,12 @@ public class ItemInventoryController : MonoBehaviour
                 pModel.AddItem(item);
                 break;
             case Items.ItemType.armourEquip:
-                canHover = false;
-                InventoryManager.Instance.equipItem(item);
-                pModel.AddItem(item);
+                if (item.isEquipped == false)
+                {
+                    InventoryManager.Instance.equipItem(item);
+                    pModel.AddItem(item);
+                    item.isEquipped = true;
+                }
                 break;
         }
         RemoveItem();

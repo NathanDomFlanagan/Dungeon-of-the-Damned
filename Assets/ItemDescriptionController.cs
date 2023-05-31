@@ -22,13 +22,8 @@ public class ItemDescriptionController : MonoBehaviour
     }
     public void setDescription()
     {
-        if (im.canHover == true)
-        {
             itemImage.GetComponent<Image>().sprite = im.item.itemIcon;
             itemName.GetComponent<TMP_Text>().text = im.item.itemName;
             itemDesc.GetComponent<TMP_Text>().text = im.item.description;
-        }
-
-
     }
 }
