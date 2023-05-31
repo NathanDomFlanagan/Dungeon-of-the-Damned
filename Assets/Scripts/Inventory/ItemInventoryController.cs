@@ -7,7 +7,7 @@ public class ItemInventoryController : MonoBehaviour
 {
     public Items item;
     public PlayerModel pModel;
-
+    public bool canHover = true;
     void Awake()
     {
         pModel = GameObject.FindWithTag("Player").GetComponent<PlayerModel>();
@@ -22,12 +22,9 @@ public class ItemInventoryController : MonoBehaviour
     public void RemoveItem()
     {
         InventoryManager.Instance.Remove(item);
-        if (item.itemType == Items.ItemType.armourEquip && InventoryManager.Instance.equip1 == false)
-        {
-            InventoryManager.Instance.displayEquip(item);
-        }
         Destroy(gameObject);
     }
+
 
     public void UseItem()
     {
@@ -48,6 +45,8 @@ public class ItemInventoryController : MonoBehaviour
                 pModel.AddItem(item);
                 break;
             case Items.ItemType.armourEquip:
+                canHover = false;
+                InventoryManager.Instance.equipItem(item);
                 pModel.AddItem(item);
                 break;
         }

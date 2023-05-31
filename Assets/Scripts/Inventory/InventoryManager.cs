@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     public List<Items> inventory = new List<Items>();
     private Items item;
+    private Items itemdata;
     private bool isActive;
 
     public Transform itemContent;
@@ -23,9 +24,7 @@ public class InventoryManager : MonoBehaviour
     public int inventorySpace = 0;
 
     public ItemInventoryController[] invItems;
-
-    public bool equip1 = false;
-    public bool equip2 = false;
+    public ItemInventoryController[] equipItems;
 
     void Awake()
     {
@@ -69,16 +68,34 @@ public class InventoryManager : MonoBehaviour
     {
         foreach (var item in inventory)
         {
-            GameObject obj = Instantiate(inventoryItem, itemContent);
-            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
-            var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+            
+                GameObject obj = Instantiate(inventoryItem, itemContent);
+                var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+                var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+                itemdata = obj.GetComponent<ItemInventoryController>().item;
 
-            itemName.text = item.itemName;
-            itemIcon.sprite = item.itemIcon;
+                itemName.text = item.itemName;
+                itemIcon.sprite = item.itemIcon;
+            
         }
         displayStats();
         displayStatsText();
         setInvItems();
+    }
+    
+    public void equipItem(Items item)
+    {
+        if (item.isArmor == true || item.isWeapon == true)
+        {   
+            GameObject obj = Instantiate(inventoryItem, equipItemContent);
+            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+            var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
+            var itemData = obj.GetComponent<ItemInventoryController>();
+
+            itemName.text = "";
+            itemIcon.sprite = item.itemIcon;
+            itemData.item = itemdata.AddItem(item);
+        }
     }
 
     public void SetActive(bool boo)
@@ -105,21 +122,15 @@ public class InventoryManager : MonoBehaviour
 
     public void displayEquip(Items item)
     {
-        if(equip1 == false)
-        {
             var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
             Armor.sprite = item.itemIcon;
-            equip1 = true;
-
-        }
+        
     }
 
     public void unequipItem()
     {
         var Armor = GameObject.Find("Armor/Image").GetComponent<Image>();
         Armor.sprite = null;
-        equip1 = false;
-
 
     }
 
