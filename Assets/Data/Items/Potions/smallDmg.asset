@@ -18,14 +18,15 @@ MonoBehaviour:
   isArmor: 0
   isWeapon: 0
   isPotion: 1
+  isEquipped: 0
   defense: 0
   health: 0
   movespeed: 0
   jumpforce: 0
   jumpmod: 0
-  damage: 0
+  damage: 10
   attackRate: 0
   trueDamage: 0
-  itemValue: 10
+  itemValue: 0
   description: Temporarily boosts the user's damage by 10
   itemType: 3

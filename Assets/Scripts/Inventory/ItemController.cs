@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Deals with Item pickup
 public class ItemController : MonoBehaviour
 {
     public Items Item;

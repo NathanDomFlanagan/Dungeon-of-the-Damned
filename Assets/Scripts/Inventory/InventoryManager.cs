@@ -7,10 +7,12 @@ using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
+    //Public static instance so that InventoryManager can be referred
     public static InventoryManager Instance;
 
-    public List<Items> inventory = new List<Items>();
-    public List<Items> equipped = new List<Items>();
+    //
+    private List<Items> inventory = new List<Items>();
+    private List<Items> equipped = new List<Items>();
 
     public Items item;
     private Items itemdata;

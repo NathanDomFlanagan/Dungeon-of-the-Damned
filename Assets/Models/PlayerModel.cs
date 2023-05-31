@@ -66,48 +66,55 @@ public class PlayerModel : MonoBehaviour
         }
     }
 
-    public Items AddItem(Items data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
+    public void AddItem(Items data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
     {
-        if (data!=null && data.isArmor == true)
+        if (data != null)
         {
-            updatedStats = true;
-            return ArmorAdd(data);
-        }
-        else if (data != null &&data.isWeapon == true)
-        {
-            updatedStats = true;
-            return WeaponAdd(data);
-        }
-        else if (data!=null && data.isPotion == true)
-        {
-            updatedStats = true;
-            return StatsAdd(data);
+            if (data.isArmor == true)
+            {
+                ArmorAdd(data);
+                updatedStats = true;
+            }
+            else if (data.isWeapon == true)
+            {
+                WeaponAdd(data);
+                updatedStats = true;
+
+            }
+            else if (data.isPotion == true)
+            {
+                StatsAdd(data);
+                updatedStats = true;
+
+            }
+            else
+            {
+                updatedStats = false;
+                return;
+            }
         }
         else
-        {   
-            return data;
+        {
+            return;
         }
     }
 
-    private Items ArmorAdd(Items armordata)
+    private void ArmorAdd(Items armordata)
     {
         Items returndata = armor;
         armor = armordata;
-        return returndata;
     }
 
-    private Items WeaponAdd(Items data)
+    private void WeaponAdd(Items data)
     {
         Items returndata = weapon;
         weapon = data;
-        return returndata;
     }
 
-    private Items StatsAdd(Items data)
+    private void StatsAdd(Items data)
     {
         Items returndata = other;
         other = data;
-        return returndata;
     }
 
     public void classSelect()
@@ -177,10 +184,11 @@ public class PlayerModel : MonoBehaviour
 
     public void CalculateStats()
     {
-        classSelect(); // reapplies class' original stats
+        //Commented classSelect() here since it causes some issues with assigning the values
+        //classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
-        addPotionStats();
+        addPotionStats();   //Applies the changes from the potion
         updatedStats = false;
     }
 
@@ -215,13 +223,10 @@ public class PlayerModel : MonoBehaviour
     {
         if(other!=null)
         {
-            if(other.itemValue is not 0)
-            {
-                if (other.itemType == Items.ItemType.Heal) { charHealth += other.itemValue; HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>(); }
-                if (other.itemType == Items.ItemType.Damage) { charAttackDmg += other.itemValue; }
-                if (other.itemType == Items.ItemType.Armour) { charArmour += other.itemValue; }
-                if (other.itemType == Items.ItemType.Speed) { charMoveSpeed += other.itemValue; }
-            }
+                if (other.health is not 0 && other.itemType == Items.ItemType.Heal) { charHealth += other.health; HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>(); }
+                if (other.damage is not 0 && other.itemType == Items.ItemType.Damage) { charAttackDmg += other.damage; }
+                if (other.defense is not 0 && other.itemType == Items.ItemType.Armour) { charArmour += other.defense; }
+                if (other.movespeed is not 0 && other.itemType == Items.ItemType.Speed) { charMoveSpeed += other.movespeed; }
         }
     }
 
@@ -259,6 +264,7 @@ public class PlayerModel : MonoBehaviour
         return charArmour;
     }
 
+    //Sets stats
     public void setPlayerArmour(float value)
     {
         charArmour = value;

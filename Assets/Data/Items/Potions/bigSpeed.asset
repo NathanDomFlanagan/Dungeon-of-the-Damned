@@ -18,9 +18,10 @@ MonoBehaviour:
   isArmor: 0
   isWeapon: 0
   isPotion: 1
+  isEquipped: 0
   defense: 0
   health: 0
-  movespeed: 0
+  movespeed: 5
   jumpforce: 0
   jumpmod: 0
   damage: 0

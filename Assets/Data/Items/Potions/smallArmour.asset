@@ -18,7 +18,8 @@ MonoBehaviour:
   isArmor: 0
   isWeapon: 0
   isPotion: 1
-  defense: 0
+  isEquipped: 0
+  defense: 10
   health: 0
   movespeed: 0
   jumpforce: 0
@@ -26,6 +27,6 @@ MonoBehaviour:
   damage: 0
   attackRate: 0
   trueDamage: 0
-  itemValue: 10
+  itemValue: 0
   description: Temporarily enhances the player's armour by 10
   itemType: 0
