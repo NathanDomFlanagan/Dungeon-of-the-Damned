@@ -12,7 +12,7 @@ public class PlayerModel : MonoBehaviour
 
     public string className;
 
-    private ArmorData armor = null;
+    private ArmorData armour = null;
     private WeaponData weapon = null;
 
     //sets which of the abilities are enabled for the specific player class
@@ -90,8 +90,8 @@ public class PlayerModel : MonoBehaviour
 
     private ArmorData ArmorAdd(ArmorData armordata)
     {
-        ArmorData returndata = armor;
-        armor = armordata;
+        ArmorData returndata = armour;
+        armour = armordata;
         return returndata;
     }
 
@@ -130,7 +130,7 @@ public class PlayerModel : MonoBehaviour
         charAttackRange = 0.5f;
         charAttackRate = 2;
         charHealth = 100;
-        charArmour = 0;
+        charArmour = 30;
         charJumpForce = 16;
         charTrueDmg = false;
     }
@@ -146,7 +146,7 @@ public class PlayerModel : MonoBehaviour
         charAttackRange = 0.5f;
         charAttackRate = 3;
         charHealth = 100;
-        charArmour = 0;
+        charArmour = 5;
         charJumpForce = 18;
         charTrueDmg = false;
     }
@@ -176,13 +176,13 @@ public class PlayerModel : MonoBehaviour
 
     private void addArmorStats()
     {
-        if (armor != null) {
+        if (armour != null) {
             //checks for if the item was changed from its initial value
-            if (armor.defense is not 0) { charArmour += armor.defense; }
-            if (armor.health is not 0) { charHealth += armor.health; }
-            if (armor.movespeed is not 0) { charMoveSpeed *= armor.movespeed; }
-            if (armor.jumpforce is not 0) { charJumpForce *= armor.jumpforce; }
-            if (armor.jumpmod is not 0) { amountOfJumps += armor.jumpmod; }
+            if (armour.defense is not 0) { charArmour += armour.defense; }
+            if (armour.health is not 0) { charHealth += armour.health; }
+            if (armour.movespeed is not 0) { charMoveSpeed *= armour.movespeed; }
+            if (armour.jumpforce is not 0) { charJumpForce *= armour.jumpforce; }
+            if (armour.jumpmod is not 0) { amountOfJumps += armour.jumpmod; }
         }
     }
 
