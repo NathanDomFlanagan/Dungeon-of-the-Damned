@@ -20,7 +20,7 @@ public class DoorScript : MonoBehaviour
             }
         }
     }
-
+    
     private void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
