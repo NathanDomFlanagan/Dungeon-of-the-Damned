@@ -41,7 +41,7 @@ public class DoorController : MonoBehaviour
 
     private void OpenDoor()
     {
-        // Open the door by disabling its collider or animation, etc.
+        // Open the door by disabling its collider or animation.
         doorObject.SetActive(false);
     }
 }
