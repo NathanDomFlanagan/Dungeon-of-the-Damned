@@ -33,9 +33,12 @@ public class Explode : MonoBehaviour
         //Damage target
         foreach (Collider2D target in HitTargets)
         {
-            Vector2 knockback = getKnockBack(target);
-            target.GetComponent<Damageable>().Hit(damage, true, knockback);
-            UnityEngine.Debug.Log("Damage");
+            if (target.GetComponent<Damageable>() != null)
+            {
+                Vector2 knockback = getKnockBack(target);
+                target.GetComponent<Damageable>().Hit(damage, true, knockback);
+                UnityEngine.Debug.Log("Damage");
+            }
         }
         
     }
