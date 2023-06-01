@@ -99,8 +99,11 @@ public class PlayerCombat : MonoBehaviour
             foreach (Collider2D enemy in HitEnemies)
             {
                 Vector2 knockback = getKnockBack(enemy);
-                enemy.GetComponent<Damageable>().Hit(AtkDmg,trueDamage,knockback);
-            UnityEngine.Debug.Log("Damage");
+            if (enemy.GetComponent<Damageable>() != null)
+            {
+                enemy.GetComponent<Damageable>().Hit(AtkDmg, trueDamage, knockback);
+                UnityEngine.Debug.Log("Damage");
+            }
             }
     }
 
