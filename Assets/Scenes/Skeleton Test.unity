@@ -11428,6 +11428,31 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!1 &486733755 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2037550353573769649, guid: 803bcf51e62d0ea45b43e9a69f073918, type: 3}
+  m_PrefabInstance: {fileID: 7004932659677525026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &486733759 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 43448226825825195, guid: 803bcf51e62d0ea45b43e9a69f073918, type: 3}
+  m_PrefabInstance: {fileID: 7004932659677525026}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &486733764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 486733755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7770985d0b2524b974e94a1a362ab2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 486733759}
+  shootTime: 5
+  timeTillShoot: 0
 --- !u!1 &668169842
 GameObject:
   m_ObjectHideFlags: 0
@@ -18399,5 +18424,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8106559831916931669, guid: 803bcf51e62d0ea45b43e9a69f073918, type: 3}
+      propertyPath: shootTime
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3555010986397098763, guid: 803bcf51e62d0ea45b43e9a69f073918, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 803bcf51e62d0ea45b43e9a69f073918, type: 3}

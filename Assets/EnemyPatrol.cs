@@ -50,27 +50,8 @@ public class EnemyPatrol : MonoBehaviour
         {
             walkLeft = !walkLeft;
         }
-        /*
-        else { }
-        if (pointB.position.x < rb.position.x)
-        {
-            walkLeft = false;
-        }*/
         rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
         transform.parent.localScale = scale;
-        UnityEngine.Debug.Log(walkLeft+""+ (pointA.position.x-rb.position.x));
-    }
-
-    void FixedUpdate()
-    {
-        if (walkLeft)
-        {
-            
-        }
-        else {
-        
-        }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
