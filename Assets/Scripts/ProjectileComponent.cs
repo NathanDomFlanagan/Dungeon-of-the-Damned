@@ -7,8 +7,8 @@ public class ProjectileComponent : MonoBehaviour
     public Vector2 moveSpeed = new Vector2(3f,0);   //Change 2nd option to add gravity (projectile motion)
     public int damage = 10;
     public Vector2 knockback = new Vector2(10f, 5f);
-
-    Rigidbody2D rb;
+    public LayerMask damageLayer;
+    public Rigidbody2D rb;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -23,14 +23,13 @@ public class ProjectileComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Damageable dmg = collision.GetComponent<Damageable>();
-
-        if (dmg != null)
-        {
+        if (collision.GetComponent<Damageable>() != null && collision.gameObject.layer == damageLayer) { 
+            Damageable dmg = collision.GetComponent<Damageable>();
             knockback.x = knockback.x * transform.localScale.x;
             collision.GetComponent<Damageable>().Hit(damage,true,knockback);
             Debug.Log("Projectile attack hit for " + damage);
-            Destroy(gameObject);
+            
         }
+        Destroy(gameObject);
     }
 }

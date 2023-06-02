@@ -19,7 +19,6 @@ public class EnemyPatrol : MonoBehaviour
     private Collider2D col;
     private Animator animator;
     private bool walkLeft;
-    private float canTurn;
     private Vector3 scale;
     private Vector3 Targetposition;
 
@@ -31,7 +30,6 @@ public class EnemyPatrol : MonoBehaviour
         col = transform.parent.GetComponent<Collider2D>();
         scale = transform.parent.localScale;
         walkLeft = true;
-        canTurn = 0f;
     }
 
     // Update is called once per frame
