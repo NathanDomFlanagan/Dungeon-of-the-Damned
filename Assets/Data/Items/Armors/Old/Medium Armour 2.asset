@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: c4f598a1041c95f45a351d23de6ee9a0, type: 3}
   itemName: Medium Armour 2
+  baseCost: 20
   defense: 250
-  discription: This is armour for berserker
+  health: 0
+  movespeed: 0
+  jumpforce: 0
+  jumpmod: 0
+  description: This is an armour for Berserker
   modelPrefab: {fileID: 4173037825877064552, guid: 708b21f6b272a994ba2bd2c4f349aa3b, type: 3}

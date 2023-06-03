@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: c0ff35e826a58fd4d87d24a2d7472f32, type: 3}
   itemName: Heavy Armour 4
+  baseCost: 40
   defense: 420
-  discription: This is armour for knight
+  health: 0
+  movespeed: 0
+  jumpforce: 0
+  jumpmod: 0
+  description: This is an armour for knight and lancer
   modelPrefab: {fileID: 4886957859074210231, guid: e206e58a7cbebee41a0f33816deb8f6b, type: 3}

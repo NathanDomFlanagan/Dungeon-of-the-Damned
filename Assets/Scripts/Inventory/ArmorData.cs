@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+namespace DoD
+{
     [CreateAssetMenu(fileName = "Armor", menuName = "Armor/Armor")]
     public class ArmorData : ScriptableObject
     {
         [Header("Item Information")]
         public Sprite itemIcon;
         public string itemName;
+        public int baseCost;
+
 
         //additive
         [Header("Defense")]
@@ -33,4 +37,7 @@ using UnityEngine;
 
         [Header("Description")]
         public string description;
+
+        public GameObject modelPrefab;
     }
+}

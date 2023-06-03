@@ -10,12 +10,13 @@ namespace DoD
         [Header("Item Information")]
         public Sprite itemIcon;
         public string itemName;
+        public int baseCost;
 
         [Header("Armour Boost")]
         public float armourBoost;
 
-        [Header("Discription")]
-        public string discription;
+        [Header("Description")]
+        public string description;
 
         public GameObject modelPrefab;
     }

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 6913285a09e1d554f9880625f9fd8b76, type: 3}
   itemName: Sword 3
+  baseCost: 30
   damage: 69
-  discription: This is weapon for knight
+  attackRate: 0
+  trueDamage: 0
+  description: This weapon is for knight
   modelPrefab: {fileID: 4855780716311046673, guid: 71be9d45297bc93458d74acf9e37dfec, type: 3}
