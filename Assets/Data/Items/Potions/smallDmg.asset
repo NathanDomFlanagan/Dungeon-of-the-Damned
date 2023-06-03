@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 903a68b98724a724691b5ef8093a0dad, type: 3}
   itemName: smallDmg
   itemId: 5
+  baseCost: 10
   isArmor: 0
   isWeapon: 0
   isPotion: 1

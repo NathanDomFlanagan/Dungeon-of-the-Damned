@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: b2fd8d7187d68814e81049e6abe5ff5b, type: 3}
   itemName: Mega Damage
   itemId: 6
+  baseCost: 10
   isArmor: 0
   isWeapon: 0
   isPotion: 1

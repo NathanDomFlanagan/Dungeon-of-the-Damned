@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: d4632ae93183e9f409d703c32a48d49b, type: 3}
   itemName: Armor of Onions
   itemId: 1
+  baseCost: 50
   isArmor: 1
   isWeapon: 0
   isPotion: 0

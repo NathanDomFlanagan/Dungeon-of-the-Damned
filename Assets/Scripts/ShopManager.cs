@@ -7,22 +7,25 @@ using TMPro;
 public class ShopManager : MonoBehaviour
 {
     public CoinCounter coinCounter;
-    public PlayerInventory playerInventory;    
+    public InventoryManager playerInventory;
     //public int coins;
     public TMP_Text coinUI;
-    public DoD.ArmorData[] armour;
-    public DoD.WeaponData[] weapon;
-    public DoD.ArmourPotionData[] aPotion;
-    public DoD.DamagePotionData[] dPotion;
-    public DoD.SpeedPotionData[] sPotion;
-    public DoD.HealPotionData[] hPotion;
+    public Items[] armour;
+    public Items[] weapon;
+    public Items[] aPotion;
+    public Items[] dPotion;
+    public Items[] sPotion;
+    public Items[] hPotion;
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsSO;
     public Button[] purchaseButton;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        playerInventory = GameObject.FindWithTag("Player").GetComponent<InventoryManager>();
+        
+        PlayerPrefs.SetInt("coins", 999);       //Used for testing
         // Activate shop panels based on the total number of items
         for (int i = 0; i < (armour.Length + weapon.Length + aPotion.Length + sPotion.Length + dPotion.Length + hPotion.Length); i++)
         {
@@ -37,7 +40,7 @@ public class ShopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
     }
 
     public void CheckPurchaseable()
@@ -111,12 +114,12 @@ public class ShopManager : MonoBehaviour
 
     public void PurchaseItem(int buttonNo)
     {
-        DoD.ArmorData armorData = null;
-        DoD.WeaponData weaponData = null;
-        DoD.ArmourPotionData aPotionData = null;
-        DoD.DamagePotionData dPotionData = null;
-        DoD.SpeedPotionData sPotionData = null;
-        DoD.HealPotionData hPotionData = null;
+        Items armorData = null;
+        Items weaponData = null;
+        Items aPotionData = null;
+        Items dPotionData = null;
+        Items sPotionData = null;
+        Items hPotionData = null;
 
         // Check if buttonNo corresponds to an armor item
         if (buttonNo < armour.Length)
@@ -156,37 +159,37 @@ public class ShopManager : MonoBehaviour
         {
             coinCost = armorData.baseCost; // Update the coinCost variable
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(armorData); // Add the purchased item to the player's inventory
+            playerInventory.Add(armorData); // Add the purchased item to the player's inventory
         }
         else if (weaponData != null && coinCounter.GetCoins() >= weaponData.baseCost)
         {
             coinCost = weaponData.baseCost;
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(weaponData);
+            playerInventory.Add(weaponData);
         }
         else if (aPotionData != null && coinCounter.GetCoins() >= aPotionData.baseCost)
         {
             coinCost = aPotionData.baseCost;
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(aPotionData);
+            playerInventory.Add(aPotionData);
         }
         else if (dPotionData != null && coinCounter.GetCoins() >= dPotionData.baseCost)
         {
             coinCost = dPotionData.baseCost;
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(dPotionData);
+            playerInventory.Add(dPotionData);
         }
         else if (sPotionData != null && coinCounter.GetCoins() >= sPotionData.baseCost)
         {
             coinCost = sPotionData.baseCost;
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(sPotionData);
+            playerInventory.Add(sPotionData);
         }
         else if (hPotionData != null && coinCounter.GetCoins() >= hPotionData.baseCost)
         {
             coinCost = hPotionData.baseCost;
             coinCounter.RemoveCoins(coinCost);
-            playerInventory.AddInventory(hPotionData);
+            playerInventory.Add(hPotionData);
         }
 
         // Update the coinUI text only if a purchase was made

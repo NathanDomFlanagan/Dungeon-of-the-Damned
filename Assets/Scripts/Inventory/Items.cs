@@ -10,6 +10,7 @@ using UnityEngine;
     public Sprite itemIcon;
     public string itemName;
     public int itemId;
+    public int baseCost;
 
     public bool isArmor = false;
     public bool isWeapon = false;

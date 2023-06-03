@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c31f399b648fa544fb74473198e3bd15, type: 3}
-  m_Name: bigArmour
+  m_Name: sword1
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 86b23c7d50040a54c80edf57312dac79, type: 3}
-  itemName: Mega Armour
-  itemId: 4
-  baseCost: 10
+  itemIcon: {fileID: 21300000, guid: 2e06b328e542df944aa29b6adb9f003f, type: 3}
+  itemName: Toon Sword
+  itemId: 1
+  baseCost: 50
   isArmor: 0
-  isWeapon: 0
-  isPotion: 1
+  isWeapon: 1
+  isPotion: 0
   isEquipped: 0
-  defense: 50
+  defense: 0
   health: 0
   movespeed: 0
   jumpforce: 0
   jumpmod: 0
-  damage: 0
+  damage: 25
   attackRate: 0
   trueDamage: 0
   itemValue: 0
-  description: Temporarily greatly enhances the player's armour
-  itemType: 0
+  description: Don't judge it's looks; this sword cuts
+  itemType: 5

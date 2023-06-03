@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: be2a32911451d764e9f0ba9bcedb680c, type: 3}
   itemName: Mini Heal
   itemId: 1
+  baseCost: 10
   isArmor: 0
   isWeapon: 0
   isPotion: 1

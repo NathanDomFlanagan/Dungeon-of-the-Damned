@@ -15,6 +15,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 1a158a66c715307458f615caa2afb782, type: 3}
   itemName: Mega Heal
   itemId: 2
+  baseCost: 10
   isArmor: 0
   isWeapon: 0
   isPotion: 1
