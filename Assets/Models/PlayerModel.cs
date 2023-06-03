@@ -53,6 +53,7 @@ public class PlayerModel : MonoBehaviour
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
 
+        PlayerPrefs.SetInt("coins", 0); // creates coin count as 0;
     }
 
     // Update is called once per frame
