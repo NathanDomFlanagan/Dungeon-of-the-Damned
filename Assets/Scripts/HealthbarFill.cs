@@ -31,11 +31,14 @@ public class HealthbarFill : MonoBehaviour
             {
                 slider.value = 0;
             }
-            if (Input.GetButtonDown("Heal") && dmg.tag == "Player" && dmg.IsAlive)
-            {
-                slider.value += 25;
-                dmg.Health += 25;
-            }
+        }
+    }
+
+    public void UpdateSlider(int amount)
+    {
+        if (slider != null)
+        {
+            slider.value += amount;
         }
     }
 }
