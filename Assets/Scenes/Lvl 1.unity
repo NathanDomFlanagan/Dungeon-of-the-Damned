@@ -12283,25 +12283,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Welcome to Dungeon of the Damned.
-
-
-    Movement:
-
-
-    A - Move left
-
-    D
-    - Move right
-
-    Z- Attack
-
-    SPACE - Jump
-
-    X - Heal
-
-    ESC - Pause
-    Menu'
+  m_text: "Welcome to Dungeon of the Damned.\n\nMovement:\n\nA - Move left\nD - Move
+    right\nZ- Attack\nSPACE - Jump\nX - Heal\nI - Inventory\n\tleft click - equip/use\n\tright
+    click  - unequip\nESC - Pause Menu"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
