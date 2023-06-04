@@ -31,7 +31,9 @@ public class InventoryManager : MonoBehaviour
 
     //Max inventory Amount and inventory counter
     public static readonly int MAXINVENTORY = 10;
+    public static readonly int MAXEQUIP = 2;
     public int inventorySpace = 0;
+    public int equipSpace = 0;
 
     //Private Data arrays
     private ItemInventoryController[] invItems;
@@ -51,7 +53,12 @@ public class InventoryManager : MonoBehaviour
         if(isActive)
         {
             displayStatsText();
-            
+            if(equipItems.Length > 0)
+            {
+                List<ItemInventoryController> temp = new List<ItemInventoryController>(equipItems);
+                temp = temp.Where(ItemInventoryController => ItemInventoryController != null).ToList();
+                equipItems = temp.ToArray();
+            }
         }
     }
 
@@ -95,18 +102,38 @@ public class InventoryManager : MonoBehaviour
             inventorySpace--;
         }
     }
-    
+
+    //Function that stores the Items objects to the equipped List
+    public void equipItem(Items item)
+    {
+        item.isEquipped = true;
+        if (equipSpace == MAXEQUIP)
+        {
+            return;
+        }
+        else
+        {
+            cleanEquip();
+            equipped.Add(item);
+            equipSpace++;
+            displayEquippedItems();
+            setEquipItems();
+        }
+        //Calls the functions to display and set item data
+    }
+
     //Function that unequipes Item objects from the equipped list
     public void Unequip(Items item)
     {
         this.Add(item);
         this.ListItems();
-        if (equipped.Count < 0)
+        if (equipped.Count <= 0)
         {
             return;
         } else
         {
             equipped.Remove(item);
+            equipSpace++;
         }
         pModel.CalculateStats();
     }
@@ -142,28 +169,9 @@ public class InventoryManager : MonoBehaviour
         displayThings();    //Calls the function from earlier
     }
 
-    //Function that stores the Items objects to the equipped List
-    public void equipItem(Items item)
-    {
-        item.isEquipped = true;
-        if (equipped.Count >= 2)
-        {
-            return;
-        } else
-        {
-            cleanEquip();
-            equipped.Add(item);
-            displayEquippedItems();
-            setEquipItems();
-        }
-        //Calls the functions to display and set item data
-    }
-
     //Displays the currently equipped items
     public void displayEquippedItems()
     {
-        cleanEquip();
-
         foreach (var item in equipped)
         {
             GameObject obj = Instantiate(inventoryItem, equipItemContent);

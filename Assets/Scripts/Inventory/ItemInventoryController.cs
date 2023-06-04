@@ -33,6 +33,7 @@ public class ItemInventoryController : MonoBehaviour
 
     //AddsItem is a function that is used to add the data of the items in the List and stores them in an array
     //Mostly seen in InventoryManager SetInventory and SetEquip functions
+    //Add is used bool
     public void AddItem(Items newItem)
     {
         item = newItem;
@@ -74,23 +75,19 @@ public class ItemInventoryController : MonoBehaviour
                 break;
             //Special type of case for the equipabble items
             case Items.ItemType.armourEquip:
-                if(item.isEquipped == false)
+                if (item.isEquipped == false)
                 {
                     InventoryManager.Instance.equipItem(item);
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
-                } else
-                {
-                    break;
                 }
                 break;
+
             case Items.ItemType.weapon:
                 if(item.isEquipped == false)
                 {
-                    InventoryManager.Instance.equipItem(item);
-                    pModel.AddItem(item);       //Adds the item stats in the PlayerModel
-                } else
-                {
-                    break;
+                        InventoryManager.Instance.equipItem(item);
+                        pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+
                 }
                 break;
         }
