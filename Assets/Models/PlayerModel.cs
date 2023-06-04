@@ -186,7 +186,7 @@ public class PlayerModel : MonoBehaviour
     public void CalculateStats()
     {
         //Commented classSelect() here since it causes some issues with assigning the values
-        //classSelect(); // reapplies class' original stats
+        classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
         addPotionStats();   //Applies the changes from the potion
