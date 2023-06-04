@@ -60,6 +60,7 @@ public class ItemInventoryController : MonoBehaviour
             return;
         } else
         {
+            item.isEquipped = false;
             InventoryManager.Instance.Unequip(item);
             Destroy(gameObject);
         }
@@ -72,6 +73,7 @@ public class ItemInventoryController : MonoBehaviour
         {
             case Items.ItemType.Armour:
                 pModel.AddItem(item);
+                item.timerActive = true;
                 Debug.Log("Increased Defense by " + item.defense);
                 isUsed= true;
                 break;
@@ -84,12 +86,14 @@ public class ItemInventoryController : MonoBehaviour
 
             case Items.ItemType.Damage:
                 pModel.AddItem(item);
+                item.timerActive = true;
                 Debug.Log("Increased Damage by " + item.damage);
                 isUsed = true;
                 break;
 
             case Items.ItemType.Speed:
                 pModel.AddItem(item);
+                item.timerActive = true;
                 Debug.Log("Increased Speed by " + item.movespeed);
                 isUsed = true;
                 break;
@@ -103,6 +107,7 @@ public class ItemInventoryController : MonoBehaviour
                     isUsed = true;
                     InventoryManager.Instance.equipItem(item);
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                item.isEquipped = true;
                 break;
 
             case Items.ItemType.weapon:
@@ -114,6 +119,7 @@ public class ItemInventoryController : MonoBehaviour
                     isUsed = true;
                     InventoryManager.Instance.equipItem(item);
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                item.isEquipped = true;
 
                 break;
 

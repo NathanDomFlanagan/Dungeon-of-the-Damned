@@ -52,7 +52,6 @@ public class PlayerModel : MonoBehaviour
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
-
         PlayerPrefs.SetInt("coins", 0); // creates coin count as 0;
     }
 
@@ -64,6 +63,30 @@ public class PlayerModel : MonoBehaviour
             //reloads the character controller and character combat with new stats
             CalculateStats();
             reloadStats();
+        }
+
+    }
+
+    void FixedUpdate()
+    {
+        if (other != null)
+        {
+            if (other.timerActive == true)
+            {
+                if (other.timer <= 0)
+                {
+                    Debug.Log(other.itemName + "'s effects has finished");
+                    other.timerActive = false;
+                    other = null;
+                    CalculateStats();
+                    return;
+                }
+                else
+                {
+                    other.timer -= Time.deltaTime;
+                    Debug.Log(other.itemName + " has: " + other.timer + "s left.");
+                }
+            }
         }
     }
 
@@ -82,11 +105,10 @@ public class PlayerModel : MonoBehaviour
                 updatedStats = true;
 
             }
-            else if (data.isPotion == true)
+            else if(data.isPotion == true)
             {
-                StatsAdd(data);
+                PotionAdd(data);
                 updatedStats = true;
-
             }
             else
             {
@@ -102,19 +124,16 @@ public class PlayerModel : MonoBehaviour
 
     private void ArmorAdd(Items armordata)
     {
-        Items returndata = armor;
         armor = armordata;
     }
 
     private void WeaponAdd(Items data)
     {
-        Items returndata = weapon;
         weapon = data;
     }
 
-    private void StatsAdd(Items data)
+    private void PotionAdd(Items data)
     {
-        Items returndata = other;
         other = data;
     }
 
@@ -186,50 +205,78 @@ public class PlayerModel : MonoBehaviour
     public void CalculateStats()
     {
         //Commented classSelect() here since it causes some issues with assigning the values
-        //classSelect(); // reapplies class' original stats
+        classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
-        addPotionStats();   //Applies the changes from the potion
+        addPotionStats();   //applies the changes from the potion
         updatedStats = false;
     }
 
     private void addArmorStats()
     {
-        if (armor != null) {
-            //checks for if the item was changed from its initial value
-            if (armor.defense is not 0) { charArmour += armor.defense; }
-            if (armor.health is not 0) { charHealth += armor.health; }
-            if (armor.movespeed is not 0) { charMoveSpeed += armor.movespeed; }
-            if (armor.jumpforce is not 0) { charJumpForce += armor.jumpforce; }
-            if (armor.jumpmod is not 0) { amountOfJumps += armor.jumpmod; }
-        }
+            if (armor != null)
+            {
+                //checks for if the item was changed from its initial value
+                if (armor.defense is not 0) { charArmour += armor.defense; }
+                if (armor.health is not 0) { charHealth += armor.health; }
+                if (armor.movespeed is not 0) { charMoveSpeed += armor.movespeed; }
+                if (armor.jumpforce is not 0) { charJumpForce += armor.jumpforce; }
+                if (armor.jumpmod is not 0) { amountOfJumps += armor.jumpmod; }
+            }
+
     }
 
     private void addWeaponStats()
     {
-        if (weapon != null)
-        {
-            //checks to see if the item was changed from initial value
-            if (weapon.damage is not 0) { charAttackDmg += weapon.damage; }
-            if (weapon.attackRate is not 0) { charAttackRate *= weapon.attackRate; }
-            if (!charTrueDmg) // if the character does not already have true damage by default
-                              //check if the weapon add it to the player
+            if (weapon != null)
             {
-                charTrueDmg = weapon.trueDamage;
+                //checks to see if the item was changed from initial value
+                if (weapon.damage is not 0) { charAttackDmg += weapon.damage; }
+                if (weapon.attackRate is not 0) { charAttackRate *= weapon.attackRate; }
+                if (!charTrueDmg) // if the character does not already have true damage by default
+                                  //check if the weapon add it to the player
+                {
+                    charTrueDmg = weapon.trueDamage;
+                }
             }
-        }
     }
 
     private void addPotionStats()
     {
-        if(other!=null)
+        if (other != null)
         {
-                if (other.health is not 0 && other.itemType == Items.ItemType.Heal) { charHealth += other.health; HealthbarFill temp = transform.GetChild(2).GetComponent<HealthbarFill>(); }
-                if (other.damage is not 0 && other.itemType == Items.ItemType.Damage) { charAttackDmg += other.damage; }
-                if (other.defense is not 0 && other.itemType == Items.ItemType.Armour) { charArmour += other.defense; }
-                if (other.movespeed is not 0 && other.itemType == Items.ItemType.Speed) { charMoveSpeed += other.movespeed; }
+            switch(other.itemType)
+            {
+                case Items.ItemType.Armour:
+                    if(other.defense is not 0)
+                    {
+                        charArmour += other.defense;
+                    }
+                    break;
+                case Items.ItemType.Heal:
+                    if (other.health is not 0)
+                    {
+                        charHealth += other.health;
+                    }
+                    break;
+                case Items.ItemType.Damage:
+                    if (other.damage is not 0)
+                    {
+                        charAttackDmg += other.damage;
+                    }
+                    break;
+                case Items.ItemType.Speed:
+                    if (other.movespeed is not 0)
+                    {
+                        charMoveSpeed += other.movespeed;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
     }
+
 
     private void reloadAbility() 
     {
@@ -265,10 +312,13 @@ public class PlayerModel : MonoBehaviour
         return charArmour;
     }
 
-    //Sets stats
-    public void setPlayerArmour(float value)
+    public void unequipArmour()
     {
-        charArmour = value;
+        armor = null;
     }
 
+    public void unequipWeapon()
+    {
+        weapon = null;
+    }
 }

@@ -134,6 +134,7 @@ public class InventoryManager : MonoBehaviour
             setEquipItems();
         }
         equipSpace++;
+        item.isEquipped = true;
         //Calls the functions to display and set item data
     }
 
@@ -146,12 +147,23 @@ public class InventoryManager : MonoBehaviour
         {
              return;
         }
-           else
+        else
+        {
+            equipped.Remove(item);
+            if(item.itemType == Items.ItemType.armourEquip)
             {
-                equipped.Remove(item);
+                pModel.unequipArmour();
+            } else if(item.itemType == Items.ItemType.weapon)
+            {
+                pModel.unequipWeapon();
+            } else
+            {
+                return;
             }
-            equipSpace--;
+        }
+        equipSpace--;
         pModel.CalculateStats();
+        item.isEquipped = false;
     }
 
     //Function that calls other functions for listitems()

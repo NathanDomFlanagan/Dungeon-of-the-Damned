@@ -20,6 +20,8 @@ MonoBehaviour:
   isWeapon: 0
   isPotion: 1
   isEquipped: 0
+  timer: 5
+  timerActive: 1
   defense: 10
   health: 0
   movespeed: 0
