@@ -77,6 +77,7 @@ public class PlayerModel : MonoBehaviour
                 {
                     Debug.Log(other.itemName + "'s effects has finished");
                     other.timerActive = false;
+                    other.timer = 0f;
                     other = null;
                     CalculateStats();
                     return;
@@ -108,6 +109,7 @@ public class PlayerModel : MonoBehaviour
             else if(data.isPotion == true)
             {
                 PotionAdd(data);
+                data.timer = data.origTime;
                 updatedStats = true;
             }
             else

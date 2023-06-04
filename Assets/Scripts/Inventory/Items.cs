@@ -18,7 +18,8 @@ using UnityEngine;
     public bool isEquipped = false;
 
     [Header("Potion Effect Timer")]
-    public float timer;
+    public float origTime;
+    public float timer = 0;
     public bool timerActive = false;
 
     [Header("ONLY CHANGE IF ITEM IS ARMOR")]
