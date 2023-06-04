@@ -26,6 +26,7 @@ public class UIClickHandler : MonoBehaviour, IPointerClickHandler
             if (im.item.isEquipped == false)
             {
                 onLeftClick.Invoke();
+                im.item.isEquipped = true;  
             } else
             {
                 return;

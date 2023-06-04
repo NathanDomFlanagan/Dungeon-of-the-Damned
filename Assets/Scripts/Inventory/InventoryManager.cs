@@ -16,7 +16,6 @@ public class InventoryManager : MonoBehaviour
 
     //Private variables
     private Items item;
-    private Items itemdata;
     private bool isActive;
 
     //Transforms to where item boxes should be instantiated or where text should be displayed
@@ -52,6 +51,22 @@ public class InventoryManager : MonoBehaviour
         if(isActive)
         {
             displayStatsText();
+            
+        }
+    }
+
+    public void ClearInventory()
+    {
+        //For clearing whole inventory
+        foreach(Items item in inventory)
+        {
+            Destroy(item);
+        }
+
+        //For clearing equipped
+        foreach(Items item in equipped)
+        {
+            Destroy(item);
         }
     }
 
@@ -84,9 +99,15 @@ public class InventoryManager : MonoBehaviour
     //Function that unequipes Item objects from the equipped list
     public void Unequip(Items item)
     {
-        equipped.Remove(item);
+        this.Add(item);
+        if (equipped.Count < 0)
+        {
+            return;
+        } else
+        {
+            equipped.Remove(item);
+        }
         pModel.CalculateStats();
-        
     }
 
     //Function that calls other functions for listitems()
@@ -121,44 +142,34 @@ public class InventoryManager : MonoBehaviour
     //Function that stores the Items objects to the equipped List
     public void equipItem(Items item)
     {
-        if(equipped.Count >= 2)
+        item.isEquipped = true;
+        if (equipped.Count >= 2)
         {
             return;
         } else
         {
             equipped.Add(item);
+            displayEquippedItems();
+            setEquipItems();
         }
         //Calls the functions to display and set item data
-        displayEquippedItems();
-        setEquipItems();
     }
 
     //Displays the currently equipped items
     public void displayEquippedItems()
     {
-        foreach(var item in equipped)
+
+        cleanEquip();
+        foreach (var item in equipped)
         {
-            Instantiate(inventoryItem, equipItemContent);
-            var itemName = inventoryItem.transform.Find("ItemName").GetComponent<Text>();
-            var itemIcon = inventoryItem.transform.Find("ItemImage").GetComponent<Image>();
+            GameObject obj = Instantiate(inventoryItem, equipItemContent);
+            var itemName = obj.transform.Find("ItemName").GetComponent<Text>();
+            var itemIcon = obj.transform.Find("ItemImage").GetComponent<Image>();
 
             itemName.text = item.itemName;
             itemIcon.sprite = item.itemIcon;
         }
-    }
-
-    //Sets the currently equipped item's data according to what's in the inventory List
-    private void setEquipItems()
-    {
-        //The array gets all the ItemInventoryControllers from the equipItemContent's children
-        equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
-
-        //Iterates through the entire List
-        for(int i =0;i<equipped.Count-1;i++)
-        {
-            //Stores the data according to the positions of the items in the equipped list
-            equipItems[i].AddItem(equipped[i]);
-        }
+        setEquipItems();
     }
 
     //Boolean that sets whether or not isActive is true or false
@@ -175,9 +186,20 @@ public class InventoryManager : MonoBehaviour
         {
             invItems[i].AddItem(inventory[i]);
         }
-        if(equipped.Count > 0)
+    }
+
+    //Sets the currently equipped item's data according to what's in the inventory List
+    private void setEquipItems()
+    {
+        //The array gets all the ItemInventoryControllers from the equipItemContent's children
+        equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
+
+        //Iterates through the entire List
+        for (int i = 0; i < equipped.Count; i++)
         {
-            setEquipItems();
+            //Stores the data according to the positions of the items in the equipped list
+            equipItems[i].AddItem(equipped[i]);
+            
         }
     }
 

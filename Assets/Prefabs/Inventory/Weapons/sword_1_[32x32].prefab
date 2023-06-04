@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4740081685829472934}
   - component: {fileID: 2291369352777645513}
+  - component: {fileID: -1530797080104142071}
   m_Layer: 0
   m_Name: sword_1_[32x32]
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-1530797080104142071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982417416262491990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa6893a2586b604e9ca58435ecf82da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Item: {fileID: 11400000, guid: 9a5a9593261f6f74899b367598854808, type: 2}

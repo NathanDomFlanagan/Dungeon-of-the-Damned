@@ -298,7 +298,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7867670218552995312}
         m_TargetAssemblyTypeName: ItemInventoryController, Assembly-CSharp
-        m_MethodName: RemoveItem
+        m_MethodName: UnequipItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

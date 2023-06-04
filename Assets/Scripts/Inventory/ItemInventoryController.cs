@@ -6,14 +6,29 @@ using System.Linq;
 public class ItemInventoryController : MonoBehaviour
 {
     //Variables
+    public static ItemInventoryController Instance;
     public Items item;
     public PlayerModel pModel;
     public bool equipped = false;
+    private Items temp = null;
 
     //Finds the game object with tag "Player" and grabs their PlayerModel component
     void Awake()
     {
+        Instance = this;
         pModel = GameObject.FindWithTag("Player").GetComponent<PlayerModel>();
+        temp = item;
+    }
+
+    void Update()
+    {
+        if(this.item == null)
+        {
+            if (temp != null)
+            {
+                this.item = temp;
+            }
+        }
     }
 
     //AddsItem is a function that is used to add the data of the items in the List and stores them in an array
@@ -32,7 +47,7 @@ public class ItemInventoryController : MonoBehaviour
     }
 
     //Unequips the item in the equip slots
-    private void UnequipItem()
+    public void UnequipItem()
     {
         InventoryManager.Instance.Unequip(item);
         Destroy(gameObject);
@@ -57,16 +72,15 @@ public class ItemInventoryController : MonoBehaviour
             case Items.ItemType.Speed:
                 pModel.AddItem(item);
                 break;
-
             //Special type of case for the equipabble items
             case Items.ItemType.armourEquip:
-                if (item.isEquipped == false)   //Checks if the item is equipped or not
-                {
-                    //Equips the item in the equip item List
-                    InventoryManager.Instance.equipItem(item);
-                    pModel.AddItem(item);       //Adds the item stats in the PlayerModel
-                    item.isEquipped = true;     //Sets isEquipped to true
-                }
+                 InventoryManager.Instance.equipItem(item);
+                 pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                 item.isEquipped = true;     //Sets isEquipped to true
+                break;
+            case Items.ItemType.weapon:
+                InventoryManager.Instance.equipItem(item);
+                pModel.AddItem(item);       //Adds the item stats in the PlayerModel
                 break;
         }
         RemoveItem();
