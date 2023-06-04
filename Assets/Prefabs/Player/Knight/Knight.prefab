@@ -113,6 +113,8 @@ GameObject:
   - component: {fileID: 7863103999059862774}
   - component: {fileID: 2929929421558324981}
   - component: {fileID: 949976191738318886}
+  - component: {fileID: 3721381734250337246}
+  - component: {fileID: 7600499180924443386}
   m_Layer: 6
   m_Name: Knight
   m_TagString: Player
@@ -388,7 +390,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 16bcdb29f89d8cb4aabdaa56007ae103, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.7
   m_Pitch: 1
@@ -474,6 +476,30 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3721381734250337246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04680e6492e70d44fb9f019c9d530eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7600499180924443386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dd2a0cddfd5ff24b8605f3eda546e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8712731175255989368
 GameObject:
   m_ObjectHideFlags: 0
