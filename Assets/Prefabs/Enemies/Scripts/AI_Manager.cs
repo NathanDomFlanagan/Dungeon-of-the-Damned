@@ -17,7 +17,6 @@ public class AI_Manager : MonoBehaviour
     public bool constantFollow = false;     //Mainly used for wave spawner
     private float minConstFollow = 1f;
     private bool canMove = true;
-    private bool canAttack = true;
 
     [Header("Jump")]
     [SerializeField]
@@ -102,7 +101,7 @@ public class AI_Manager : MonoBehaviour
             else
             {
 
-                if (Vector2.Distance(transform.position, Target.position) < minDistance && canMove)
+                if (Vector2.Distance(transform.position, Target.position) <= minDistance && canMove)
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }

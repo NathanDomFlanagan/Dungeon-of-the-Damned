@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.31500334, y: -0.5771937}
+  m_Offset: {x: -0.6024073, y: -0.5771937}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.071916, y: 1.4331278}
+  m_Size: {x: 0.4971081, y: 1.4331278}
   m_EdgeRadius: 0
 --- !u!114 &2517241297622424084
 MonoBehaviour:
@@ -312,7 +312,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017196357, y: -0.2924533}
+  m_Offset: {x: 0.12433767, y: -0.15588057}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -323,7 +323,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2770505, y: 0.21598005}
+  m_Size: {x: 0.7622709, y: 0.4891255}
   m_EdgeRadius: 0
 --- !u!114 &3906229523433916800
 MonoBehaviour:
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 2
-  minDistance: 4
+  minDistance: 0
   constantFollow: 0
   JumpHeight: 420
   animator: {fileID: 7038245291113918689}
