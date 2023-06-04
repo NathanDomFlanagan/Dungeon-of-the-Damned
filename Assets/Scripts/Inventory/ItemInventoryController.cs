@@ -74,13 +74,24 @@ public class ItemInventoryController : MonoBehaviour
                 break;
             //Special type of case for the equipabble items
             case Items.ItemType.armourEquip:
-                 InventoryManager.Instance.equipItem(item);
-                 pModel.AddItem(item);       //Adds the item stats in the PlayerModel
-                 item.isEquipped = true;     //Sets isEquipped to true
+                if(item.isEquipped == false)
+                {
+                    InventoryManager.Instance.equipItem(item);
+                    pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                } else
+                {
+                    break;
+                }
                 break;
             case Items.ItemType.weapon:
-                InventoryManager.Instance.equipItem(item);
-                pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                if(item.isEquipped == false)
+                {
+                    InventoryManager.Instance.equipItem(item);
+                    pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                } else
+                {
+                    break;
+                }
                 break;
         }
         RemoveItem();

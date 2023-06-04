@@ -100,6 +100,7 @@ public class InventoryManager : MonoBehaviour
     public void Unequip(Items item)
     {
         this.Add(item);
+        this.ListItems();
         if (equipped.Count < 0)
         {
             return;
@@ -121,6 +122,8 @@ public class InventoryManager : MonoBehaviour
     //Displays the items in the inventory when inventory is opened
     public void ListItems()
     {
+        cleanInventory();
+
         //Goes through each object in the inventory
         foreach (var item in inventory) 
         {
@@ -148,6 +151,7 @@ public class InventoryManager : MonoBehaviour
             return;
         } else
         {
+            cleanEquip();
             equipped.Add(item);
             displayEquippedItems();
             setEquipItems();
@@ -158,8 +162,8 @@ public class InventoryManager : MonoBehaviour
     //Displays the currently equipped items
     public void displayEquippedItems()
     {
-
         cleanEquip();
+
         foreach (var item in equipped)
         {
             GameObject obj = Instantiate(inventoryItem, equipItemContent);
@@ -191,8 +195,12 @@ public class InventoryManager : MonoBehaviour
     //Sets the currently equipped item's data according to what's in the inventory List
     private void setEquipItems()
     {
-        //The array gets all the ItemInventoryControllers from the equipItemContent's children
+        //Temporarily creates list to clear nulls
         equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
+
+
+        //The array gets all the ItemInventoryControllers from the equipItemContent's children
+        
 
         //Iterates through the entire List
         for (int i = 0; i < equipped.Count; i++)
