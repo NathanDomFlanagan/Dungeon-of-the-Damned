@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1451828926696432848}
   - component: {fileID: 1451828926696432863}
   - component: {fileID: 1598136865054087625}
-  - component: {fileID: 5817195612839768313}
+  - component: {fileID: 4171615270772977249}
   - component: {fileID: 1451828926696432850}
   - component: {fileID: 1451828926696432852}
   - component: {fileID: 2765944042830373089}
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: -734375125
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 63df454fcc041aa4898b00c3febb7835, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3ecb8e49fd65084409270470d204b430, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,13 +202,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac7ce7c851fa8d34bb1b8d401423d088, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 5817195612839768313}
+  inventoryManager: {fileID: 4171615270772977249}
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
   className: knight
   updatedStats: 0
---- !u!114 &5817195612839768313
+  charMoveSpeed: 0
+  charAttackDmg: 0
+  charHealth: 0
+  charArmour: 0
+--- !u!114 &4171615270772977249
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -217,22 +221,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1451828926696432861}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1336593b6fa99fd4da8779acb2af7651, type: 3}
+  m_Script: {fileID: 11500000, guid: d8a404b316e46364dbc1af4bd17c03d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  update: 0
-  removeupdate: 0
+  itemContent: {fileID: 903990793, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  equipItemContent: {fileID: 314582777, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  statsScreen: {fileID: 1881143525, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+  inventoryItem: {fileID: 4163392079499172421, guid: d9b469ba6e75d844599d0dc4fc0b5a77, type: 3}
+  inventorySpace: 0
+  equipSpace: 0
 --- !u!114 &1451828926696432850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b84890ca31b5345b438ac327b379f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 10
   wallHopDirection: {x: 1, y: 0.5}
   wallJumpDirection: {x: 1, y: 2}
   groundCheck: {fileID: 1451828924828055124}

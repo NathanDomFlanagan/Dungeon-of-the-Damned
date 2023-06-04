@@ -824,7 +824,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: {fileID: 1679546704}
   animator: {fileID: 7038245291113918689}
-  cc: {fileID: 0}
+  cc: {fileID: 2004000412610346356, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
   coins: 0
 --- !u!114 &1247752796835853597
 MonoBehaviour:

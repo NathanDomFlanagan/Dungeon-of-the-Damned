@@ -14,6 +14,7 @@ public class DeadAnimation : MonoBehaviour
     {
         dmg = GetComponent<Damageable>();
         animator = GetComponent<Animator>();
+        cc = GetComponent<CoinCounter>();
     }
 
     // Update is called once per frame
