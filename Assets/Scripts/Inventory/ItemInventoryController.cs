@@ -54,7 +54,8 @@ public class ItemInventoryController : MonoBehaviour
     //Unequips the item in the equip slots
     public void UnequipItem()
     {
-        if(item.isEquipped == false)
+        var temp = transform.parent.name;
+        if(temp != "StatsContent") 
         {
             return;
         } else
@@ -95,32 +96,25 @@ public class ItemInventoryController : MonoBehaviour
 
             //Special type of case for the equipabble items
             case Items.ItemType.armourEquip:
-                if (item.isEquipped == false)
-                {
                     if(InventoryManager.Instance.equipSpace == 2)
                     {
                         break;
                     } else 
                     isUsed = true;
                     InventoryManager.Instance.equipItem(item);
-                    item.isEquipped = true;
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
-                }
                 break;
 
             case Items.ItemType.weapon:
-                if(item.isEquipped == false)
-                {
+
                     if(InventoryManager.Instance.equipSpace == 2)
                     {
                         break;
                     } else
                     isUsed = true;
                     InventoryManager.Instance.equipItem(item);
-                    item.isEquipped = true;
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
 
-                }
                 break;
 
             default:

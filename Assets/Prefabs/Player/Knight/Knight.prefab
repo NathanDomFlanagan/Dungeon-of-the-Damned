@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 314582778}
   - component: {fileID: 314582780}
   m_Layer: 5
-  m_Name: Content
+  m_Name: StatsContent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3899,6 +3899,7 @@ MonoBehaviour:
   statsScreen: {fileID: 1881143525}
   inventoryItem: {fileID: 4163392079499172421, guid: d9b469ba6e75d844599d0dc4fc0b5a77, type: 3}
   inventorySpace: 0
+  equipSpace: 0
 --- !u!1 &5285193568567073152
 GameObject:
   m_ObjectHideFlags: 0

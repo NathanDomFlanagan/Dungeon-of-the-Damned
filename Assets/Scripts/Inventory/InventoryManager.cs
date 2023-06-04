@@ -134,7 +134,6 @@ public class InventoryManager : MonoBehaviour
             setEquipItems();
         }
         equipSpace++;
-        item.isEquipped = true;
         //Calls the functions to display and set item data
     }
 
@@ -152,7 +151,6 @@ public class InventoryManager : MonoBehaviour
                 equipped.Remove(item);
             }
             equipSpace--;
-        item.isEquipped = false;
         pModel.CalculateStats();
     }
 
