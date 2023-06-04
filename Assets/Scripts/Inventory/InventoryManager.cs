@@ -58,6 +58,22 @@ public class InventoryManager : MonoBehaviour
                 List<ItemInventoryController> temp = new List<ItemInventoryController>(equipItems);
                 temp = temp.Where(ItemInventoryController => ItemInventoryController != null).ToList();
                 equipItems = temp.ToArray();
+                for (int i = 0; i < equipped.Count; i++)
+                {
+                    //Stores the data according to the positions of the items in the equipped list
+                    equipItems[i].AddItem(equipped[i]);
+
+                }
+            }
+            if(invItems.Length > 0)
+            {
+                List<ItemInventoryController> temp = new List<ItemInventoryController>(invItems);
+                temp = temp.Where(ItemInventoryController => ItemInventoryController != null).ToList();
+                invItems = temp.ToArray();
+                for (int i = 0; i < inventory.Count; i++)
+                {
+                    invItems[i].AddItem(inventory[i]);
+                }
             }
         }
     }
@@ -106,7 +122,6 @@ public class InventoryManager : MonoBehaviour
     //Function that stores the Items objects to the equipped List
     public void equipItem(Items item)
     {
-        item.isEquipped = true;
         if (equipSpace == MAXEQUIP)
         {
             return;
@@ -115,10 +130,11 @@ public class InventoryManager : MonoBehaviour
         {
             cleanEquip();
             equipped.Add(item);
-            equipSpace++;
             displayEquippedItems();
             setEquipItems();
         }
+        equipSpace++;
+        item.isEquipped = true;
         //Calls the functions to display and set item data
     }
 
@@ -129,12 +145,14 @@ public class InventoryManager : MonoBehaviour
         this.ListItems();
         if (equipped.Count <= 0)
         {
-            return;
-        } else
-        {
-            equipped.Remove(item);
-            equipSpace++;
+             return;
         }
+           else
+            {
+                equipped.Remove(item);
+            }
+            equipSpace--;
+        item.isEquipped = false;
         pModel.CalculateStats();
     }
 
@@ -203,12 +221,8 @@ public class InventoryManager : MonoBehaviour
     //Sets the currently equipped item's data according to what's in the inventory List
     private void setEquipItems()
     {
-        //Temporarily creates list to clear nulls
-        equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
-
-
         //The array gets all the ItemInventoryControllers from the equipItemContent's children
-        
+        equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
 
         //Iterates through the entire List
         for (int i = 0; i < equipped.Count; i++)

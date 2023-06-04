@@ -23,22 +23,15 @@ public class UIClickHandler : MonoBehaviour, IPointerClickHandler
         //For left click
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (im.item.isEquipped != true)
-            {
+
                 onLeftClick.Invoke();
-                im.item.isEquipped = true;
-            }
-            else
-            {
-                return;
-            }
+
         }
 
         //For right click
         else if (eventData.button == PointerEventData.InputButton.Right)
         {
-            onRightClick.Invoke();
-            im.item.isEquipped = false;
+                onRightClick.Invoke();
         }
     }
 }

@@ -11,6 +11,7 @@ public class ItemInventoryController : MonoBehaviour
     public PlayerModel pModel;
     public bool equipped = false;
     private Items temp = null;
+    private bool isUsed = false;
 
     //Finds the game object with tag "Player" and grabs their PlayerModel component
     void Awake()
@@ -29,6 +30,10 @@ public class ItemInventoryController : MonoBehaviour
                 this.item = temp;
             }
         }
+        if(isUsed == true)
+        {
+            RemoveItem();
+        }
     }
 
     //AddsItem is a function that is used to add the data of the items in the List and stores them in an array
@@ -37,21 +42,26 @@ public class ItemInventoryController : MonoBehaviour
     public void AddItem(Items newItem)
     {
         item = newItem;
-        item.isEquipped = false;
     }
 
     //Removes Item from the inventory
     public void RemoveItem()
     {
-        InventoryManager.Instance.Remove(item);
-        Destroy(gameObject);
+            InventoryManager.Instance.Remove(item);
+            Destroy(gameObject);
     }
 
     //Unequips the item in the equip slots
     public void UnequipItem()
     {
-        InventoryManager.Instance.Unequip(item);
-        Destroy(gameObject);
+        if(item.isEquipped == false)
+        {
+            return;
+        } else
+        {
+            InventoryManager.Instance.Unequip(item);
+            Destroy(gameObject);
+        }
     }   
 
     //Switch-case statement for when items are clicked
@@ -61,23 +71,39 @@ public class ItemInventoryController : MonoBehaviour
         {
             case Items.ItemType.Armour:
                 pModel.AddItem(item);
-                Debug.Log("Increased Armour by 50");
+                Debug.Log("Increased Defense by " + item.defense);
+                isUsed= true;
                 break;
+
             case Items.ItemType.Heal:
                 pModel.AddItem(item);
-                Debug.Log("Healed for 50");
+                Debug.Log("Healed for " + item.health);
+                isUsed = true;
                 break;
+
             case Items.ItemType.Damage:
                 pModel.AddItem(item);
+                Debug.Log("Increased Damage by " + item.damage);
+                isUsed = true;
                 break;
+
             case Items.ItemType.Speed:
                 pModel.AddItem(item);
+                Debug.Log("Increased Speed by " + item.movespeed);
+                isUsed = true;
                 break;
+
             //Special type of case for the equipabble items
             case Items.ItemType.armourEquip:
                 if (item.isEquipped == false)
                 {
+                    if(InventoryManager.Instance.equipSpace == 2)
+                    {
+                        break;
+                    } else 
+                    isUsed = true;
                     InventoryManager.Instance.equipItem(item);
+                    item.isEquipped = true;
                     pModel.AddItem(item);       //Adds the item stats in the PlayerModel
                 }
                 break;
@@ -85,12 +111,20 @@ public class ItemInventoryController : MonoBehaviour
             case Items.ItemType.weapon:
                 if(item.isEquipped == false)
                 {
-                        InventoryManager.Instance.equipItem(item);
-                        pModel.AddItem(item);       //Adds the item stats in the PlayerModel
+                    if(InventoryManager.Instance.equipSpace == 2)
+                    {
+                        break;
+                    } else
+                    isUsed = true;
+                    InventoryManager.Instance.equipItem(item);
+                    item.isEquipped = true;
+                    pModel.AddItem(item);       //Adds the item stats in the PlayerModel
 
                 }
                 break;
+
+            default:
+                break;
         }
-        RemoveItem();
     }
 }

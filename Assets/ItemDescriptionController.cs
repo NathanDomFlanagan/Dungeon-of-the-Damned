@@ -22,7 +22,6 @@ public class ItemDescriptionController : MonoBehaviour
         itemName = GameObject.Find("Description/ItemName").transform;
         itemDesc = GameObject.Find("Description/ItemDesc").transform;
         im = GetComponent<ItemInventoryController>();
-
     }
     
     //Public function that sets the description in the inventory
