@@ -154,7 +154,7 @@ public class InventoryManager : MonoBehaviour
         equipItems = equipItemContent.GetComponentsInChildren<ItemInventoryController>();
 
         //Iterates through the entire List
-        for(int i =0;i<equipped.Count;i++)
+        for(int i =0;i<equipped.Count-1;i++)
         {
             //Stores the data according to the positions of the items in the equipped list
             equipItems[i].AddItem(equipped[i]);
@@ -174,6 +174,10 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventory.Count; i++)
         {
             invItems[i].AddItem(inventory[i]);
+        }
+        if(equipped.Count > 0)
+        {
+            setEquipItems();
         }
     }
 

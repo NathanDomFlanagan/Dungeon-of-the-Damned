@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 0
   description: Temporarily greatly enhances the player's armour
   itemType: 0
+  itemData: {fileID: 11400000}

@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 0
   description: Temporarily boosts the user's damage by 10
   itemType: 3
+  itemData: {fileID: 11400000}

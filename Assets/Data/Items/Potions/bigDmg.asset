@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 0
   description: Temporarily greatly boosts the player's damage
   itemType: 3
+  itemData: {fileID: 11400000}

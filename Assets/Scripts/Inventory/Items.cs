@@ -70,4 +70,6 @@ using UnityEngine;
         armourEquip,
         weapon
         }
+
+    public Items itemData;      //testing if it references
     }

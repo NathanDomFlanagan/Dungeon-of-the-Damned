@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 0
   description: The renowned Armor of Onions. Greatly boosts defense
   itemType: 4
+  itemData: {fileID: 11400000}

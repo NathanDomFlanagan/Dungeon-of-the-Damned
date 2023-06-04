@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 25
   description: Temporarily greatly boosts the player's speed
   itemType: 2
+  itemData: {fileID: 11400000}

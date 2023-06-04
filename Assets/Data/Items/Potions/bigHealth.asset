@@ -31,3 +31,4 @@ MonoBehaviour:
   itemValue: 50
   description: Heals a large amount of the player's HP
   itemType: 1
+  itemData: {fileID: 11400000}

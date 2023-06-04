@@ -35,7 +35,6 @@ public class ItemInventoryController : MonoBehaviour
     private void UnequipItem()
     {
         InventoryManager.Instance.Unequip(item);
-        //pModel.setPlayerArmour(0);        //Tried to set playerArmour to 0 directly
         Destroy(gameObject);
     }   
 
