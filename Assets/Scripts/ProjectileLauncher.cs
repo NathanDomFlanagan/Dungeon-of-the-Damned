@@ -13,6 +13,6 @@ public class ProjectileLauncher : MonoBehaviour
         GameObject proj = Instantiate(projectilePrefab, firePoint.position, projectilePrefab.transform.rotation);
         Vector3 origScale = proj.transform.localScale;
         proj.transform.localScale = new Vector3(origScale.x * transform.localScale.x > 0 ? 1 : -1, origScale.y, origScale.z);
-
+        UnityEngine.Debug.Log("Shoot");
     }
 }

@@ -39,7 +39,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ca80ae9a9da9cc940814cf9d435e40ef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 05a564f65fe0a504dbe2b62ed5c9ee77, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -66,7 +66,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 367e5e4d77604014aace7a37b6a77490, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6ee1a4b86cd19ba4b8c4399ba2e1f604, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -228,7 +228,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: a2066c9358a29c145bbc1bab9d0e5361, type: 2}
+  m_Motion: {fileID: 7400000, guid: b483d07104b69094e8d61bd0731f7f42, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -266,7 +266,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: skeletondeath
+  m_Name: orcdeath
   m_Speed: 1
   m_CycleOffset: 1
   m_Transitions: []
@@ -279,7 +279,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 4f79ba7b647256041b490a31a39a168e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 6312a803d44676c4ea5536b62f4f21f3, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -329,7 +329,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 17708ff4be9614948a5bb66a4f01d04e, type: 2}
+  m_Motion: {fileID: 7400000, guid: 4e9f888c87c5ca441894516073ae1b3d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

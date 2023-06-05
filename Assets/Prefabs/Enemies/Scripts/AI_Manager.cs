@@ -92,7 +92,7 @@ public class AI_Manager : MonoBehaviour
             if (constantFollow == true)
             {
 
-                if (Vector2.Distance(transform.position, Target.position) > minConstFollow && canMove)
+                if (Vector2.Distance(transform.position, Target.position) > minConstFollow )
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
@@ -101,7 +101,7 @@ public class AI_Manager : MonoBehaviour
             else
             {
 
-                if (Vector2.Distance(transform.position, Target.position) <= minDistance && canMove)
+                if (Vector2.Distance(transform.position, Target.position) < minDistance )
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
@@ -134,7 +134,7 @@ public class AI_Manager : MonoBehaviour
          */
     {
         //Checks if enemy is not within 0.5 gamepixels or if the enemy is outside of tracking range
-        if (Math.Abs(Target.position.x - rb.position.x) >0.5 && ((Vector2.Distance(transform.position, Target.position) < minDistance)||constantFollow))
+        if (Math.Abs(Target.position.x - rb.position.x) >0.5 && canMove && ((Vector2.Distance(transform.position, Target.position) < minDistance)||constantFollow))
         {
             //if enemy is correct distance from player then sets walking to true
             animator.SetBool("IsWalking", true);
