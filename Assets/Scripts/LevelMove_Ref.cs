@@ -35,6 +35,12 @@ public class LevelMove_Ref : MonoBehaviour
 
     public void goToLevel()
     {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            PlayerController pc = player.GetComponent<PlayerController>();
+            pc.isEnter = isEnter;
+        }
         SceneManager.LoadScene(sceneBuildIndex, LoadSceneMode.Single);
     }
 }
