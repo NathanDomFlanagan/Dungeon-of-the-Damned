@@ -26,9 +26,16 @@ public class UpgradeMenu : MonoBehaviour
         UnityEngine.Debug.Log("Upgrades Ready");
         GetUpgradableItems();
         // Activate shop panels based on the total number of items
-        for (int i = 0; i < (inventory.Count); i++)
+        for (int i = 0; i < inventoryPanelsSO.Length ; i++)
         {
-            inventoryPanelsSO[i].SetActive(true);
+            if (i<inventory.Count)
+            {
+                inventoryPanelsSO[i].SetActive(true);
+            }
+            else
+            {
+                i = inventoryPanelsSO.Length;
+            }
         }
         LoadPanels();
         CheckUpgradeCost();
@@ -77,19 +84,34 @@ public class UpgradeMenu : MonoBehaviour
     {
         for (int i = 0; i < (inventory.Count); i++)
         {
-            inventoryPanels[i].itemName.text = inventory[i].itemName;
-            inventoryPanels[i].itemLvl.text = "Lvl: "+inventory[i].itemLvl;
-            inventoryPanels[i].description.text = inventory[i].description;
-            inventoryPanels[i].itemCost.text = "Coins: " + inventory[i].upgradeCost.ToString();
-            inventoryPanels[i].SetItemIcon(inventory[i].itemIcon);
+            if (i < inventoryPanels.Length)
+            {
+
+                inventoryPanels[i].itemName.text = inventory[i].itemName;
+                inventoryPanels[i].itemLvl.text = "Lvl: " + inventory[i].itemLvl;
+                inventoryPanels[i].description.text = inventory[i].description;
+                inventoryPanels[i].itemCost.text = "Coins: " + inventory[i].upgradeCost.ToString();
+                inventoryPanels[i].SetItemIcon(inventory[i].itemIcon);
+            }
+            else
+            {
+                i = inventoryPanels.Length;
+            }
         }
     }
     public void LoadPanelChange()
     {
         for (int i = 0; i < (inventory.Count); i++)
         {
-            inventoryPanels[i].itemLvl.text = "Lvl: " + inventory[i].itemLvl;
-            inventoryPanels[i].itemCost.text = "Coins: " + inventory[i].upgradeCost.ToString();
+            if (i < inventoryPanels.Length)
+            {
+                inventoryPanels[i].itemLvl.text = "Lvl: " + inventory[i].itemLvl;
+                inventoryPanels[i].itemCost.text = "Coins: " + inventory[i].upgradeCost.ToString();
+            }
+            else
+            {
+                i = inventoryPanels.Length;
+            }
         }
     }
 }
