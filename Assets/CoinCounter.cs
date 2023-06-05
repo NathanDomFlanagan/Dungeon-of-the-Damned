@@ -28,12 +28,22 @@ public class CoinCounter : MonoBehaviour
     }
     public void AddCoins(int x)
     {
-        UnityEngine.Debug.Log("Added Coins "+x);
         //Adds coins to coin count
-        PlayerPrefs.SetInt("coins", PlayerPrefs.GetInt("coins")+x);
-
-        //PlayerPrefs.SetString("cointext",PlayerPrefs.GetInt("coins").ToString());
+        PlayerPrefs.SetInt("coins", GetCoins()+x);     
         //Updates text to display new coin count
         coinText.text = PlayerPrefs.GetInt("coins").ToString();
+    }
+
+    public int GetCoins()
+    {
+        return PlayerPrefs.GetInt("coins");
+    }
+
+    public void RemoveCoins(int amount)
+    {
+        int currentCoins = GetCoins();
+        currentCoins -= amount;
+        PlayerPrefs.SetInt("coins", currentCoins);
+        coinText.text = currentCoins.ToString();
     }
 }
