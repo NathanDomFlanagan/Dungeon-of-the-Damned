@@ -163,6 +163,12 @@ public class PlayerModel : MonoBehaviour
             case "archer":
                 selectArcher();
                 break;
+            case "berserker":
+                selectBerserk();
+                break;
+            default:
+                selectKnight();
+                break;
         }
     }
 
@@ -182,6 +188,7 @@ public class PlayerModel : MonoBehaviour
         charJumpForce = 16;
         charTrueDmg = false;
     }
+
     private void selectLancer()
     { // sets the base stats and variables for the lancer.
         enableWallJump = false;
@@ -213,6 +220,23 @@ public class PlayerModel : MonoBehaviour
         charArmour = 0;
         charJumpForce = 18;
         charTrueDmg = true;
+    }
+
+    private void selectBerserk()
+    { // sets the base stats and variables for the knight.
+        enableWallJump = false;
+        enableDash = true;
+        enableWallSlide = false;
+        updatedStats = false;
+        amountOfJumps = 1;
+        charMoveSpeed = 8;
+        charAttackDmg = 60;
+        charAttackRange = 0.5f;
+        charAttackRate = 2;
+        charHealth = 75;
+        charArmour = 0;
+        charJumpForce = 16;
+        charTrueDmg = false;
     }
 
     public void CalculateStats()
