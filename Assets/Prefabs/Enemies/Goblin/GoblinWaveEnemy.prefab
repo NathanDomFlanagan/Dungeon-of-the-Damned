@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 7051623157669166373}
   - component: {fileID: 5884720776194516792}
   - component: {fileID: 521166968316038986}
+  - component: {fileID: 368062383016508373}
   m_Layer: 9
   m_Name: GoblinWaveEnemy
   m_TagString: Enemy
@@ -816,8 +817,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: {fileID: 1679546704}
   animator: {fileID: 7038245291113918689}
-  cc: {fileID: 2004000412610346356, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
-  coins: 0
+  cc: {fileID: 368062383016508373}
+  coins: 5
 --- !u!114 &1766723754345914548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -971,3 +972,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hurtSound: {fileID: 8300000, guid: 9324d39bd331a804caf6888a34e119bf, type: 3}
+--- !u!114 &368062383016508373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9038812840416750331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcb48bd890a4664698570c14b859953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}

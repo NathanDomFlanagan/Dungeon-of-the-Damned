@@ -19447,11 +19447,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3239693526164121922, guid: 79af10aa75161314aa3ee263c6deeae8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -341.4
+      value: -258
       objectReference: {fileID: 0}
     - target: {fileID: 3239693526164121922, guid: 79af10aa75161314aa3ee263c6deeae8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 176.1
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 3979519441717839281, guid: 79af10aa75161314aa3ee263c6deeae8, type: 3}
       propertyPath: m_Name
@@ -19545,5 +19545,9 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1484047554}
+    - target: {fileID: 3979519441717839310, guid: 79af10aa75161314aa3ee263c6deeae8, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79af10aa75161314aa3ee263c6deeae8, type: 3}

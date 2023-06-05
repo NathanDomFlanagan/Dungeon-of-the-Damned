@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 802678483132234628}
   - component: {fileID: 8647075310525071842}
   - component: {fileID: 5269090947113022065}
+  - component: {fileID: 4805245224704836077}
   m_Layer: 9
   m_Name: GoblinEnemy
   m_TagString: Enemy
@@ -817,7 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dmg: {fileID: 1679546704}
   animator: {fileID: 7038245291113918689}
-  cc: {fileID: 2004000412610346356, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
+  cc: {fileID: 4805245224704836077}
   coins: 5
 --- !u!114 &5012268072867056688
 MonoBehaviour:
@@ -1068,3 +1069,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4805245224704836077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9038812840416750331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fcb48bd890a4664698570c14b859953, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinText: {fileID: 0}
