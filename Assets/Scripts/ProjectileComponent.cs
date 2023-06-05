@@ -25,21 +25,18 @@ public class ProjectileComponent : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         UnityEngine.Debug.Log("Hit Player");
-        if (collision.gameObject.GetComponent<Damageable>() != null && collision.gameObject.layer == LayerMask.NameToLayer(damageLayer)) {
+        if (collision.gameObject.GetComponent<Damageable>() != null && collision.gameObject.layer == LayerMask.NameToLayer(damageLayer))
+        {
             UnityEngine.Debug.Log("Take Damage");
             Damageable dmg = collision.GetComponent<Damageable>();
             knockback.x = knockback.x * transform.localScale.x;
-            collision.GetComponent<Damageable>().Hit(damage,true,knockback);
+            collision.GetComponent<Damageable>().Hit(damage, true, knockback);
             Debug.Log("Projectile attack hit for " + damage);
-            
+            Destroy(gameObject);
         }
-        else if(collision.gameObject.GetComponent<Damageable>() != null){
-            UnityEngine.Debug.Log(collision.gameObject.layer);
-            UnityEngine.Debug.Log(LayerMask.NameToLayer(damageLayer));
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Terrain"))
+        {
+            Destroy(gameObject);
         }
-        else{
-            UnityEngine.Debug.Log("Not Player");
-        }
-        Destroy(gameObject);
     }
 }
