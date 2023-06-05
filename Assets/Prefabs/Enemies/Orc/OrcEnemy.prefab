@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Movement: 2
-  minDistance: 0
+  minDistance: 6
   constantFollow: 0
   JumpHeight: 420
   animator: {fileID: 7038245291113918689}

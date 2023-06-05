@@ -35,6 +35,7 @@ public class AI_Manager : MonoBehaviour
         private set
         {
             _hasTarget = value;
+            UnityEngine.Debug.Log(value);
             if(PlayerPrefs.GetInt("canEnemyAttack") == 1)
             {
                 animator.SetBool("HasTarget", value);
@@ -46,7 +47,10 @@ public class AI_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();  //Need this so that prefab clones can track the player
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>() != null)
+        {
+            Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();  //Need this so that prefab clones can track the player
+        }
         rb = transform.parent.GetComponent<Rigidbody2D>();
         animator = transform.parent.GetComponent<Animator>();
         col = transform.parent.GetComponent<Collider2D>();
@@ -56,6 +60,8 @@ public class AI_Manager : MonoBehaviour
     {
         if(HasTarget = attackZone.detectedColliders.Count > 0)
         {
+            UnityEngine.Debug.Log(HasTarget);
+            UnityEngine.Debug.Log(PlayerPrefs.GetInt("canEnemyAttack"));
             canMove = false;
         } else
         {
@@ -92,7 +98,7 @@ public class AI_Manager : MonoBehaviour
             if (constantFollow == true)
             {
 
-                if (Vector2.Distance(transform.position, Target.position) > minConstFollow )
+                if (Vector2.Distance(transform.position, Target.position) > minConstFollow &&canMove)
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
@@ -101,7 +107,7 @@ public class AI_Manager : MonoBehaviour
             else
             {
 
-                if (Vector2.Distance(transform.position, Target.position) < minDistance )
+                if (Vector2.Distance(transform.position, Target.position) < minDistance &&canMove)
                 {
                     rb.position = Vector2.MoveTowards(transform.position, Targetposition, Movement * Time.deltaTime);
                 }
