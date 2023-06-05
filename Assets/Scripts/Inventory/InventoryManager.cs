@@ -114,16 +114,10 @@ public class InventoryManager : MonoBehaviour
             return;
         } else
         {
-            removeTest(item);
             inventory.Remove(item);
             inventorySpace--;
         }
         
-    }
-
-    public Items removeTest(Items item)
-    {
-        return item;
     }
 
     //Function that stores the Items objects to the equipped List

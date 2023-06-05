@@ -53,7 +53,7 @@ public class PlayerModel : MonoBehaviour
         playerDeath.SetPC(playerController);
         inventoryManager = GetComponent<InventoryManager>();
 
-        classSelect();
+        classSelect(PlayerPrefs.GetString("className"));
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
         PlayerPrefs.SetInt("coins", 0); // creates coin count as 0;
@@ -150,7 +150,7 @@ public class PlayerModel : MonoBehaviour
         other = data;
     }
 
-    public void classSelect()
+    public void classSelect(string className)
     {
         switch (className)
         {
@@ -242,7 +242,7 @@ public class PlayerModel : MonoBehaviour
     public void CalculateStats()
     {
         //Commented classSelect() here since it causes some issues with assigning the values
-        classSelect(); // reapplies class' original stats
+        classSelect(PlayerPrefs.GetString("className")); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
         addPotionStats();   //applies the changes from the potion
@@ -349,6 +349,11 @@ public class PlayerModel : MonoBehaviour
         return charArmour;
     }
 
+    public string getClassName()
+    {
+        return className;
+    }
+
     public void unequipArmour()
     {
         armor = null;
@@ -358,4 +363,6 @@ public class PlayerModel : MonoBehaviour
     {
         weapon = null;
     }
+
+
 }
