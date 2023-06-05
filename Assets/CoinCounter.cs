@@ -24,14 +24,20 @@ public class CoinCounter : MonoBehaviour
     void Update()
     {
         //Sets string to current coin count
-        coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        if (coinText != null)
+        {
+            coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        }
     }
     public void AddCoins(int x)
     {
         //Adds coins to coin count
-        PlayerPrefs.SetInt("coins", GetCoins()+x);     
+        PlayerPrefs.SetInt("coins", GetCoins()+x);
         //Updates text to display new coin count
-        coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        if (coinText != null)
+        {
+            coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        }
     }
 
     public int GetCoins()
@@ -44,6 +50,9 @@ public class CoinCounter : MonoBehaviour
         int currentCoins = GetCoins();
         currentCoins -= amount;
         PlayerPrefs.SetInt("coins", currentCoins);
-        coinText.text = currentCoins.ToString();
+        if (coinText != null)
+        {
+            coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        }
     }
 }
