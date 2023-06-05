@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NUnit.Framework;
+using UnityEngine.TestTools;
 
 public class ClassTest
 {
-    // Start is called before the first frame update
-    void Start()
+    [Test]
+    public void SimpleClassTests()
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
-}
+} 
