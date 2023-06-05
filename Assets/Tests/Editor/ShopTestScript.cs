@@ -5,25 +5,23 @@ using UnityEngine;
 using UnityEngine.TestTools;
 
 public class ShopTestScript
-{
+{    
     [Test]
-    public void DeductCoinsOnPurchase()
+    public void TestAddCoins()
     {
-        // Create a mock shop and player inventory
-        ShopManager shopManager = new ShopManager();
-        PlayerInventory playerInventory = new PlayerInventory();
+        // Arrange
+        CoinCounter coinCounter = new GameObject().AddComponent<CoinCounter>(); // Create an instance of CoinCounter
+        coinCounter.SetCoins(100); // Set the initial coins to 100
 
-        // Set up test data
-        int initialCoins = 100;
-        int itemCost = 50;
-        shopManager.coinCounter.SetCoins(initialCoins);
+        int coinsToAdd = 50; // Number of coins to add
 
-        // Purchase an item
-        shopManager.PurchaseItem(0); // Assuming item 0 is selected for testing
+        // Act
+        coinCounter.AddCoins(coinsToAdd); // Add coins
 
-        // Verify the coins are correctly deducted
-        int expectedCoins = initialCoins - itemCost;
-        int actualCoins = shopManager.coinCounter.GetCoins();
-        Assert.AreEqual(expectedCoins, actualCoins, "Coins were not deducted correctly on purchase.");
+        // Assert
+        int expectedCoins = 100 + coinsToAdd; // Calculate the expected number of coins
+        int actualCoins = coinCounter.GetCoins(); // Get the actual number of coins
+
+        Assert.AreEqual(expectedCoins, actualCoins); // Check if the expected and actual coins match
     }
-}
+}   

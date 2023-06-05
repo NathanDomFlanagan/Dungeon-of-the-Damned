@@ -8,7 +8,6 @@ public class ShopManager : MonoBehaviour
 {
     public CoinCounter coinCounter;
     public InventoryManager playerInventory;
-    //public int coins;
     public TMP_Text coinUI;
     public Items[] armour;
     public Items[] weapon;
@@ -21,7 +20,7 @@ public class ShopManager : MonoBehaviour
     public Button[] purchaseButton;
 
     // Start is called before the first frame update
-    void Awake()
+    public void Awake()
     {
         playerInventory = GameObject.FindWithTag("Player").GetComponent<InventoryManager>();
         

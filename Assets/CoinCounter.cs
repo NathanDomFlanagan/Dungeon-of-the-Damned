@@ -55,4 +55,12 @@ public class CoinCounter : MonoBehaviour
             coinText.text = PlayerPrefs.GetInt("coins").ToString();
         }
     }
+    public void SetCoins(int amount)
+    {
+        PlayerPrefs.SetInt("coins", amount);
+        if (coinText != null)
+        {
+            coinText.text = PlayerPrefs.GetInt("coins").ToString();
+        }
+    }
 }
