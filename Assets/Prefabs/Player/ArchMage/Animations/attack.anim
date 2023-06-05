@@ -96,7 +96,7 @@ AnimationClip:
   - time: 0.5
     functionName: fireProjectile
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 2894825077222855000, guid: fc4fe338ce31df54e945e20c92ea728c, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

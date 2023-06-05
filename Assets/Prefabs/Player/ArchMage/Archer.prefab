@@ -113,6 +113,8 @@ GameObject:
   - component: {fileID: 1451828926696432851}
   - component: {fileID: 7506835321161344558}
   - component: {fileID: 5298327847135496629}
+  - component: {fileID: 6146869540382478447}
+  - component: {fileID: -855571499296759393}
   m_Layer: 6
   m_Name: Archer
   m_TagString: Player
@@ -206,7 +208,8 @@ MonoBehaviour:
   playerController: {fileID: 1451828926696432850}
   playerCombat: {fileID: 1451828926696432852}
   playerDamage: {fileID: 2765944042830373089}
-  className: knight
+  playerDeath: {fileID: 6146869540382478447}
+  className: archer
   updatedStats: 0
   charMoveSpeed: 0
   charAttackDmg: 0
@@ -344,7 +347,7 @@ Animator:
   m_GameObject: {fileID: 1451828926696432861}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 55517ee79307a8745b254fe5eaa4595e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6c726d4c8fdf53f4f8e2c84687819dff, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -463,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a49d760da3c8a4d8df2947a59776c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 16bcdb29f89d8cb4aabdaa56007ae103, type: 3}
   jumpSound: {fileID: 8300000, guid: e30fcc08e97b9ee43a2deed2f6b1312d, type: 3}
   playerInjureEnemySound: {fileID: 8300000, guid: 16bcdb29f89d8cb4aabdaa56007ae103, type: 3}
   enemyInjurePlayerSound: {fileID: 8300000, guid: 9324d39bd331a804caf6888a34e119bf, type: 3}
@@ -471,3 +474,29 @@ MonoBehaviour:
   attackVolume: 1
   jumpVolume: 1
   collisionVolume: 1
+--- !u!114 &6146869540382478447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3238e978f39bf954391107906392d18f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-855571499296759393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451828926696432861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a7e5cd822f25f04896f496df70c23b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firePoint: {fileID: 1451828926327303957}
+  projectilePrefab: {fileID: 2894825077222855000, guid: fc4fe338ce31df54e945e20c92ea728c, type: 3}
