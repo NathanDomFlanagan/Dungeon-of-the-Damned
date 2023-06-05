@@ -11,7 +11,7 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     //Creates two different lists for inventroy and equipped items
-    private List<Items> inventory = new List<Items>();
+    public List<Items> inventory = new List<Items>();
     private List<Items> equipped = new List<Items>();
 
     //Private variables
@@ -117,7 +117,11 @@ public class InventoryManager : MonoBehaviour
             inventory.Remove(item);
             inventorySpace--;
         }
-        
+    }
+
+    public Items removeTest(Items item)
+    {
+        return item;
     }
 
     //Function that stores the Items objects to the equipped List
