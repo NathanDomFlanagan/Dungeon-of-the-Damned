@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private int amountOfJumps = 1;
     private int facingDirection = 1;
 
-    private float movementSpeed = 10.0f;
+    public float movementSpeed = 10.0f;
     private float jumpForce = 16.0f;
 
     private float wallSlideSpeed = 1;
@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isAlive", false);
         }
     }
+
     private void FixedUpdate()
     {
         ApplyMovement();

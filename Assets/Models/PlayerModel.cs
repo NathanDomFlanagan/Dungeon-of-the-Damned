@@ -5,15 +5,16 @@ using DoD;
 
 public class PlayerModel : MonoBehaviour
 {
-    public PlayerInventory Inventory;
+    public InventoryManager inventoryManager; 
     public PlayerController playerController;
     public PlayerCombat playerCombat;
     public Damageable playerDamage;
 
     public string className;
 
-    private ArmorData armour = null;
-    private WeaponData weapon = null;
+    private Items armor = null;
+    private Items weapon = null;
+    private Items other = null;
 
     //sets which of the abilities are enabled for the specific player class
     private bool enableWallJump;
@@ -26,10 +27,10 @@ public class PlayerModel : MonoBehaviour
     //all the variables for the characters data which can be changed by items.
     // or conversely changed depending on the players class
     private int amountOfJumps;
-    private float charMoveSpeed;
-    private int charAttackDmg;
-    private float charHealth;
-    private float charArmour;
+    public float charMoveSpeed;
+    public int charAttackDmg;
+    public float charHealth;
+    public float charArmour;
     private float charAttackRange;
     private float charAttackRate;
     private float charJumpForce;
@@ -38,7 +39,7 @@ public class PlayerModel : MonoBehaviour
     private static PlayerModel Instance;
     
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (Instance != null)
         {
@@ -47,16 +48,11 @@ public class PlayerModel : MonoBehaviour
         }
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
-
-        Inventory.pmSet(this);
-
+        inventoryManager = GetComponent<InventoryManager>();
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
-        
         PlayerPrefs.SetInt("coins", 0); // creates coin count as 0;
-        //$$test code to be removed
-        AddItem(UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Data/Items/Weapons/Axe 2.asset", typeof(WeaponData)));
     }
 
     // Update is called once per frame
@@ -68,41 +64,82 @@ public class PlayerModel : MonoBehaviour
             CalculateStats();
             reloadStats();
         }
+
     }
 
-    public Object AddItem(Object data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
+    void FixedUpdate()
     {
-        if (data is ArmorData && data != null)
+        if (other != null)
         {
-            updatedStats = true;
-            return ArmorAdd((ArmorData)data);
+            if (other.timerActive == true)
+            {
+                if (other.timer <= 0)
+                {
+                    Debug.Log(other.itemName + "'s effects has finished");
+                    other.timerActive = false;
+                    other.timer = 0f;
+                    other = null;
+                    CalculateStats();
+                    return;
+                }
+                else
+                {
+                    other.timer -= Time.deltaTime;
+                    Debug.Log(other.itemName + " has: " + other.timer + "s left.");
+                }
+            }
         }
-        else if (data is WeaponData && data != null)
+    }
+
+    public void AddItem(Items data) // checks whether the data inserted is an allowed type to be entered into each of the equip slots
+    {
+        if (data != null)
         {
-            updatedStats = true;
-            return WeaponAdd((WeaponData)data);
+            if (data.isArmor == true)
+            {
+                ArmorAdd(data);
+                updatedStats = true;
+            }
+            else if (data.isWeapon == true)
+            {
+                WeaponAdd(data);
+                updatedStats = true;
+
+            }
+            else if(data.isPotion == true)
+            {
+                PotionAdd(data);
+                data.timer = data.origTime;
+                updatedStats = true;
+            }
+            else
+            {
+                updatedStats = false;
+                return;
+            }
         }
         else
-        {   
-            return data;
+        {
+            return;
         }
     }
 
-    private ArmorData ArmorAdd(ArmorData armordata)
+    private void ArmorAdd(Items armordata)
     {
-        ArmorData returndata = armour;
-        armour = armordata;
-        return returndata;
+        armor = armordata;
     }
 
-    private WeaponData WeaponAdd(WeaponData data)
+    private void WeaponAdd(Items data)
     {
-        WeaponData returndata = weapon;
         weapon = data;
-        return returndata;
     }
 
-    private void classSelect()
+    private void PotionAdd(Items data)
+    {
+        other = data;
+    }
+
+    public void classSelect()
     {
         switch (className)
         {
@@ -130,7 +167,7 @@ public class PlayerModel : MonoBehaviour
         charAttackRange = 0.5f;
         charAttackRate = 2;
         charHealth = 100;
-        charArmour = 30;
+        charArmour = 0;
         charJumpForce = 16;
         charTrueDmg = false;
     }
@@ -146,7 +183,7 @@ public class PlayerModel : MonoBehaviour
         charAttackRange = 0.5f;
         charAttackRate = 3;
         charHealth = 100;
-        charArmour = 5;
+        charArmour = 0;
         charJumpForce = 18;
         charTrueDmg = false;
     }
@@ -167,39 +204,81 @@ public class PlayerModel : MonoBehaviour
         charTrueDmg = true;
     }
 
-    private void CalculateStats()
+    public void CalculateStats()
     {
+        //Commented classSelect() here since it causes some issues with assigning the values
         classSelect(); // reapplies class' original stats
         addArmorStats(); // applies the changes from the armor
         addWeaponStats(); // applies the changes from the weapon
+        addPotionStats();   //applies the changes from the potion
+        updatedStats = false;
     }
 
     private void addArmorStats()
     {
-        if (armour != null) {
-            //checks for if the item was changed from its initial value
-            if (armour.defense is not 0) { charArmour += armour.defense; }
-            if (armour.health is not 0) { charHealth += armour.health; }
-            if (armour.movespeed is not 0) { charMoveSpeed *= armour.movespeed; }
-            if (armour.jumpforce is not 0) { charJumpForce *= armour.jumpforce; }
-            if (armour.jumpmod is not 0) { amountOfJumps += armour.jumpmod; }
-        }
+            if (armor != null)
+            {
+                //checks for if the item was changed from its initial value
+                if (armor.defense is not 0) { charArmour += armor.defense; }
+                if (armor.health is not 0) { charHealth += armor.health; }
+                if (armor.movespeed is not 0) { charMoveSpeed += armor.movespeed; }
+                if (armor.jumpforce is not 0) { charJumpForce += armor.jumpforce; }
+                if (armor.jumpmod is not 0) { amountOfJumps += armor.jumpmod; }
+            }
+
     }
 
     private void addWeaponStats()
     {
-        if (weapon != null)
-        {
-            //checks to see if the item was changed from initial value
-            if (weapon.damage is not 0) { charAttackDmg += weapon.damage; }
-            if (weapon.attackRate is not 0) { charAttackRate *= weapon.attackRate; }
-            if (!charTrueDmg) // if the character does not already have true damage by default
-                              //check if the weapon add it to the player
+            if (weapon != null)
             {
-                charTrueDmg = weapon.trueDamage;
+                //checks to see if the item was changed from initial value
+                if (weapon.damage is not 0) { charAttackDmg += weapon.damage; }
+                if (weapon.attackRate is not 0) { charAttackRate *= weapon.attackRate; }
+                if (!charTrueDmg) // if the character does not already have true damage by default
+                                  //check if the weapon add it to the player
+                {
+                    charTrueDmg = weapon.trueDamage;
+                }
+            }
+    }
+
+    private void addPotionStats()
+    {
+        if (other != null)
+        {
+            switch(other.itemType)
+            {
+                case Items.ItemType.Armour:
+                    if(other.defense is not 0)
+                    {
+                        charArmour += other.defense;
+                    }
+                    break;
+                case Items.ItemType.Heal:
+                    if (other.health is not 0)
+                    {
+                        charHealth += other.health;
+                    }
+                    break;
+                case Items.ItemType.Damage:
+                    if (other.damage is not 0)
+                    {
+                        charAttackDmg += other.damage;
+                    }
+                    break;
+                case Items.ItemType.Speed:
+                    if (other.movespeed is not 0)
+                    {
+                        charMoveSpeed += other.movespeed;
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
+
 
     private void reloadAbility() 
     {
@@ -211,5 +290,37 @@ public class PlayerModel : MonoBehaviour
         playerController.SetStats(amountOfJumps, charMoveSpeed, charJumpForce);
         playerCombat.SetStats(charAttackDmg, charAttackRate, charAttackRange, charTrueDmg);
         playerDamage.SetStats(charHealth, charArmour);
+    }
+
+    //Returns stats 
+
+    public float getPlayerHealth()
+    {
+        return charHealth;
+    }
+
+    public float getPlayerDmg()
+    {
+        return charAttackDmg;
+    }
+
+    public float getPlayerSpeed()
+    {
+        return charMoveSpeed;
+    }
+
+    public float getPlayerArmour()
+    {
+        return charArmour;
+    }
+
+    public void unequipArmour()
+    {
+        armor = null;
+    }
+
+    public void unequipWeapon()
+    {
+        weapon = null;
     }
 }

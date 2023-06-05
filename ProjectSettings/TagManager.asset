@@ -8,6 +8,7 @@ TagManager:
   - Terrain
   - Entrance
   - Exit
+  - Item
   layers:
   - Default
   - TransparentFX
