@@ -665,7 +665,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1053565487}
+      - m_Target: {fileID: 1468405659}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: prevClass
         m_Mode: 1
@@ -860,8 +860,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1053565486}
   - component: {fileID: 1053565485}
-  - component: {fileID: 1053565487}
-  - component: {fileID: 1053565488}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -936,35 +934,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1053565487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053565484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce5070596e69a343be233445a91a199, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterDB: {fileID: 11400000, guid: 8229cb2159c8dd24e9f511005cd1c204, type: 2}
-  characterName: {fileID: 182129523}
-  classSprite: {fileID: 1053565485}
---- !u!114 &1053565488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053565484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aae4ffb32bedc8f4db6da3fd792eaabb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneBuildIndex: 0
-  isEnter: 0
 --- !u!1 &1468405654
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +946,8 @@ GameObject:
   - component: {fileID: 1468405658}
   - component: {fileID: 1468405657}
   - component: {fileID: 1468405656}
+  - component: {fileID: 1468405659}
+  - component: {fileID: 1468405660}
   m_Layer: 5
   m_Name: Name
   m_TagString: Untagged
@@ -1049,7 +1020,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1053565488}
+      - m_Target: {fileID: 1468405660}
         m_TargetAssemblyTypeName: LevelMove_Ref, Assembly-CSharp
         m_MethodName: goToLevel
         m_Mode: 1
@@ -1099,6 +1070,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1468405654}
   m_CullTransparentMesh: 1
+--- !u!114 &1468405659
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468405654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce5070596e69a343be233445a91a199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterDB: {fileID: 11400000, guid: 8229cb2159c8dd24e9f511005cd1c204, type: 2}
+  characterName: {fileID: 182129523}
+  classSprite: {fileID: 1053565485}
+--- !u!114 &1468405660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468405654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae4ffb32bedc8f4db6da3fd792eaabb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 2
+  isEnter: 0
 --- !u!1 &1500969601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1053565487}
+      - m_Target: {fileID: 1468405659}
         m_TargetAssemblyTypeName: CharacterSelectManager, Assembly-CSharp
         m_MethodName: nextClass
         m_Mode: 1

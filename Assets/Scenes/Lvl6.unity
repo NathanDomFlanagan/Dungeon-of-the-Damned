@@ -11566,7 +11566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae4ffb32bedc8f4db6da3fd792eaabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 2
+  sceneBuildIndex: 4
   isEnter: 0
 --- !u!61 &313349590
 BoxCollider2D:
@@ -22318,7 +22318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae4ffb32bedc8f4db6da3fd792eaabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 2
+  sceneBuildIndex: 4
   isEnter: 1
 --- !u!61 &2051073953
 BoxCollider2D:

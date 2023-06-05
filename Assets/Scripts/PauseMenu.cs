@@ -109,7 +109,7 @@ public class PauseMenu : MonoBehaviour
         GameObject p = GameObject.FindGameObjectsWithTag("Player")[0];
         PlayerModel pm = p.GetComponent<PlayerModel>();
         pm.DestroyThis();
-        SceneManager.LoadScene(9, LoadSceneMode.Single);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
     public void GoToRespawn()

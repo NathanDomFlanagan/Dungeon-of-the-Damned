@@ -7,12 +7,13 @@ public class CameraController : MonoBehaviour
 {
     private CinemachineVirtualCamera vcam;
     private Transform rbTransform;
+    private GameObject player = null;
 
     // Start is called before the first frame update
     void Awake()
     {
         vcam = GetComponent<CinemachineVirtualCamera>();
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         rbTransform = player.transform;
         vcam.LookAt = rbTransform;
         vcam.Follow = rbTransform;
@@ -29,6 +30,6 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

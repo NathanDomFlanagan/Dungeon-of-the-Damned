@@ -51,7 +51,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 120
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -210,7 +210,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8822301998918221941, guid: 6833f9a645ec817468ce07cb4b6c6e42, type: 3}
       propertyPath: m_TagString
-      value: MainCamera
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6833f9a645ec817468ce07cb4b6c6e42, type: 3}
@@ -319,11 +319,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -346
+      value: -258
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 188
+      value: 114
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
