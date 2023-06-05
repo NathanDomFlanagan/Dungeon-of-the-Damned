@@ -31,31 +31,35 @@ public class PauseMenu : MonoBehaviour
 
     void Update() // Update is called once per frame
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // when clicking the escape key
+        if (!disablePausing)
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape)) // when clicking the escape key
             {
-                inventoryMenu.SetActive(false);
-                iManager.cleanInventory();
-                ResumeGame();
+                if (isPaused)
+                {
+                    inventoryMenu.SetActive(false);
+                    iManager.cleanInventory();
+                    ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
-            else
-            {
-                PauseGame();
-            }
-        }
 
-        if(Input.GetButtonDown("Inventory"))
-        {
-            if(isPaused)
+            if (Input.GetButtonDown("Inventory"))
             {
-                inventoryMenu.SetActive(false);
-                iManager.cleanInventory();
-                iManager.cleanEquip();
-                ResumeGame();
-            } else
-            {
-                GoToInventory();
+                if (isPaused)
+                {
+                    inventoryMenu.SetActive(false);
+                    iManager.cleanInventory();
+                    iManager.cleanEquip();
+                    ResumeGame();
+                }
+                else
+                {
+                    GoToInventory();
+                }
             }
         }
     }
@@ -100,6 +104,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Going to main menu...");
         /*Time.timeScale = 1f;*/
+        disablePausing = false;
         ResumeGame();
         GameObject p = GameObject.FindGameObjectsWithTag("Player")[0];
         PlayerModel pm = p.GetComponent<PlayerModel>();
@@ -115,6 +120,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Respawn()
     {
+        disablePausing = false;
         respawnMenu.SetActive(false);
         dm.Respawn();
     }
