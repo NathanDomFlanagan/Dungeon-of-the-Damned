@@ -34,7 +34,7 @@ public class DeathManager : MonoBehaviour
     {
         dmg.Respawn();
         pc.isEnter = true;
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(2, LoadSceneMode.Single);
     }
 
     void Update()
