@@ -7,46 +7,59 @@ public class PauseMenu : MonoBehaviour
 {
     private GameObject pauseMenu;
     private GameObject inventoryMenu;
+    private GameObject respawnMenu;
 
     public static bool isPaused = false;
     public InventoryManager iManager;
+
+    // variables brought in and used for respawning
+    private DeathManager dm;
+
+    private bool disablePausing = false;
 
     void Awake() // Start is called before the first frame update    
     {
         pauseMenu = transform.GetChild(0).gameObject;
         inventoryMenu = transform.GetChild(1).gameObject;
+        respawnMenu = transform.GetChild(2).gameObject;
         iManager = transform.parent.GetComponent<InventoryManager>();
+        dm = transform.parent.GetComponent<DeathManager>();
+        dm.SetMenuInteract(this);
         pauseMenu.SetActive(false);
         isPaused = false;
     }
 
     void Update() // Update is called once per frame
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) // when clicking the escape key
+        if (!disablePausing)
         {
-            if (isPaused)
+            if (Input.GetKeyDown(KeyCode.Escape)) // when clicking the escape key
             {
-                inventoryMenu.SetActive(false);
-                iManager.cleanInventory();
-                ResumeGame();
+                if (isPaused)
+                {
+                    inventoryMenu.SetActive(false);
+                    iManager.cleanInventory();
+                    ResumeGame();
+                }
+                else
+                {
+                    PauseGame();
+                }
             }
-            else
-            {
-                PauseGame();
-            }
-        }
 
-        if(Input.GetButtonDown("Inventory"))
-        {
-            if(isPaused)
+            if (Input.GetButtonDown("Inventory"))
             {
-                inventoryMenu.SetActive(false);
-                iManager.cleanInventory();
-                iManager.cleanEquip();
-                ResumeGame();
-            } else
-            {
-                GoToInventory();
+                if (isPaused)
+                {
+                    inventoryMenu.SetActive(false);
+                    iManager.cleanInventory();
+                    iManager.cleanEquip();
+                    ResumeGame();
+                }
+                else
+                {
+                    GoToInventory();
+                }
             }
         }
     }
@@ -90,10 +103,28 @@ public class PauseMenu : MonoBehaviour
     public void GoToMainMenu()
     {
         Debug.Log("Going to main menu...");
-        /*Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
-        isPaused = false;*/
+        /*Time.timeScale = 1f;*/
+        disablePausing = false;
+        ResumeGame();
+        GameObject p = GameObject.FindGameObjectsWithTag("Player")[0];
+        PlayerModel pm = p.GetComponent<PlayerModel>();
+        pm.DestroyThis();
+        SceneManager.LoadScene(9, LoadSceneMode.Single);
     }
+
+    public void GoToRespawn()
+    {
+        disablePausing = true;
+        respawnMenu.SetActive(true);
+    }
+
+    public void Respawn()
+    {
+        disablePausing = false;
+        respawnMenu.SetActive(false);
+        dm.Respawn();
+    }
+
 
     public void QuitGame()
     {

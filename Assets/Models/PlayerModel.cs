@@ -9,6 +9,7 @@ public class PlayerModel : MonoBehaviour
     public PlayerController playerController;
     public PlayerCombat playerCombat;
     public Damageable playerDamage;
+    public DeathManager playerDeath;
 
     public string className;
 
@@ -48,7 +49,10 @@ public class PlayerModel : MonoBehaviour
         }
         Instance = this;
         GameObject.DontDestroyOnLoad(this.gameObject);
+        playerDeath.SetDamagable(playerDamage);
+        playerDeath.SetPC(playerController);
         inventoryManager = GetComponent<InventoryManager>();
+
         classSelect();
         reloadAbility(); // gives the character access to the walljump and dash if 
         reloadStats();
@@ -67,7 +71,14 @@ public class PlayerModel : MonoBehaviour
 
     }
 
+    public void DestroyThis()
+    {
+        Destroy(this.gameObject);
+        return;
+    }
+
     void FixedUpdate()
+
     {
         if (other != null)
         {

@@ -52,12 +52,17 @@ public class Damageable : MonoBehaviour
             {
                 _Health = 0f;
                 IsAlive = false;
-                PlayerPrefs.SetInt("isPlayerAlive", 0);
-
+                
                 if (gameObject.tag == "Player")
                 {
-                    Destroy(gameObject, 0);
+                    UnityEngine.Debug.Log("player death");
+                    PlayerPrefs.SetInt("isPlayerAlive", 0);
                 }
+            }
+
+            if (_Health >= _maxHealth)
+            {
+                _Health = _maxHealth;
             }
         }
     }
@@ -100,6 +105,13 @@ public class Damageable : MonoBehaviour
             timeSinceHit += Time.deltaTime;
         }
         //Hit(10); //Testing to see if it works
+    }
+
+    //needs to reset the health to the max
+    public void Respawn()
+    {
+        Health = maxHealth;
+        IsAlive = true;
     }
 
     public void Hit(int dmg, bool trueDamage, Vector2 knockback)
