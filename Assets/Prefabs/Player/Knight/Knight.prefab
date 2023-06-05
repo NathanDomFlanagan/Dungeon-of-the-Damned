@@ -3929,13 +3929,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a49d760da3c8a4d8df2947a59776c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSound: {fileID: 8300000, guid: d31799eccd91719478352d32fb549959, type: 3}
+  attackSound: {fileID: 8300000, guid: 87fb7147edfcb7545a9c9bd4dfc62d74, type: 3}
   jumpSound: {fileID: 8300000, guid: e30fcc08e97b9ee43a2deed2f6b1312d, type: 3}
   playerInjureEnemySound: {fileID: 8300000, guid: 16bcdb29f89d8cb4aabdaa56007ae103, type: 3}
   enemyInjurePlayerSound: {fileID: 8300000, guid: 9324d39bd331a804caf6888a34e119bf, type: 3}
-  attackDelay: 1
-  attackVolume: 1
-  jumpVolume: 1
+  attackDelay: 0.5
+  attackVolume: 0.5
+  jumpVolume: 1.5
   collisionVolume: 1
 --- !u!82 &4782477847269087370
 AudioSource:
