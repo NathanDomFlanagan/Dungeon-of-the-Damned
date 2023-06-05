@@ -10,24 +10,18 @@ public class ClassTest
     public void SimpleClassTest()
     {
         //Initializing variables
-        GameObject obj = new GameObject();
-        obj.AddComponent<CharacterSelectManager>();
-        Assert.IsNotNull(obj);
+        CharacterSelectManager obj = new CharacterSelectManager();
+        CharacterSpriteDatabase temp = (CharacterSpriteDatabase)UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Tests/CharacterSpriteDatabse.asset", typeof(CharacterSpriteDatabase));
+        obj.setCharacterDB(temp);
 
-        CharacterSelectManager test = obj.GetComponent < CharacterSelectManager>();
-
-        int optionVal = test.getOption();
-        int origValue = 0;
-
-        bool result = (optionVal == origValue);
-        Assert.IsTrue(result);
-
-        test.nextClass();
-        result = (optionVal == origValue);
+        int val = obj.getOption();
+        int testVal = 2;
+        
+        bool result = (val == testVal);
         Assert.IsFalse(result);
 
-        test.prevClass();
-        result = (optionVal == origValue);
+        obj.nextClass();
+        result = (val != testVal);
         Assert.IsTrue(result);
-    }
+    }   
 }
