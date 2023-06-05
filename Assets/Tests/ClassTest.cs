@@ -13,23 +13,20 @@ public class ClassTest
         GameObject obj = new GameObject();
         obj.AddComponent<CharacterSelectManager>();
         Assert.IsNotNull(obj);
-    }
 
-    [Test]
-    public void OtherClassTest()
-    {
-        CharacterSelectManager obj = new CharacterSelectManager();
-        int optionVal = obj.getOption();
+        CharacterSelectManager test = obj.GetComponent < CharacterSelectManager>();
+
+        int optionVal = test.getOption();
         int origValue = 0;
 
         bool result = (optionVal == origValue);
         Assert.IsTrue(result);
 
-        obj.nextClass();
+        test.nextClass();
         result = (optionVal == origValue);
         Assert.IsFalse(result);
 
-        obj.nextClass();
+        test.prevClass();
         result = (optionVal == origValue);
         Assert.IsTrue(result);
     }
