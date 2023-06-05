@@ -30,7 +30,7 @@ public class DeadAnimation : MonoBehaviour
     }
     void deathAnimationFinished()
     {
-        GetComponent<Collider2D>().enabled = false; //Disables enemy collision
+        //GetComponent<Collider2D>().enabled = false; //Disables enemy collision
        
         Destroy(gameObject, 0);
     }

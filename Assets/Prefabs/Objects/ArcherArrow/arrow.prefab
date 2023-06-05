@@ -101,6 +101,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: {x: 10, y: 0}
   damage: 10
+  knockback: {x: 10, y: 5}
+  damageLayer: Enemy
+  rb: {fileID: 6202177639572212794}
 --- !u!50 &6202177639572212794
 Rigidbody2D:
   serializedVersion: 4
