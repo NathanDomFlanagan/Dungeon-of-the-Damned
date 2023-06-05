@@ -32,7 +32,7 @@ public class ShopManager : MonoBehaviour
         playerInventory = GameObject.FindWithTag("Player").GetComponent<InventoryManager>();
         upgradeMenu.gameObject.SetActive(true);
         buyTabButton();
-        PlayerPrefs.SetInt("coins", 999);       //Used for testing
+        //PlayerPrefs.SetInt("coins", 999);       //Used for testing
         // Activate shop panels based on the total number of items
         for (int i = 0; i < (armour.Length + weapon.Length + aPotion.Length + sPotion.Length + dPotion.Length + hPotion.Length); i++)
         {
