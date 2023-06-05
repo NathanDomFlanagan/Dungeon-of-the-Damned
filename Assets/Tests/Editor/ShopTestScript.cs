@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using NUnit.Framework;
-//using ShopManager;
+using UnityEngine;
+using UnityEngine.TestTools;
 
-public class ShopTests
+public class ShopTestScript
 {
     [Test]
     public void DeductCoinsOnPurchase()
