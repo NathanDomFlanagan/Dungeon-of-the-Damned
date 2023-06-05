@@ -18,6 +18,14 @@ public class CameraController : MonoBehaviour
         vcam.Follow = rbTransform;
     }
 
+    public void Find()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        rbTransform = player.transform;
+        vcam.LookAt = rbTransform;
+        vcam.Follow = rbTransform;
+    }
+
     // Update is called once per frame
     void Update()
     {

@@ -11884,6 +11884,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2020834913, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 248665288807314975, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -5.0000153
@@ -11963,6 +11967,10 @@ PrefabInstance:
     - target: {fileID: 1451828926696432861, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
       propertyPath: m_Name
       value: Knight
+      objectReference: {fileID: 0}
+    - target: {fileID: 7082369437832212354, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 326d658f83ba7ea44908d584fa8edb06, type: 3}

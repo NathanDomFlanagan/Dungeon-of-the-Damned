@@ -7,6 +7,8 @@ public class DeathManager : MonoBehaviour
 {
     private PlayerController pc;
     private Damageable dmg;
+    private PauseMenu pause;
+    private bool tryRespawning = true;
 
     // Update is called once per frame
 
@@ -19,17 +21,28 @@ public class DeathManager : MonoBehaviour
     {
         dmg = damagable;
     }
-    
+
+
+    public void SetMenuInteract(PauseMenu pauseMenu)
+    {
+        pause = pauseMenu;
+    }
     //needs to create a new inventory to override what was existing before.
 
 
+    public void Respawn()
+    {
+        dmg.Respawn();
+        pc.isEnter = true;
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
+    }
+
     void Update()
     {
-        if (!dmg.IsAlive)
+        if (!dmg.IsAlive && tryRespawning)
         {
-            dmg.Respawn();
-            pc.isEnter = true;
-            SceneManager.LoadScene(0, LoadSceneMode.Single);
-        }   
+            tryRespawning = false;
+            pause.GoToRespawn();
+        }
     }
 }

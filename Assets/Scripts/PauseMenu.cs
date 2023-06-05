@@ -7,15 +7,24 @@ public class PauseMenu : MonoBehaviour
 {
     private GameObject pauseMenu;
     private GameObject inventoryMenu;
+    private GameObject respawnMenu;
 
     public static bool isPaused = false;
     public InventoryManager iManager;
+
+    // variables brought in and used for respawning
+    private DeathManager dm;
+
+    private bool disablePausing = false;
 
     void Awake() // Start is called before the first frame update    
     {
         pauseMenu = transform.GetChild(0).gameObject;
         inventoryMenu = transform.GetChild(1).gameObject;
+        respawnMenu = transform.GetChild(2).gameObject;
         iManager = transform.parent.GetComponent<InventoryManager>();
+        dm = transform.parent.GetComponent<DeathManager>();
+        dm.SetMenuInteract(this);
         pauseMenu.SetActive(false);
         isPaused = false;
     }
@@ -97,6 +106,19 @@ public class PauseMenu : MonoBehaviour
         pm.DestroyThis();
         SceneManager.LoadScene(9, LoadSceneMode.Single);
     }
+
+    public void GoToRespawn()
+    {
+        disablePausing = true;
+        respawnMenu.SetActive(true);
+    }
+
+    public void Respawn()
+    {
+        respawnMenu.SetActive(false);
+        dm.Respawn();
+    }
+
 
     public void QuitGame()
     {
