@@ -16,11 +16,16 @@ MonoBehaviour:
   itemName: Armor of Onions
   itemId: 1
   baseCost: 50
+  upgradeCost: 50
+  itemLvl: 1
   isArmor: 1
   isWeapon: 0
   isPotion: 0
-  isEquipped: 0
-  defense: 50
+  isEquipped: 1
+  origTime: 0
+  timer: 0
+  timerActive: 0
+  defense: 20
   health: 0
   movespeed: 0
   jumpforce: 0

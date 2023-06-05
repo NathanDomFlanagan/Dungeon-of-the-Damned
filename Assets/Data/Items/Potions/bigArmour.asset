@@ -16,13 +16,15 @@ MonoBehaviour:
   itemName: Mega Armour
   itemId: 4
   baseCost: 10
+  upgradeCost: 50
+  itemLvl: 1
   isArmor: 0
   isWeapon: 0
   isPotion: 1
   isEquipped: 0
   origTime: 5
-  timer: 0
-  timerActive: 0
+  timer: 5
+  timerActive: 1
   defense: 50
   health: 0
   movespeed: 0

@@ -78,6 +78,21 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    public List<Items> getInventory()
+    {
+        return inventory;
+    }
+
+    public Items getItem(int i)
+    {
+        return inventory[i];
+    }
+
+    public List<Items> getEquipped() 
+    { 
+        return equipped;
+    }
+
     public void ClearInventory()
     {
         //For clearing whole inventory

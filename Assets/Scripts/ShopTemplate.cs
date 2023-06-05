@@ -10,6 +10,7 @@ public class ShopTemplate : MonoBehaviour
     public Image itemIcon;
     public TMP_Text description;
     public TMP_Text itemCost;
+    public TMP_Text itemLvl;
 
     public void SetItemIcon(Sprite sprite)
     {
