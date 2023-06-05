@@ -16,10 +16,15 @@ MonoBehaviour:
   itemName: Toon Sword
   itemId: 1
   baseCost: 50
+  upgradeCost: 50
+  itemLvl: 1
   isArmor: 0
   isWeapon: 1
   isPotion: 0
   isEquipped: 0
+  origTime: 0
+  timer: 0
+  timerActive: 0
   defense: 0
   health: 0
   movespeed: 0
@@ -31,3 +36,4 @@ MonoBehaviour:
   itemValue: 0
   description: Don't judge it's looks; this sword cuts
   itemType: 5
+  itemData: {fileID: 0}

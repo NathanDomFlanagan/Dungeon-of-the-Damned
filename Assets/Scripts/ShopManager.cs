@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Reflection;
 
 public class ShopManager : MonoBehaviour
 {
@@ -19,12 +20,18 @@ public class ShopManager : MonoBehaviour
     public ShopTemplate[] shopPanels;
     public GameObject[] shopPanelsSO;
     public Button[] purchaseButton;
+    public GameObject buyTabMenu;
+    public GameObject upgradeTabMenu;
+    public GameObject BuyTabButton;
+    public GameObject UpgradeTabButton;
+    public UpgradeMenu upgradeMenu;
 
     // Start is called before the first frame update
     void Awake()
     {
         playerInventory = GameObject.FindWithTag("Player").GetComponent<InventoryManager>();
-        
+        upgradeMenu.gameObject.SetActive(true);
+        buyTabButton();
         PlayerPrefs.SetInt("coins", 999);       //Used for testing
         // Activate shop panels based on the total number of items
         for (int i = 0; i < (armour.Length + weapon.Length + aPotion.Length + sPotion.Length + dPotion.Length + hPotion.Length); i++)
@@ -220,6 +227,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i].itemName.text = armour[i].itemName;
             shopPanels[i].description.text = armour[i].description;
             shopPanels[i].itemCost.text = "Coins: " + armour[i].baseCost.ToString();
+            shopPanels[i].itemLvl.text = "Lvl: " + armour[i].itemLvl.ToString();
             shopPanels[i].SetItemIcon(armour[i].itemIcon);
         }
     }
@@ -231,6 +239,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i + armour.Length].itemName.text = weapon[i].itemName;
             shopPanels[i + armour.Length].description.text = weapon[i].description;
             shopPanels[i + armour.Length].itemCost.text = "Coins: " + weapon[i].baseCost.ToString();
+            shopPanels[i + armour.Length].itemLvl.text = "Lvl: " + weapon[i].itemLvl.ToString();
             shopPanels[i + armour.Length].SetItemIcon(weapon[i].itemIcon);
         }
     }
@@ -242,6 +251,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i + armour.Length + weapon.Length].itemName.text = aPotion[i].itemName;
             shopPanels[i + armour.Length + weapon.Length].description.text = aPotion[i].description;
             shopPanels[i + armour.Length + weapon.Length].itemCost.text = "Coins: " + aPotion[i].baseCost.ToString();
+            shopPanels[i + armour.Length + weapon.Length].itemLvl.text = "Lvl: " + aPotion[i].itemLvl.ToString();
             shopPanels[i + armour.Length + weapon.Length].SetItemIcon(aPotion[i].itemIcon);
         }
     }
@@ -253,6 +263,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length].itemName.text = dPotion[i].itemName;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length].description.text = dPotion[i].description;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length].itemCost.text = "Coins: " + dPotion[i].baseCost.ToString();
+            shopPanels[i + armour.Length + weapon.Length + aPotion.Length].itemLvl.text = "Lvl: " + dPotion[i].itemLvl.ToString();
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length].SetItemIcon(dPotion[i].itemIcon);
         }
     }
@@ -264,6 +275,7 @@ public class ShopManager : MonoBehaviour
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length].itemName.text = sPotion[i].itemName;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length].description.text = sPotion[i].description;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length].itemCost.text = "Coins: " + sPotion[i].baseCost.ToString();
+            shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length].itemLvl.text = "Lvl: " + sPotion[i].itemLvl.ToString();
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length].SetItemIcon(sPotion[i].itemIcon);
         }
     }
@@ -275,7 +287,23 @@ public class ShopManager : MonoBehaviour
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length].itemName.text = hPotion[i].itemName;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length].description.text = hPotion[i].description;
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length].itemCost.text = "Coins: " + hPotion[i].baseCost.ToString();
+            shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length].itemLvl.text = "Lvl: " + hPotion[i].itemLvl.ToString();
             shopPanels[i + armour.Length + weapon.Length + aPotion.Length + dPotion.Length + sPotion.Length].SetItemIcon(hPotion[i].itemIcon);
         }
+    }
+    public void buyTabButton()
+    {
+        buyTabMenu.SetActive(true);
+        upgradeTabMenu.SetActive(false);
+        BuyTabButton.GetComponent<Image>().color = new Color32(0,255,0,100);
+        UpgradeTabButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+    }
+    public void upgradeTabButton()
+    {
+        buyTabMenu.SetActive(false);
+        upgradeTabMenu.SetActive(true);
+        upgradeMenu.refreshUpgrades();
+        BuyTabButton.GetComponent<Image>().color = new Color32(255, 255, 255, 100);
+        UpgradeTabButton.GetComponent<Image>().color = new Color32(0, 255, 0, 100);
     }
 }
