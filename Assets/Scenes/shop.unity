@@ -7852,8 +7852,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adabae3a28daefb468be5b4b219d3002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cc: {fileID: 0}
-  coinUI: {fileID: 0}
+  cc: {fileID: 2004000412610346356, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
+  coinUI: {fileID: 914687552}
   playerInventory: {fileID: 1589190594}
   inventory: []
   inventoryPanels: []

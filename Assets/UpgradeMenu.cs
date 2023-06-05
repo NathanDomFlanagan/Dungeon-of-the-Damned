@@ -56,9 +56,15 @@ public class UpgradeMenu : MonoBehaviour
     }
     public void CheckUpgradeCost()
     {
-        for (int i = 0; i < inventory.Count; i++)
+        for (int i = 0; i < inventoryPanelsSO.Length; i++)
         {
-            upgradeButton[i].interactable = (cc.GetCoins() >= inventory[i].upgradeCost && inventory[i].itemLvl < MAXLEVEL);
+            if(i < inventory.Count)
+            {
+                upgradeButton[i].interactable = (cc.GetCoins() >= inventory[i].upgradeCost && inventory[i].itemLvl < MAXLEVEL);
+            } else
+            {
+                i = inventoryPanelsSO.Length;
+            }
         }
     }
 
