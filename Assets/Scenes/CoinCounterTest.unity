@@ -250,7 +250,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 1484047554}
-  m_PlaneDistance: 100
+  m_PlaneDistance: 120
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -11782,7 +11782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04b42164c190f424fb135f9b2ce9a004, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1198237289}
+  iManager: {fileID: 0}
 --- !u!1 &623102528
 GameObject:
   m_ObjectHideFlags: 0
@@ -19625,11 +19625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -346
+      value: -269
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 188
+      value: 122
       objectReference: {fileID: 0}
     - target: {fileID: 2004000412610346359, guid: b066a53f17ccc6f46b7a7be499cab02c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
