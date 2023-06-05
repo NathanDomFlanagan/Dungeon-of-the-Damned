@@ -18813,7 +18813,7 @@ GameObject:
   - component: {fileID: 1107454282}
   - component: {fileID: 1107454283}
   m_Layer: 0
-  m_Name: Entrance
+  m_Name: EntranceSpawn
   m_TagString: Entrance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19303,7 +19303,7 @@ GameObject:
   - component: {fileID: 1839724179}
   - component: {fileID: 1839724180}
   m_Layer: 0
-  m_Name: Exit
+  m_Name: ExitSpawn
   m_TagString: Exit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

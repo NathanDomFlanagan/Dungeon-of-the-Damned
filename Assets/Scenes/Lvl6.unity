@@ -11599,6 +11599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 548281927}
   - component: {fileID: 548281928}
+  - component: {fileID: 548281929}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -11660,6 +11661,18 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1124816485}
+--- !u!114 &548281929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548281926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccdd3b59e2f74be49bbfae1e5669c016, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &554169352
 GameObject:
   m_ObjectHideFlags: 0
@@ -12249,6 +12262,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1139992027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1139992029}
+  - component: {fileID: 1139992028}
+  m_Layer: 0
+  m_Name: EntranceSpawn
+  m_TagString: Entrance
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1139992028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139992027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bbd5058780a3ee4fb7320a2342c6510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pull: 0
+--- !u!4 &1139992029
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139992027}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.44, y: 1.03, z: -0.39792958}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1380859188
 GameObject:
   m_ObjectHideFlags: 0
@@ -22102,7 +22160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBuildIndex: 2
-  isEnter: 0
+  isEnter: 1
 --- !u!61 &2051073953
 BoxCollider2D:
   m_ObjectHideFlags: 0
