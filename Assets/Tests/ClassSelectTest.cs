@@ -25,16 +25,15 @@ public class ClassSelectTest
         bool result = (testOption == testVal);
         Assert.IsFalse(result);
 
-        test.characterDB = new CharacterSpriteDatabase();
-        CharacterSelect character;
-
         test.nextClass();
         testVal = 1;
 
         result = (testOption == testVal);
         Assert.IsTrue(result);
 
+        test.nextClass();
 
-
+        result = (testOption == 0);
+        Assert.IsTrue(result);
     }
 }

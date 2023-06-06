@@ -12,18 +12,17 @@ public class CharacterSelectManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        updateCharacter(option);
+
     }
 
     public void nextClass()
     {
         option++;
 
-        if(option >= characterDB.characterIndex)
+        if(option >= 3)
         {
             option = 0;
         }
-        updateCharacter(option);
     }
 
     public void prevClass()
@@ -32,15 +31,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         if (option <= 0)
         {
-            option = characterDB.characterIndex  -1;
+            option = 3;
         }
-        updateCharacter(option);
-    }
-
-    private void updateCharacter(int option)
-    {
-        CharacterSelect character = characterDB.getCharacter(option);
-        PlayerPrefs.SetString("className",character.className);
-        Debug.Log(PlayerPrefs.GetString("className"));
     }
 }
