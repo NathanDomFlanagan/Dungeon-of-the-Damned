@@ -118,7 +118,6 @@ public class Damageable : MonoBehaviour
     {
         if (IsAlive && !isInvincible)
         {
-            animator.SetTrigger("Hurt");
             //if trueDamage, then deals full damage amount
             if (trueDamage)
             {

@@ -7,20 +7,12 @@ using TMPro;
 public class CharacterSelectManager : MonoBehaviour
 {
     public CharacterSpriteDatabase characterDB;
-    public static CharacterSelectManager Instance;
 
-    public int option;
+    public int option = 0;
     // Start is called before the first frame update
     void Awake()
     {
-        if(Instance != null)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        Instance = this;
         updateCharacter(option);
-        option = 0;
     }
 
     public void nextClass()
@@ -40,7 +32,7 @@ public class CharacterSelectManager : MonoBehaviour
 
         if (option <= 0)
         {
-            option = characterDB.characterIndex -1;
+            option = characterDB.characterIndex  -1;
         }
         updateCharacter(option);
     }
@@ -50,15 +42,5 @@ public class CharacterSelectManager : MonoBehaviour
         CharacterSelect character = characterDB.getCharacter(option);
         PlayerPrefs.SetString("className",character.className);
         Debug.Log(PlayerPrefs.GetString("className"));
-    }
-
-    public int getOption()
-    {
-        return option;
-    }
-
-    public void setCharacterDB(CharacterSpriteDatabase db)
-    {
-        characterDB = db;
     }
 }
