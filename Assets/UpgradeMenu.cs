@@ -18,6 +18,7 @@ public class UpgradeMenu : MonoBehaviour
 
     void Awake()
     {
+        playerInventory = GameObject.FindWithTag("Player").GetComponent<InventoryManager>();
         refreshUpgrades();
     }
 
