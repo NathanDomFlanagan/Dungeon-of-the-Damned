@@ -25,8 +25,7 @@ public class ClassSelectTest
         bool result = (testOption == testVal);
         Assert.IsFalse(result);
 
-        Object db = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Tests/CharacterSpriteDatabse.asset", typeof(CharacterSpriteDatabase));
-        test.characterDB = (CharacterSpriteDatabase)db;
+        test.characterDB = new CharacterSpriteDatabase();
         CharacterSelect character;
 
         test.nextClass();
