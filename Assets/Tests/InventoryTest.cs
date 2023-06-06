@@ -17,14 +17,14 @@ public class InventoryTest
 
         Inventory.Add(epicitem);
 
-        Items addedItem = Inventory.inventory[0];
+        Items addedItem = Inventory.getItem(0);
         bool result = (epicitem==addedItem);
         Assert.IsTrue(result);
 
         // Use the Assert class to test conditions
         Inventory.Remove(epicitem);
-        int invSize = Inventory.inventory.Count;
-        result = (invSize > Inventory.inventory.Count);
+        int invSize = Inventory.getInventory().Count;
+        result = (invSize > Inventory.getInventory().Count);
         Assert.IsFalse(result);
     }
 
