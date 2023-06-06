@@ -1,6 +1,11 @@
 # Dungeon-of-the-Damned
 
-Hamburger
+The build has already been made, it should be easy to find
+
+
+Instructons: 
+Start up the exe file, you can then start the game and choose a character,
+to progress you can explore and clear the room objectives to leave and make your way eventually to the boss
 
 Product Owner: 
 - Nathan Flanagan
