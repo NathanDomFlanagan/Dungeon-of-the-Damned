@@ -1,6 +1,9 @@
 # Dungeon-of-the-Damned
 
-Instructons 
+
+
+
+Instructons: 
 Start up the exe file, you can then start the game and choose a character,
 to progress you can explore and clear the room objectives to leave and make your way eventually to the boss
 
