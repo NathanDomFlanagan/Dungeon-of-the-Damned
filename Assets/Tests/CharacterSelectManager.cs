@@ -7,12 +7,11 @@ using TMPro;
 public class CharacterSelectManager : MonoBehaviour
 {
     public CharacterSpriteDatabase characterDB;
-
-    public int option = 0;
+    public int option;
     // Start is called before the first frame update
     void Awake()
     {
-
+        option = 0;
     }
 
     public void nextClass()
@@ -29,7 +28,7 @@ public class CharacterSelectManager : MonoBehaviour
     {
         option--;
 
-        if (option <= 0)
+        if (option < 0)
         {
             option = 3;
         }

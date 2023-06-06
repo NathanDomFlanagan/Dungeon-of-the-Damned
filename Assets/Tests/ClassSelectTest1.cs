@@ -9,31 +9,23 @@ public class ClassSelectTest
     [Test]
     public void SimpleClassSelectTest()
     {
-        /*Damageable test = new Damageable();
-        float testHealth = test.Health;
-        float testVal = 90;
-
-        bool result = (testHealth == testVal);
-        Assert.IsFalse(result);
-
-        test.Hit(50, true, new Vector2(0, 0));*/
-
         CharacterSelectManager test = new CharacterSelectManager();
         int testOption = test.option;
         int testVal = 2;
-
         bool result = (testOption == testVal);
         Assert.IsFalse(result);
 
         test.nextClass();
+        testOption = test.option;
         testVal = 1;
-
         result = (testOption == testVal);
         Assert.IsTrue(result);
 
-        test.nextClass();
-
-        result = (testOption == 0);
+        test.prevClass();
+        testOption = test.option;
+        testVal = 0;
+        result = (testOption == testVal);
         Assert.IsTrue(result);
+
     }
 }
